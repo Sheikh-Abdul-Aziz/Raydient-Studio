@@ -3,7 +3,6 @@
 import React from "react";
 import Image from 'next/image';
 import { useRouter } from "next/navigation";
-import { Menus } from "@/utils/mobile-menus";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Button } from "./ui/button";
 import { Bell, Search } from 'lucide-react';
@@ -17,12 +16,12 @@ export default function Header() {
         router.push("/");
     }   
     return (
-        <header className="top-0 left-0 right-0 w-full h-16 border-b border-border border-dashed bg-background backdrop-blur supports-[backdrop-filter]:bg-background/70">
+        <header className="fixed top-0 left-0 right-0 w-full h-16 border-b border-border border-dashed bg-background backdrop-blur supports-[backdrop-filter]:bg-background/70">
             <div className="flex flex-col justify-center items-center align-middle w-full h-full px-4">
                 <div className="flex flex-row relative gap-x-4 justify-center items-center align-middle w-full h-full">
                     {/* MOBILE */}
                     <div className="flex lg:hidden">
-                        <Image onClick={home} src="/next.svg" width={96} height={32} alt="Shopivo" />
+                        <Image onClick={home} src="/next.svg" width={96} height={32} alt="SA" />
                     </div>
 
                     {/* DESKTOP */}
@@ -45,14 +44,14 @@ export default function Header() {
                             <Bell/>
                         </Button>
                         <div className="hidden lg:flex">
-                            <Avatar className="w-8 h-8 border border-border rounded-full">
-                                <AvatarImage src="/favicon.ico" />
+                            <Avatar className="w-8 h-8 border border-border rounded-md">
+                                <AvatarImage src="https://github.com/sheikh-abdul-aziz.png" />
                                 <AvatarFallback>SA</AvatarFallback>
                             </Avatar>
                         </div>
                         {/* MOBILE */}
                         <div className="flex flex-col lg:hidden gap-8 align-middle justify-between">
-                            <MobileMenu Menus={Menus} /> 
+                            <MobileMenu /> 
                         </div>
                     </div>
                 </div>

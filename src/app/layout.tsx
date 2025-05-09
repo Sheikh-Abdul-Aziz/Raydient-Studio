@@ -21,7 +21,7 @@ export const fontDisplay = Host_Grotesk({
 
 export const metadata = {
 	title: "Entrepreneur Aziz",
-	description: "Discover trending products at unbeatable prices, delivered straight to you. Shop smart, save more, and enjoy hassle-free shopping with Shopivo!",
+	description: "Hi, I&apos;m Sheikh Abdul Aziz — An Entrepreneur, Frontend Developer & Web Designer — helping businesses grow with elegant design and powerful development."
 };
 
 export default function RootLayout({children,}: {children: React.ReactNode;}) {

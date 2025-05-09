@@ -2,7 +2,7 @@
   "name": "entrepreneuraziz",
   "version": "1.0.0",
   "private": true,
-  "packageManager": "pnpm@10.8.1",
+  "packageManager": "pnpm@10.10.0",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -50,7 +50,7 @@
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
     "cobe": "^0.6.3",
-    "date-fns": "^4.1.0",
+    "date-fns": "^3.6.0",
     "embla-carousel-react": "^8.5.2",
     "framer-motion": "^12.4.11",
     "input-otp": "^1.4.2",
@@ -58,9 +58,9 @@
     "motion": "^12.6.2",
     "next": "^15.1.6",
     "next-themes": "^0.4.6",
-    "react": "^19.1.0",
+    "react": "^18.3.1",
     "react-day-picker": "^8.10.1",
-    "react-dom": "^19.1.0",
+    "react-dom": "^18.3.1",
     "react-hook-form": "^7.54.2",
     "react-resizable-panels": "^2.1.7",
     "react-tweet": "^3.2.2",
@@ -86,6 +86,7 @@
     "postcss-import": "^16.1.0",
     "postcss-loader": "^8.1.1",
     "tailwindcss": "^4.0.0",
+    "tw-animate-css": "^1.2.9",
     "typescript": "^5"
   }
 }
