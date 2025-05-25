@@ -123,6 +123,34 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+
+@theme inline {
+  --animate-aurora: aurora 60s linear infinite;
+  @keyframes aurora {
+    from {
+      background-position:
+        0% 50%,
+        0% 50%;
+    }
+    to {
+      background-position:
+        200% 50%,
+        200% 50%;
+    }
+  }
+}
+
+@layer base {
+  html {
+    @apply bg-background text-foreground antialiased;
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
 @layer utilities {
   .bg-gradient-radial {
     background: radial-gradient(
@@ -133,11 +161,11 @@
   }
 }
 
-@keyframes shine {
-  0% {
-      background-position: -200% 0;
-  }
-  100% {
-      background-position: 200% 0;
-  }
+@keyframes shiny-effect {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
 }
