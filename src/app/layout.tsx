@@ -2,9 +2,9 @@ import "./globals.css";
 import React from "react";
 import { Host_Grotesk, Poppins } from "next/font/google";
 import { ThemeProvider } from "@/components/ui/theme-provider";
-import Footer from "@/components/footer";
 import Header from "@/components/header";
 import { Floating_Dock } from "@/components/floating-dock";
+import FooterSection from "@/components/footer";
 
 export const fontLabel = Poppins({
 	subsets: ["latin"],
@@ -33,7 +33,7 @@ export default function RootLayout({children,}: {children: React.ReactNode;}) {
 					<Header />
 					{children}
 					<Floating_Dock />
-					<Footer />
+					<FooterSection />
 				</ThemeProvider>
 			</body>
 		</html>
