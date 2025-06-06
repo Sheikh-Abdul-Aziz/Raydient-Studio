@@ -9,15 +9,15 @@ const buttonVariants = cva(
         variants: {
             variant: {
                 destructive: "bg-destructive text-destructive-foreground shadow-xs hover:bg-destructive/80",
-                elevated: "bg-background text-secondary-foreground shadow hover:bg-accent hover:text-accent-foreground",
+                elevated: "bg-background text-secondary-foreground shadow hover:bg-secondary hover:text-secondary-foreground",
                 filled: "bg-primary text-primary-foreground shadow-xs hover:bg-primary/90",
                 linked: "text-primary underline-offset-4 hover:underline",
-                outlined: "border border-border bg-background shadow-none hover:bg-accent hover:text-accent-foreground",
-                text: "hover:bg-accent hover:text-accent-foreground",
-                tonal: "bg-secondary text-secondary-foreground shadow-none hover:bg-secondary/80",
+                outlined: "border border-border bg-surface shadow-none hover:bg-secondary hover:text-secondary-foreground",
+                text: "hover:bg-secondary hover:text-secondary-foreground",
+                tonal: "bg-secondary text-secondary-foreground shadow-none hover:bg-secondary/70",
             },
             size: {
-                badge: "h-7 gap-1.5 px-3 py-1 text-sm font-medium uppercase text-foreground/80 shadow-none",
+                badge: "h-7 gap-1.5 px-3 py-1 text-xs font-display font-[700] items-center align-middle text- uppercase bg-surface/80 text-foreground/80 shadow-none",
                 default: "h-8 md:h-9 text-xs md:text-sm px-3 md:px-4 py-1 md:py-2 gap-x-1.5 md:gap-x-2",
                 natural: "h-9 px-4 py-2",
                 small: "h-8 px-3 text-xs",

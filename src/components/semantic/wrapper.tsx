@@ -118,7 +118,7 @@ export interface WrapperProps extends React.HTMLAttributes<WrapperElement>, Vari
 const Wrapper = React.forwardRef<WrapperElement, WrapperProps>(({ className, gap, gapX, gapY, spacingX, spacingY, asChild = false, ...props }, ref) => {
     const Semantic = asChild ? Slot : "span"
     return (
-        <Semantic className={cn(wrapperVariants({ className, gap, spacingX, spacingY }))} ref={ref} {...props}/>
+        <Semantic className={cn(wrapperVariants({ className, gap, gapX, gapY, spacingX, spacingY }))} ref={ref} {...props}/>
     )
 })
 

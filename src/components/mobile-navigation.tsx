@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useState } from "react"; // Added useState for state management
 import { ChevronRight } from "lucide-react";
 import { type TablerIcon } from "@tabler/icons-react";
 
@@ -16,7 +17,6 @@ import {
     MobileMenuItem,
     MobileMenuSub,
     MobileMenuSubButton,
-    MobileMenuSubItem,
     MobileMenuProvider,
 } from "@/components/ui/mobile-menu";
 import { Label } from "./ui/label";
@@ -38,10 +38,17 @@ export function MobileNavigation({
         isActive?: boolean;
         items?: {
             title: string;
+            id: string;
             url: string;
         }[];
     }[];
 }) {
+    const [activeMenu, setActiveMenu] = useState<string | null>(null);
+
+    const handleMenuToggle = (title: string) => {
+        setActiveMenu((prev) => (prev === title ? null : title));
+    };
+
     return (
         <MobileMenuProvider>
             <MobileMenuGroup>
@@ -65,25 +72,40 @@ export function MobileNavigation({
                 <MobileMenuGroupLabel>Resources</MobileMenuGroupLabel>
                 <MobileMenu>
                     {itemSecond.map((item) => (
-                        <Collapsible key={item.title} asChild defaultOpen={item.isActive} className="group/collapsible">
+                        <Collapsible
+                            key={item.title}
+                            asChild
+                            open={activeMenu === item.title} // Dynamically control expansion
+                            className="group/collapsible"
+                        >
                             <MobileMenuItem>
                                 <CollapsibleTrigger asChild>
-                                    <MobileMenuButton tooltip={item.title}>
-                                        {item.icon && <item.icon/>}
+                                    <MobileMenuButton
+                                        tooltip={item.title}
+                                        onClick={() => handleMenuToggle(item.title)}
+                                    >
+                                        {item.icon && <item.icon />}
                                         <Label>{item.title}</Label>
-                                        <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                                        <ChevronRight
+                                            className={`ml-auto transition-transform duration-200 ${
+                                                activeMenu === item.title
+                                                    ? "rotate-90"
+                                                    : ""
+                                            }`}
+                                        />
                                     </MobileMenuButton>
                                 </CollapsibleTrigger>
                                 <CollapsibleContent>
                                     <MobileMenuSub>
                                         {item.items?.map((subItem) => (
-                                            <MobileMenuSubItem key={subItem.title}>
-                                                <MobileMenuSubButton asChild>
-                                                    <Link href={subItem.url}>
-                                                        <Label>{subItem.title}</Label>
-                                                    </Link>
-                                                </MobileMenuSubButton>
-                                            </MobileMenuSubItem>
+                                            <MobileMenuSubButton
+                                                asChild
+                                                key={subItem.id}
+                                            >
+                                                <Link href={subItem.url}>
+                                                    <Label>{subItem.title}</Label>
+                                                </Link>
+                                            </MobileMenuSubButton>
                                         ))}
                                     </MobileMenuSub>
                                 </CollapsibleContent>

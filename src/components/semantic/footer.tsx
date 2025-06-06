@@ -118,7 +118,7 @@ export interface FooterProps extends React.HTMLAttributes<FooterElement>, Varian
 const Footer = React.forwardRef<FooterElement, FooterProps>(({ className, gap, gapX, gapY, spacingX, spacingY, asChild = false, ...props }, ref) => {
     const Semantic = asChild ? Slot : "footer"
     return (
-        <Semantic className={cn(footerVariants({ className, gap, spacingX, spacingY }))} ref={ref} {...props}/>
+        <Semantic className={cn(footerVariants({ className, gap, gapX, gapY, spacingX, spacingY }))} ref={ref} {...props}/>
     )
 })
 

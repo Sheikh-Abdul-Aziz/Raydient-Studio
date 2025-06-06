@@ -41,12 +41,18 @@ export const SparklesCore = (props: ParticlesProps) => {
 
   const particlesLoaded = async (container?: Container) => {
     if (container) {
-      controls.start({
-        opacity: 1,
-        transition: {
-          duration: 1,
-        },
-      });
+      try {
+        await controls.start({
+          opacity: 1,
+          transition: {
+            duration: 1,
+          },
+        });
+      } catch (error) {
+        console.error("Error starting animation:", error);
+      }
+    } else {
+      console.warn("Container is undefined or invalid.");
     }
   };
 

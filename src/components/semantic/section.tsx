@@ -133,7 +133,7 @@ export interface SectionProps extends React.HTMLAttributes<SectionElement>, Vari
 const Section = React.forwardRef<SectionElement, SectionProps>(({ className, distance, gap, gapX, gapY, spacingX, spacingY, asChild = false, ...props }, ref) => {
     const Semantic = asChild ? Slot : "section"
     return (
-        <Semantic className={cn(sectionVariants({ className, distance, gap, spacingX, spacingY }))} ref={ref} {...props}/>
+        <Semantic className={cn(sectionVariants({ className, distance, gap, gapX, gapY, spacingX, spacingY }))} ref={ref} {...props}/>
     )
 })
 

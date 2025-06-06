@@ -133,7 +133,7 @@ export interface NavigationProps extends React.HTMLAttributes<NavigationElement>
 const Navigation = React.forwardRef<NavigationElement, NavigationProps>(({ className, distance, gap, gapX, gapY, spacingX, spacingY, asChild = false, ...props }, ref) => {
     const Semantic = asChild ? Slot : "nav"
     return (
-        <Semantic className={cn(navigationVariants({ className, distance, gap, spacingX, spacingY }))} ref={ref} {...props}/>
+        <Semantic className={cn(navigationVariants({ className, distance, gap, gapX, gapY, spacingX, spacingY }))} ref={ref} {...props}/>
     )
 })
 

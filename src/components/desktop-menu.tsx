@@ -78,7 +78,7 @@ export function DesktopMenu() {
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                     <NavigationMenuLink onClick={portfolio} className={NavigationMenuTriggerStyle()}>
-                        Portfolio
+                        Projects
                     </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>

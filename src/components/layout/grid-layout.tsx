@@ -51,7 +51,7 @@ const gridVariants = cva("grid",
                 inline: "inline-grid",
                 grid: "grid"
             },
-            column: {
+            columns: {
                 auto: "grid-cols-auto",
                 1: "grid-cols-1",
                 2: "grid-cols-2",
@@ -63,7 +63,7 @@ const gridVariants = cva("grid",
                 8: "grid-cols-8",
                 9: "grid-cols-9"
             },
-            row: {
+            rows: {
                 auto: "grid-rows-auto",
                 1: "grid-rows-1",
                 2: "grid-rows-2",
@@ -263,8 +263,8 @@ const gridVariants = cva("grid",
         defaultVariants: {
             overflow: "hidden",
             display: "grid",
-            column: "auto",
-            row: "auto",
+            columns: "auto",
+            rows: "auto",
             flow: "row",
             width: "auto",
             height: "auto",
@@ -292,10 +292,10 @@ export interface GridProps extends React.HTMLAttributes<GridElement>, VariantPro
     asChild?: boolean
 }
 
-const GridLayout = React.forwardRef<GridElement, GridProps>(({ className, overflow, display, column, row, flow, width, height, justify, items, align, padding, paddingX, paddingY, margin, marginX, marginY, gap, gapX, gapY, spacingX, spacingY, asChild = false, ...props }, ref) => {
+const GridLayout = React.forwardRef<GridElement, GridProps>(({ className, overflow, display, columns, rows, flow, width, height, justify, items, align, padding, paddingX, paddingY, margin, marginX, marginY, gap, gapX, gapY, spacingX, spacingY, asChild = false, ...props }, ref) => {
     const Layout = asChild ? Slot : "div"
     return (
-        <Layout className={cn(gridVariants({ className, overflow, display, column, row, flow, width, height, justify, items, align, padding, paddingX, paddingY, margin, marginX, marginY, gap, gapX, gapY, spacingX, spacingY }))} ref={ref} {...props}/>
+        <Layout className={cn(gridVariants({ className, overflow, display, columns, rows, flow, width, height, justify, items, align, padding, paddingX, paddingY, margin, marginX, marginY, gap, gapX, gapY, spacingX, spacingY }))} ref={ref} {...props}/>
     )
 })
 

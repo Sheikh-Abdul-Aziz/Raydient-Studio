@@ -133,7 +133,7 @@ export interface HeaderProps extends React.HTMLAttributes<HeaderElement>, Varian
 const Header = React.forwardRef<HeaderElement, HeaderProps>(({ className, distance, gap, gapX, gapY, spacingX, spacingY, asChild = false, ...props }, ref) => {
     const Semantic = asChild ? Slot : "header"
     return (
-        <Semantic className={cn(headerVariants({ className, distance, gap, spacingX, spacingY }))} ref={ref} {...props}/>
+        <Semantic className={cn(headerVariants({ className, distance, gap, gapX, gapY, spacingX, spacingY }))} ref={ref} {...props}/>
     )
 })
 

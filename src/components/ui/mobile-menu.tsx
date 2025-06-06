@@ -309,38 +309,23 @@ const MobileMenuButton = React.forwardRef<
 )
 MobileMenuButton.displayName = "MobileMenuButton"
 
-const MobileMenuSub = React.forwardRef<
-    HTMLUListElement,
-    React.ComponentProps<"ul">
->(({ className, ...props }, ref) => (
-    <ul
-        ref={ref}
-        data-mobile-menu="menu-sub"
-        className={cn(
-            "mx-3.5 flex min-w-0 translate-x-px flex-col gap-1 border-l border-border px-2.5 py-0.5",
-            "group-data-[collapsible=icon]:hidden",
-            className
-        )}
-        {...props}
-    />
-))
-MobileMenuSub.displayName = "MobileMenuSub"
-
-const MobileMenuSubItem = React.forwardRef<
-    HTMLLIElement,
-    React.ComponentProps<"li">
->(({ ...props }, ref) => <li ref={ref} {...props} />)
-MobileMenuSubItem.displayName = "MobileMenuSubItem"
-
 const MobileMenuSubButton = React.forwardRef<
     HTMLAnchorElement,
     React.ComponentProps<"a"> & {
         asChild?: boolean
         size?: "sm" | "md"
         isActive?: boolean
+        onToggle?: (id: string) => void
+        id?: string
     }
->(({ asChild = false, size = "md", isActive, className, ...props }, ref) => {
+>(({ asChild = false, size = "md", isActive, className, onToggle, id, ...props }, ref) => {
     const Comp = asChild ? Slot : "a"
+
+    const handleClick = () => {
+        if (onToggle && id) {
+            onToggle(id)
+        }
+    }
 
     return (
         <Comp
@@ -356,12 +341,63 @@ const MobileMenuSubButton = React.forwardRef<
                 "group-data-[collapsible=icon]:hidden",
                 className
             )}
+            onClick={handleClick}
             {...props}
         />
     )
 })
 MobileMenuSubButton.displayName = "MobileMenuSubButton"
 
+const MobileMenuSub = React.forwardRef<
+    HTMLUListElement,
+    React.ComponentProps<"ul"> & { activeSubId?: string; onToggle?: (id: string) => void }
+>(({ className, onToggle, ...props }, ref) => {
+    const [expandedSubId, setExpandedSubId] = React.useState<string | null>(null)
+
+    const handleToggle = (id: string) => {
+        // Ensure only one sub-menu is expanded at a time
+        setExpandedSubId((prevId) => (prevId === id ? null : id))
+        if (onToggle) {
+            onToggle(id)
+        }
+    }
+
+    // Define a type for the props expected by the child elements
+    type MobileMenuSubButtonProps = {
+        id?: string;
+        isActive?: boolean;
+        onToggle?: (id: string) => void;
+    };
+
+    return (
+        <ul
+            ref={ref}
+            data-mobile-menu="menu-sub"
+            className={cn(
+                "mx-3.5 flex min-w-0 translate-x-px flex-col gap-1 border-l border-border px-2.5 py-0.5",
+                "group-data-[collapsible=icon]:hidden",
+                className
+            )}
+            {...props}
+        >
+            {React.Children.map(props.children, (child) => {
+                if (React.isValidElement(child)) {
+                    return React.cloneElement(
+                        child as React.ReactElement<MobileMenuSubButtonProps>,
+                        {
+                            isActive: (child as React.ReactElement<MobileMenuSubButtonProps>).props.id === expandedSubId,
+                            onToggle: handleToggle,
+                        }
+                    )
+                }
+                return child
+            })}
+        </ul>
+    )
+})
+MobileMenuSub.displayName = "MobileMenuSub"
+
+// Removed `MobileMenuSubItem` export as it doesn't exist
 export {
     MobileMenuGroup,
     MobileMenuGroupLabel,
@@ -371,7 +407,6 @@ export {
     MobileMenuItem,
     MobileMenuSub,
     MobileMenuSubButton,
-    MobileMenuSubItem,
     MobileMenuProvider,
     useMobileMenu,
 }

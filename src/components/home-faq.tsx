@@ -8,7 +8,7 @@ import {
     AccordionTrigger,
 } from "./ui/accordion"
 
-export default function AccordionLayout() {
+export default function HomeFAQ() {
     return (
         <div className="w-full h-auto px-0 py-6">
             <div className="w-full h-auto px-6 py-0">

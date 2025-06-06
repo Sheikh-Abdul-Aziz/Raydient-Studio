@@ -29,7 +29,7 @@ const Header = () => {
     };
 
     return (
-        <header className="fixed z-20 top-0 left-0 right-0 w-full h-16 border-b border-border border-dashed bg-background backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <header className="fixed z-20 top-0 left-0 right-0 w-full h-16 border-b border-border border-dashed bg-surface backdrop-blur supports-[backdrop-filter]:bg-surface/80">
             <div className="flex items-center justify-between w-full h-full px-4">
                 {/* MOBILE */}
                 <div className="flex lg:hidden">
@@ -54,10 +54,10 @@ const Header = () => {
                     </div>
 
                     {/* Search and Notifications */}
-                    <Button variant="outlined" size="icon">
+                    <Button variant="outlined" size="icon" className="text-muted-foreground">
                         <Search />
                     </Button>
-                    <Button variant="outlined" size="icon">
+                    <Button variant="outlined" size="icon" className="text-muted-foreground">
                         <Bell />
                     </Button>
 

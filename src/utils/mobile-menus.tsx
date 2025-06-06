@@ -21,7 +21,7 @@ export const Menus = [
 		icon: Info,
 	},
 	{
-		name: "Portfolio",
+		name: "Projects",
 		icon: BriefcaseBusiness,
 	},
 	{
@@ -29,7 +29,7 @@ export const Menus = [
 		subMenuHeading: ["Design", "Scale"],
 		subMenu: [
 			{
-				name: "All Projects",
+				name: "Mobile Designs",
 				desc: "Responsive design",
 				icon: PanelsTopLeft,
 			},

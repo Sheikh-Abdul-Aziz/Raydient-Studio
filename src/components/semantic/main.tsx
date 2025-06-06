@@ -133,7 +133,7 @@ export interface MainProps extends React.HTMLAttributes<MainElement>, VariantPro
 const Main = React.forwardRef<MainElement, MainProps>(({ className, distance, gap, gapX, gapY, spacingX, spacingY, asChild = false, ...props }, ref) => {
     const Semantic = asChild ? Slot : "main"
     return (
-        <Semantic className={cn(mainVariants({ className, distance, gap, spacingX, spacingY }))} ref={ref} {...props}/>
+        <Semantic className={cn(mainVariants({ className, distance, gap, gapX, gapY, spacingX, spacingY }))} ref={ref} {...props}/>
     )
 })
 
