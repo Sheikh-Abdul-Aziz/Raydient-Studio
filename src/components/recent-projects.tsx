@@ -37,11 +37,11 @@ export default function RecentProjects() {
 
     return (
         <div className="w-full h-auto px-0 py-8">
-            <div className="w-full h-auto px-6 py-0">
-                <div className="flex flex-col justify-center items-start text-left gap-6 left-0 right-0">
+            <div className="w-full h-auto px-4 py-0">
+                <div className="flex flex-col justify-center items-start text-left gap-6 left-0 right-0 max-w-7xl mx-auto">
                     <div className="text-left justify-center items-start align-middle">
-                        <h3 className="text-xs font-normal text-muted-foreground">PROJECTS</h3>
-                        <h2 className="text-xl font-medium text-foreground">Recent Projects</h2>
+                        <h3 className="text-xs font-normal text-muted-foreground uppercase">Projects</h3>
+                        <h2 className="text-xl font-medium text-foreground normal-case">Recent Projects</h2>
                     </div>
                     <div className="flex flex-col md:flex-row justify-center items-center gap-6">
                         {projects.map((project) => (

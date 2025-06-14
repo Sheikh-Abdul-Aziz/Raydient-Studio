@@ -14,7 +14,7 @@ const buttonVariants = cva(
                 linked: "text-primary underline-offset-4 hover:underline",
                 outlined: "border border-border bg-surface shadow-none hover:bg-secondary hover:text-secondary-foreground",
                 text: "hover:bg-secondary hover:text-secondary-foreground",
-                tonal: "bg-secondary text-secondary-foreground shadow-none hover:bg-secondary/70",
+                tonal: "bg-accent text-accent-foreground shadow-none hover:bg-secondary",
             },
             size: {
                 badge: "h-7 gap-1.5 px-3 py-1 text-xs font-display font-[700] items-center align-middle text- uppercase bg-surface/80 text-foreground/80 shadow-none",

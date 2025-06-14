@@ -11,8 +11,8 @@ import {
 export default function HomeFAQ() {
     return (
         <div className="w-full h-auto px-0 py-6">
-            <div className="w-full h-auto px-6 py-0">
-                <div className="flex flex-col w-full h-full">
+            <div className="w-full h-auto px-4 py-0">
+                <div className="flex flex-col w-full h-full max-w-7xl mx-auto">
                     <Accordion type="single" collapsible>
                         <AccordionItem value="item-1">
                             <AccordionTrigger>Is it accessible?</AccordionTrigger>

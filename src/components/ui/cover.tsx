@@ -38,7 +38,7 @@ export const Cover = ({
 			onMouseEnter={() => setHovered(true)}
 			onMouseLeave={() => setHovered(false)}
 			ref={ref}
-			className="relative bg-accent hover:bg-surface inline-block px-2 py-2 transition duration-200 rounded-none"
+			className="relative bg-surface border-[2px] border-frame-corner inline-block px-2 py-1 transition duration-200 rounded-none"
 		>
 			<AnimatePresence>
 				{hovered && (
@@ -147,16 +147,16 @@ export const Cover = ({
 					},
 				}}
 				className={cn(
-					"text-foreground inline-block relative transition duration-200",
+					"text-foreground/85 inline-block relative transition duration-200",
 					className
 				)}
 			>
 				{children}
 			</motion.span>
-			<CircleIcon className="absolute -right-[2px] -top-[2px]" />
-			<CircleIcon className="absolute -bottom-[2px] -right-[2px]" delay={0.4} />
-			<CircleIcon className="absolute -left-[2px] -top-[2px]" delay={0.8} />
-			<CircleIcon className="absolute -bottom-[2px] -left-[2px]" delay={1.6} />
+			<CircleIcon className="absolute -right-[6.5px] -top-[6.5px]" />
+			<CircleIcon className="absolute -bottom-[6.5px] -right-[6.5px]" delay={0.4} />
+			<CircleIcon className="absolute -left-[6.5px] -top-[6.5px]" delay={0.8} />
+			<CircleIcon className="absolute -bottom-[6.5px] -left-[6.5px]" delay={1.6} />
 		</div>
 	);
 };
@@ -226,6 +226,6 @@ export const Beam = ({
 
 export const CircleIcon = ({className}: {className?: string; delay?: number;}) => {
 	return (
-		<div className={cn(`pointer-events-none h-2 w-2 rounded-full bg-frame-corner`, className)} />
+		<div className={cn(`pointer-events-none h-3 w-3 border-[2px] border-frame-corner rounded-none bg-surface`, className)} />
 	);
 };

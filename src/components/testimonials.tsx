@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils";
-import { Marquee } from "@/components/magicui/marquee";
 
 const reviews = [
 	{
@@ -44,18 +43,24 @@ const firstRow = reviews.slice(0, reviews.length / 2);
 const secondRow = reviews.slice(reviews.length / 2);
 
 const ReviewCard = ({
+	className,
 	img,
 	name,
 	username,
 	body,
 }: {
+	className?: string;
 	img: string;
 	name: string;
 	username: string;
 	body: string;
 }) => {
 	return (
-		<figure className={cn("relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4", "border-border bg-card hover:bg-accent")}>
+		<figure className={cn(
+			"relative h-full w-full max-w-xs cursor-pointer overflow-hidden rounded-xl border p-4",
+			"border-border bg-card hover:bg-accent",
+			className // Allow additional classes to be passed from the parent
+		)}>
 			<div className="flex flex-row items-center gap-2">
 				<img className="rounded-full" width="32" height="32" alt="" src={img} />
 				<div className="flex flex-col">
@@ -72,17 +77,21 @@ const ReviewCard = ({
 
 export function Testimonial() {
 	return (
-		<div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
-			<Marquee pauseOnHover className="[--duration:20s]">
-				{firstRow.map((review) => (
-					<ReviewCard key={review.username} {...review} />
-				))}
-			</Marquee>
-			<Marquee reverse pauseOnHover className="[--duration:20s]">
-				{secondRow.map((review) => (
-					<ReviewCard key={review.username} {...review} />
-				))}
-			</Marquee>
+		<div className="relative flex w-full flex-col items-center justify-center overflow-hidden max-w-7xl mx-auto">
+			<div className="marquee">
+				<div className="marquee-content">
+					{firstRow.map((review) => (
+						<ReviewCard className="marquee-item" key={review.username} {...review} />
+					))}
+				</div>
+			</div>
+			<div className="marquee">
+				<div className="marquee-content">
+					{secondRow.map((review) => (
+						<ReviewCard className="marquee-item" key={review.username} {...review} />
+					))}
+				</div>
+			</div>
 			<div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background"></div>
 			<div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background"></div>
 		</div>

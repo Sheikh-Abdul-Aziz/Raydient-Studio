@@ -13,7 +13,7 @@ import {
 import { Main } from "@/components/semantic/main";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { IconArrowRight } from "@tabler/icons-react";
+import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 
 const policies = [
 	{
@@ -23,22 +23,22 @@ const policies = [
 	},
 	{
 		title: "Privacy Policy:",
-		description: "How our company collects, uses, and protects user data.",
+		description: "How our agency collects, uses, and protects user data.",
 	},
 	{
-		title: "Refund and Return Policy:",
+		title: "Refund Policy:",
 		description:
 			"The process and conditions for obtaining a refund or making a return.",
 	},
 	{
 		title: "Shipping Policy:",
 		description:
-			"The process and costs associated with shipping physical products.",
+			"The process and costs associated with shipping projects.",
 	},
 	{
 		title: "Cancellation Policy:",
 		description:
-			"The process and conditions for cancelling an order or subscription.",
+			"The process and conditions for cancelling a booking or subscription.",
 	},
 	{
 		title: "Intellectual Property Policy:",
@@ -59,8 +59,8 @@ const policies = [
 			"Information regarding the organization, its mission, values, and background, including details relevant to its operations, services, or digital presence.",
 	},
 	{
-		title: "All-User License Agreement (AULA):",
-		description: "The terms and conditions for using a software or digital product.",
+		title: "End User License Agreement (EULA):",
+		description: "The terms and conditions for using our services and products.",
 	},
 ];
 
@@ -70,23 +70,23 @@ const RouterButton = ({ onClick, variant, size, radius, children }: { onClick: (
 	</Button>
 );
 
-export default function Docs() {
+export default function Introduction() {
 
-    const router = useRouter(); 
+	const router = useRouter();
 
-    const navigateTo = (path: string) => router.push(path);
+	const navigateTo = (path: string) => router.push(path);
 
-    return (
+	return (
 		<Main className="min-h-screen flex flex-col items-start bg-background text-foreground px-6 py-6 space-y-4">
 			<div className="mt-16">
 				<Breadcrumb>
 					<BreadcrumbList>
 						<BreadcrumbItem>
-							<BreadcrumbLink href="/">Home</BreadcrumbLink>
+							<BreadcrumbLink href="/docs">Docs</BreadcrumbLink>
 						</BreadcrumbItem>
 						<BreadcrumbSeparator />
 						<BreadcrumbItem>
-							<BreadcrumbPage>Docs</BreadcrumbPage>
+							<BreadcrumbPage>Introduction</BreadcrumbPage>
 						</BreadcrumbItem>
 					</BreadcrumbList>
 				</Breadcrumb>
@@ -103,9 +103,13 @@ export default function Docs() {
 					))}
 				</ol>
 			</div>
-			<div className="flex flex-row ml-auto">
+			<div className="flex flex-row items-center justify-between w-full">
+				<RouterButton onClick={() => navigateTo("/docs")} variant="tonal" size="small" radius="medium">
+					Docs
+					<IconArrowLeft />
+				</RouterButton>
 				<RouterButton onClick={() => navigateTo("/docs/introduction")} variant="tonal" size="small" radius="medium">
-					Introduction
+					Terms & Conditions
 					<IconArrowRight />
 				</RouterButton>
 			</div>

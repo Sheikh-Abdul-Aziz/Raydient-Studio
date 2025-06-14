@@ -146,7 +146,7 @@ export default function MobileMenu() {
                 <motion.span className="block w-full h-0.5 bg-muted-foreground rounded-md" animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 4 : 0 }} transition={{ duration: 0.1 }} />
                 <motion.span className="block w-full h-0.5 bg-muted-foreground rounded-md" animate={{ rotate: isOpen ? -45 : 0, y: isOpen ? -4 : 0 }} transition={{ duration: 0.1 }} />
             </Button>
-            <motion.div className="flex flex-col fixed z-20 left-0 right-0 top-16 bottom-0 h-full w-screen bg-background text-foreground px-4 py-6 gap-y-3" initial={{ x: "-100%" }} animate={{ x: isOpen ? "0%" : "-100%" }} transition={{ duration: 0 }}>
+            <motion.div className="flex flex-col fixed z-20 left-0 right-0 top-16 bottom-0 h-[100dvh] w-screen bg-background text-foreground px-4 py-6 gap-y-3" initial={{ x: "-100%" }} animate={{ x: isOpen ? "0%" : "-100%" }} transition={{ duration: 0 }}>
                 <div className="flex flex-col items-center justify-between gap-y-4">
                     <Button onClick={() => navigateTo("/signup")} variant="filled" size="wide" align="center">
                         Signup

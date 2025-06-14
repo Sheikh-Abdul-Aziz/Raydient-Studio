@@ -30,20 +30,6 @@ import { cn } from "@/lib/utils";
 const mainVariants = cva([],
     {
         variants: {
-            distance: {
-                auto: "py-auto",
-                none: "py-none",
-                0: "py-0",
-                1: "py-1",
-                2: "py-2",
-                3: "py-3",
-                4: "py-4",
-                5: "py-5",
-                6: "py-6",
-                7: "py-7",
-                8: "py-8",
-                9: "py-9"
-            },
             gap: {
                 auto: "gap-auto",
                 none: "gap-0",
@@ -114,7 +100,6 @@ const mainVariants = cva([],
             }
         },
         defaultVariants: {
-            distance: 4,
             gap: "none",
             gapX: "none",
             gapY: "none",
@@ -130,10 +115,10 @@ export interface MainProps extends React.HTMLAttributes<MainElement>, VariantPro
     asChild?: boolean
 }
 
-const Main = React.forwardRef<MainElement, MainProps>(({ className, distance, gap, gapX, gapY, spacingX, spacingY, asChild = false, ...props }, ref) => {
+const Main = React.forwardRef<MainElement, MainProps>(({ className, gap, gapX, gapY, spacingX, spacingY, asChild = false, ...props }, ref) => {
     const Semantic = asChild ? Slot : "main"
     return (
-        <Semantic className={cn(mainVariants({ className, distance, gap, gapX, gapY, spacingX, spacingY }))} ref={ref} {...props}/>
+        <Semantic className={cn(mainVariants({ className, gap, gapX, gapY, spacingX, spacingY }))} ref={ref} {...props}/>
     )
 })
 
