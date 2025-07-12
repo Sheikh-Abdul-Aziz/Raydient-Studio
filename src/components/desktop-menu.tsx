@@ -104,7 +104,7 @@ export function DesktopMenu() {
                             <li className="row-span-3">
                                 <NavigationMenuLink asChild>
                                     <Link passHref href="/">
-                                        <span className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md">
+                                        <span className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md transition-colors duration-150 ease-in-out">
                                             <div className="mb-2 mt-4 text-lg font-medium">
                                                 shadcn/ui
                                             </div>
@@ -128,7 +128,7 @@ const ListItem = React.forwardRef<React.ComponentRef<typeof Link>, React.Compone
     return (
         <li>
             <NavigationMenuLink asChild>
-                <Link ref={ref} className={cn("block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground", className)} {...props}>
+                <Link ref={ref} className={cn("block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground transition-colors duration-150 ease-in-out", className)} {...props}>
                     <div className="text-sm font-medium leading-none">
                         {title}
                     </div>

@@ -142,20 +142,20 @@ export default function MobileMenu() {
 
     return (
         <div>
-            <Button variant="outlined" size="icon" className="flex flex-col items-center justify-center p-[8px] gap-1.5 transition-opacity hover:opacity-100 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-secondary" onClick={() => { setIsOpen(!isOpen); toggleDrawer(); }}>
+            <Button variant="outlined" size="icon" radius="large" className="flex flex-col items-center justify-center p-[8px] gap-1.5 transition-opacity hover:opacity-100 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-secondary" onClick={() => { setIsOpen(!isOpen); toggleDrawer(); }}>
                 <motion.span className="block w-full h-0.5 bg-muted-foreground rounded-md" animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 4 : 0 }} transition={{ duration: 0.1 }} />
                 <motion.span className="block w-full h-0.5 bg-muted-foreground rounded-md" animate={{ rotate: isOpen ? -45 : 0, y: isOpen ? -4 : 0 }} transition={{ duration: 0.1 }} />
             </Button>
-            <motion.div className="flex flex-col fixed z-20 left-0 right-0 top-16 bottom-0 h-[100dvh] w-screen bg-background text-foreground px-4 py-6 gap-y-3" initial={{ x: "-100%" }} animate={{ x: isOpen ? "0%" : "-100%" }} transition={{ duration: 0 }}>
+            <motion.div className="flex flex-col fixed z-20 left-0 right-0 top-16 bottom-0 h-[100dvh] w-screen bg-surface text-foreground px-4 py-6 gap-y-3" initial={{ x: "-100%" }} animate={{ x: isOpen ? "0%" : "-100%" }} transition={{ duration: 0 }}>
                 <div className="flex flex-col items-center justify-between gap-y-4">
-                    <Button onClick={() => navigateTo("/signup")} variant="filled" size="wide" align="center">
+                    <Button onClick={() => navigateTo("/signup")} variant="filled" size="wide" radius="large" align="center">
                         Signup
                     </Button>
-                    <Button onClick={() => navigateTo("/login")} variant="outlined" size="wide" align="center">
+                    <Button onClick={() => navigateTo("/login")} variant="outlined" size="wide" radius="large" align="center">
                         Login
                     </Button>
                 </div>
-                <Label className="text-xs font-medium normal text-muted-foreground">Settings</Label>
+                <Label className="text-xs font-medium font-label tracking-tight normal text-muted-foreground">Settings</Label>
                 <div className="flex flex-col pl-2 gap-x-2 gap-y-3">
                     <div className="flex flex-row items-center justify-between">
                         <div className="flex flex-row items-center justify-start gap-x-2">

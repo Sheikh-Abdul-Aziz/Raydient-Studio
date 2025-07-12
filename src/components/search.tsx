@@ -1,14 +1,15 @@
 "use client"
 
-import * as React from "react"
+import React, { useEffect, useState } from "react";
 import {
 	Calculator,
 	Calendar,
 	CreditCard,
+	SearchIcon,
 	Settings,
 	Smile,
 	User,
-} from "lucide-react"
+} from "lucide-react";
 
 import {
 	CommandDialog,
@@ -19,14 +20,15 @@ import {
 	CommandList,
 	CommandSeparator,
 	CommandShortcut,
-} from "./ui/command"
+} from "./ui/command";
+import { Button } from "./ui/button";
 
 export default function Search() {
-	const [open, setOpen] = React.useState(false)
+	const [open, setOpen] = useState(false)
 
-	React.useEffect(() => {
+	useEffect(() => {
 		const down = (e: KeyboardEvent) => {
-			if (e.key === "c" && (e.metaKey || e.ctrlKey)) {
+			if (e.key === "s" && (e.metaKey || e.ctrlKey)) {
 				e.preventDefault()
 				setOpen((open) => !open)
 			}
@@ -38,14 +40,9 @@ export default function Search() {
 
 	return (
 		<>
-			<div className="flex space-x-2">
-				<span className="text-sm text-muted-foreground ">
-					Press{" "}
-					<kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
-						<span className="text-xs">⌘</span>C
-					</kbd>
-				</span>
-			</div>
+			<Button onClick={() => setOpen(true)} variant="outlined" size="icon" radius="large">
+				<SearchIcon />
+			</Button>
 			<CommandDialog open={open} onOpenChange={setOpen}>
 				<CommandInput placeholder="Type a command or search..." />
 				<CommandList>

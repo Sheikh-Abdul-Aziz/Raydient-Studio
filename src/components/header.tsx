@@ -1,27 +1,40 @@
 "use client";
 
-import React from "react";
+import React, { memo } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { Button } from "./ui/button";
-import { Bell, Search } from "lucide-react";
-import { DesktopMenu } from "./desktop-menu";
-import MobileMenu from "./mobile-menu";
-import ThemeSwitcher from "./theme-switcher";
+import Search from "./search";
 import { Separator } from "./ui/separator";
+import ThemeSwitcher from "./theme-switcher";
+import MobileMenu from "./mobile-menu";
+import { DesktopMenu } from "./desktop-menu";
+import Bell from "./bell";
+import { useTheme } from "next-themes";
 
-const Logo = React.memo(({ onClick }: { onClick: () => void }) => (
-    <Image onClick={onClick} src="/next.svg" width={96} height={32} alt="Shopivo" />
-));
+const Logo = memo(({ onClick }: { onClick: () => void }) => {
+    const { theme } = useTheme();
+    const logoSrc = theme === "dark" ? "/light.svg" : "/dark.svg";
+    return (
+        <Image
+            onClick={onClick}
+            src={logoSrc}
+            width={36}
+            height={36}
+            alt="Raydient Studio"
+            className="border border-border rounded-lg"
+        />
+    );
+});
 Logo.displayName = "Logo";
 
-const VerticalDivider = React.memo(() => (
+const VerticalDivider = memo(() => (
     <Separator orientation="vertical" />
 ));
 VerticalDivider.displayName = "VerticalDivider";
 
 const Header = () => {
+
     const router = useRouter();
 
     const navigateHome = () => {
@@ -29,37 +42,43 @@ const Header = () => {
     };
 
     return (
-        <header className="fixed z-20 top-0 left-0 right-0 w-full h-16 border-b border-border border-dashed bg-surface backdrop-blur supports-[backdrop-filter]:bg-surface/80">
-            <div className="flex items-center justify-between w-full h-full px-4">
-                {/* MOBILE */}
-                <div className="flex lg:hidden">
-                    <Logo onClick={navigateHome} />
+        <header className="fixed z-20 top-0 left-0 right-0 w-full h-16 rounded-b-lg border-b border-border border-dashed bg-surface backdrop-blur supports-[backdrop-filter]:bg-surface/80">
+            <div className="flex items-center justify-between w-full h-full px-4 gap-x-4">
+                <div className="flex items-center gap-x-2 w-auto h-auto">
+                    {/* MOBILE */}
+                    <div className="flex lg:hidden items-center">
+                        {/* Logo */}
+                        <Logo onClick={navigateHome} />
+                    </div>
+
+                    {/* DESKTOP */}
+                    <div className="hidden lg:flex items-center gap-x-4">
+                        {/* Logo */}
+                        <Logo onClick={navigateHome} />
+                        {/* Vertical Divider */}
+                        <div className="w-auto h-5">
+                            <VerticalDivider />
+                        </div>
+                        {/* Desktop Menu */}
+                        <DesktopMenu />
+                    </div>
                 </div>
 
-                {/* DESKTOP */}
-                <div className="hidden lg:flex items-center gap-x-4">
-                    <Logo onClick={navigateHome} />
-                    <DesktopMenu />
-                </div>
-
-                <div className="flex items-center gap-x-2">
+                <div className="flex items-center gap-x-2 w-auto h-auto">
                     {/* Theme Switcher */}
                     <div className="hidden lg:flex">
                         <ThemeSwitcher />
                     </div>
 
                     {/* Vertical Divider */}
-                    <div className="hidden lg:flex">
+                    <div className="hidden lg:flex w-auto h-5">
                         <VerticalDivider />
                     </div>
 
                     {/* Search and Notifications */}
-                    <Button variant="outlined" size="icon" className="text-muted-foreground">
-                        <Search />
-                    </Button>
-                    <Button variant="outlined" size="icon" className="text-muted-foreground">
-                        <Bell />
-                    </Button>
+                    <Search />
+
+                    <Bell />
 
                     {/* Avatar */}
                     <div className="hidden lg:flex">
@@ -67,6 +86,11 @@ const Header = () => {
                             <AvatarImage src="https://github.com/sheikh-abdul-aziz.png" />
                             <AvatarFallback>SA</AvatarFallback>
                         </Avatar>
+                    </div>
+
+                    {/* Vertical Divider */}
+                    <div className="flex lg:hidden w-auto h-5">
+                        <VerticalDivider />
                     </div>
 
                     {/* MOBILE MENU */}
@@ -79,4 +103,4 @@ const Header = () => {
     );
 };
 
-export default React.memo(Header);
+export default memo(Header);

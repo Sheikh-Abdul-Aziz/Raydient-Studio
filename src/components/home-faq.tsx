@@ -7,12 +7,17 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "./ui/accordion"
+import { fontMono } from "@/fonts/local";
 
 export default function HomeFAQ() {
     return (
         <div className="w-full h-auto px-0 py-6">
             <div className="w-full h-auto px-4 py-0">
-                <div className="flex flex-col w-full h-full max-w-7xl mx-auto">
+                <div className="flex flex-col w-full h-full gap-y-6 max-w-7xl mx-auto">
+                    <div className="text-left justify-center items-start align-middle">
+                        <h3 className={`${fontMono.className} antialiased text-xs font-medium tracking-tight text-muted-foreground`}>FAQ&apos;s</h3>
+                        <h2 className="text-xl font-medium text-foreground normal-case">Frequently Asked{" "}<br className="md:hidden"/>Questions</h2>
+                    </div>
                     <Accordion type="single" collapsible>
                         <AccordionItem value="item-1">
                             <AccordionTrigger>Is it accessible?</AccordionTrigger>

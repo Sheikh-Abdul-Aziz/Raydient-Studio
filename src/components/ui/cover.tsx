@@ -38,7 +38,7 @@ export const Cover = ({
 			onMouseEnter={() => setHovered(true)}
 			onMouseLeave={() => setHovered(false)}
 			ref={ref}
-			className="relative bg-surface border-[2px] border-frame-corner inline-block px-2 py-1 transition duration-200 rounded-none"
+			className="relative bg-surface border-[2px] outline-none ring-0 border-border inline-block px-2 py-[2px] transition duration-200 rounded-none"
 		>
 			<AnimatePresence>
 				{hovered && (
@@ -147,7 +147,7 @@ export const Cover = ({
 					},
 				}}
 				className={cn(
-					"text-foreground/85 inline-block relative transition duration-200",
+					"text-via z-10 inline-block relative transition duration-200",
 					className
 				)}
 			>
@@ -226,6 +226,6 @@ export const Beam = ({
 
 export const CircleIcon = ({className}: {className?: string; delay?: number;}) => {
 	return (
-		<div className={cn(`pointer-events-none h-3 w-3 border-[2px] border-frame-corner rounded-none bg-surface`, className)} />
+		<div className={cn(`pointer-events-none h-3 w-3 border-[2px] border-border rounded-full bg-surface`, className)} />
 	);
 };

@@ -4,17 +4,17 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-    "inline-flex items-center justify-center text-center align-middle gap-x-2 whitespace-nowrap rounded-md text-sm font-normal font-label leading-none tracking-normal ransition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+    "inline-flex items-center justify-center text-center align-middle gap-x-2 whitespace-nowrap rounded-md text-sm font-normal font-label leading-none tracking-normal transition-colors duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-transparent disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
     {
         variants: {
             variant: {
                 destructive: "bg-destructive text-destructive-foreground shadow-xs hover:bg-destructive/80",
-                elevated: "bg-background text-secondary-foreground shadow hover:bg-secondary hover:text-secondary-foreground",
-                filled: "bg-primary text-primary-foreground shadow-xs hover:bg-primary/90",
-                linked: "text-primary underline-offset-4 hover:underline",
-                outlined: "border border-border bg-surface shadow-none hover:bg-secondary hover:text-secondary-foreground",
-                text: "hover:bg-secondary hover:text-secondary-foreground",
-                tonal: "bg-accent text-accent-foreground shadow-none hover:bg-secondary",
+                elevated: "bg-background text-secondary-foreground shadow hover:bg-secondary hover:text-secondary-foreground active:bg-secondary active:text-secondary-foreground",
+                filled: "bg-primary text-primary-foreground shadow-xs  hover:bg-primary/90 active:bg-primary/90",
+                linked: "text-primary underline-offset-4 hover:underline active:underline",
+                outlined: "border border-border bg-surface shadow-none hover:bg-secondary hover:text-secondary-foreground active:bg-secondary active:text-secondary-foreground",
+                text: "hover:bg-secondary hover:text-secondary-foreground active:bg-secondary active:text-secondary-foreground",
+                tonal: "bg-accent/80 text-accent-foreground shadow-none hover:bg-secondary active:bg-secondary",
             },
             size: {
                 badge: "h-7 gap-1.5 px-3 py-1 text-xs font-display font-[700] items-center align-middle text- uppercase bg-surface/80 text-foreground/80 shadow-none",
@@ -23,7 +23,7 @@ const buttonVariants = cva(
                 small: "h-8 px-3 text-xs",
                 large: "h-10 px-8",
                 action: "h-8 px-2 py-2 text-xs shadow-none",
-                icon: "h-8 w-8 px-2 py-2 shadow-none",
+                icon: "h-8 w-8 px-2 py-2 shadow-none text-muted-foreground",
                 social: "h-8 w-8 px-2 py-2",
                 wide: "h-9 w-full px-4 py-2",
             },

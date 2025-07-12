@@ -10,7 +10,7 @@ import { Container } from "./semantic/container";
 export default function BriefFooter() {
 
     return (
-        <Footer className="bg-surface border-t border-border bottom-0 left-0 right-0">
+        <Footer className="bg-surface border-t border-border border-dashed bottom-0 left-0 right-0 rounded-t-lg">
             <Section distance={6}>
                 <Container distance={5}>
                     <Wrapper gapX={"none"} gapY={3} className="flex flex-col max-w-7xl mx-auto">

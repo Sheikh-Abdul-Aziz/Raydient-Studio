@@ -20,7 +20,7 @@ const BoundingCard = ({ children }: { children: React.ReactNode }) => (
 
 const BoundingBox = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(({ className, ...props }, ref) => (
     <BoundingCard>
-        <div ref={ref} className={cn("relative overflow-visible rounded-none border-[2px]  h-8 items-center border-border bg-surface text-card-foreground shadow-xs", className)} {...props} />
+        <div ref={ref} className={cn("relative overflow-visible rounded-full border-[2px]  h-8 items-center border-border bg-surface text-card-foreground shadow-xs", className)} {...props} />
     </BoundingCard>
 ))
 BoundingBox.displayName = "Bounding-Box";
