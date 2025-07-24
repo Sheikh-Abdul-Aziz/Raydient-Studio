@@ -3,36 +3,35 @@
 import React from "react";
 import { Card, CardContent, CardDescription, CardTitle } from "./ui/card";
 import { fontMono } from "@/fonts/local";
-import { IconLayout, IconSwords, IconUser, IconUsers } from "@tabler/icons-react";
+import { IconLayersIntersect, IconSquareFilled, IconUsersGroup, IconWand, IconWriting } from "@tabler/icons-react";
 
 export default function WhyChooseUs() {
 
-    const projects = [
+    const items = [
         {
             id: 1,
-            title: "Conversion Driven Creativity",
-            description: "We design to increase signups, sales, and engagement. Every detail supports your business goals.",
-            icon: <IconUser strokeWidth={1.5} size={28} className="text-muted-foreground" />
+            title: "Conversion Driven Copywriting",
+            description: "We design & write to increase signups, sales, and engagement. Every detail supports your business goals.",
+            icon: <IconWriting strokeWidth={1.5} size={28} className="text-muted-foreground" />
         },
         {
             id: 2,
-            title: "Fully Comitted Team",
+            title: "Fully Organised Team",
             description: "You work with a dedicated team focused solely on your project. No juggling, no outsourcing.",
-            icon: <IconUsers strokeWidth={1.5} size={28} className="text-muted-foreground" />
+            icon: <IconUsersGroup strokeWidth={1.5} size={28} className="text-muted-foreground" />
 
         },
         {
             id: 3,
-            title: "Next-Level Motion Design",
+            title: "Advanced Motion Design",
             description: "We create animations that explain, guide, and keep users engaged at every step of the journey.",
-            icon: <IconLayout strokeWidth={1.5} size={28} className="text-muted-foreground" />
+            icon: <IconLayersIntersect strokeWidth={1.5} size={28} className="text-muted-foreground" />
         },
         {
             id: 4,
-            title: "Battle-Tested Expertise",
-            description: "We've helped startups raise over $45M in funding with designs that earn trust and drive investment.",
-            icon: <IconSwords strokeWidth={1.5} size={28} className="text-muted-foreground" />
-
+            title: "Precision in Every Pixel",
+            description: "We design precisely for your brand, ensuring every element is pixel-perfect and aligned with your vision.",
+            icon: <IconWand strokeWidth={1.5} size={28} className="text-muted-foreground" />
         },
     ];
 
@@ -41,16 +40,19 @@ export default function WhyChooseUs() {
             <div className="w-full h-auto px-4 py-0">
                 <div className="flex flex-col justify-center items-start text-left gap-y-6 left-0 right-0 max-w-7xl mx-auto">
                     <div className="text-left justify-center items-start align-middle">
-                        <h3 className={`${fontMono.className} antialiased text-xs font-medium tracking-tight text-muted-foreground uppercase`}>Why Choose Us?</h3>
-                        <h2 className="text-xl font-medium text-foreground normal-case leading-[1.3]">The Design Partner{" "}<br className="md:hidden" />You&apos;ve Always Sought</h2>
+                        <div className="inline-flex flex-row items-center justify-start gap-x-1">
+                            <IconSquareFilled size={12} className="text-foreground" />
+                            <h3 className={`${fontMono.className} antialiased translate-y-px md:translate-y-0 text-xs font-medium tracking-tight text-muted-foreground uppercase`}>Why Choose Us?</h3>
+                        </div>
+                        <h2 className="text-xl font-medium text-foreground normal-case leading-[1.4]">The Design Partner{" "}<br className="md:hidden" />You&apos;ve Been Looking For</h2>
                     </div>
-                    <div className="flex flex-col md:flex-row justify-start items-start w-full h-auto gap-3">
-                        {projects.map((project) => (
-                            <Card key={project.id} className="flex flex-col justify-start items-center shadow-none">
-                                <CardContent className="flex flex-col justify-start items-start gap-y-1">
-                                    {project.icon}
-                                    <CardTitle className="text-base">{project.title}</CardTitle>
-                                    <CardDescription className="text-xs">{project.description}</CardDescription>
+                    <div className="flex flex-col md:flex-row justify-start items-start gap-3 lg:gap-5 w-full h-auto">
+                        {items.map((item) => (
+                            <Card key={item.id} className="flex flex-col justify-start items-center shadow-none">
+                                <CardContent>
+                                    {item.icon}
+                                    <CardTitle>{item.title}</CardTitle>
+                                    <CardDescription>{item.description}</CardDescription>
                                 </CardContent>
                             </Card>
                         ))}

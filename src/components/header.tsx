@@ -3,6 +3,7 @@
 import React, { memo } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useTheme } from "next-themes";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import Search from "./search";
 import { Separator } from "./ui/separator";
@@ -10,20 +11,13 @@ import ThemeSwitcher from "./theme-switcher";
 import MobileMenu from "./mobile-menu";
 import { DesktopMenu } from "./desktop-menu";
 import Bell from "./bell";
-import { useTheme } from "next-themes";
+import { IconRaydientStudio } from "./icon/icon";
 
 const Logo = memo(({ onClick }: { onClick: () => void }) => {
     const { theme } = useTheme();
     const logoSrc = theme === "dark" ? "/light.svg" : "/dark.svg";
     return (
-        <Image
-            onClick={onClick}
-            src={logoSrc}
-            width={36}
-            height={36}
-            alt="Raydient Studio"
-            className="border border-border rounded-lg"
-        />
+        <Image onClick={onClick} src={logoSrc} width={36} height={36} alt="Raydient Studio" className="border border-border rounded-lg"/>
     );
 });
 Logo.displayName = "Logo";
@@ -48,13 +42,16 @@ const Header = () => {
                     {/* MOBILE */}
                     <div className="flex lg:hidden items-center">
                         {/* Logo */}
-                        <Logo onClick={navigateHome} />
+                        {/* <Logo onClick={navigateHome} /> */}
+                        <IconRaydientStudio onClick={navigateHome}/>
                     </div>
 
                     {/* DESKTOP */}
                     <div className="hidden lg:flex items-center gap-x-4">
                         {/* Logo */}
-                        <Logo onClick={navigateHome} />
+                        {/* <Logo onClick={navigateHome} /> */}
+                        <IconRaydientStudio onClick={navigateHome}/>
+
                         {/* Vertical Divider */}
                         <div className="w-auto h-5">
                             <VerticalDivider />

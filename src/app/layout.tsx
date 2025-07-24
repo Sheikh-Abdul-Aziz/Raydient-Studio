@@ -1,24 +1,9 @@
-import "./globals.css";
+import "./style.css";
 import React from "react";
 import type { Metadata } from "next";
-import { Archivo, Poppins } from "next/font/google";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import LayoutProvider from "@/components/layout-provider";
-import { fontDefault } from "@/fonts/local";
-
-export const fontArchivo = Archivo({
-	subsets: ["latin"],
-	weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-	variable: "--font-archivo",
-	display: "swap"
-})
-
-export const fontLabel = Poppins({
-	subsets: ["latin"],
-	weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-	variable: "--font-label",
-	display: "swap"
-})
+import { fontPrimary } from "@/fonts/local";
 
 export const metadata: Metadata = {
 	title: "Raydient Studio",
@@ -32,7 +17,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode; }) {
 	return (
 		<html lang="en" suppressHydrationWarning suppressContentEditableWarning>
-			<body className={`${fontDefault.className} antialiased `}>
+			<body className={`${fontPrimary.className} antialiased `}>
 				<ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
 					<LayoutProvider>
 						{children}

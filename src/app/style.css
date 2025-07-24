@@ -2,17 +2,23 @@
 @import 'tw-animate-css';
 
 :root {
-  --font-jetbrains-mono: 'JetBrains Mono', monospace;
+  --host-grotesk: 'Host Grotesk', sans-serif;
+  --space-grotesk: 'Space Grotesk', sans-serif;
+  --poppins: 'Poppins', sans-serif;
+  --jetbrains-mono: 'JetBrains Mono', monospace;
 
   --from: oklch(0.55 0.01 286.375);
   --via: oklch(0.37 0.01 286.375);
   --to: oklch(0.21 0.01 286.375);
 
   --surface: oklch(1 0 0);
-  --frame-corner: oklch(0.64 0.19 272.322);
-  --online: oklch(0.72 0.19 150);
-  --online-shadow: oklch(0.72 0.19 150 / 70%);
-  --offline: oklch(0.67 0.16 58);
+  --success: oklch(0.72 0.19 150);
+  --error: oklch(0.64 0.21 25);
+  --warning: oklch(0.70 0.19 48);
+  --info: oklch(0.488 0.243 264.376);
+  --available: oklch(0.72 0.19 150);
+  --available-shadow: oklch(0.72 0.19 150 / 30%);
+  --unavailable: oklch(0.87 0.01 286.375 / 90%);
 
   --radius: 0.5rem;
   --background: oklch(0.98 0 0);
@@ -54,10 +60,13 @@
   --to: oklch(0.97 0 286.375);
 
   --surface: oklch(0.2 0 0);
-  --frame-corner: oklch(0.61 0.192 272.854);
-  --online: oklch(0.53 0.14 150);
-  --online-shadow: oklch(0.53 0.14 150 / 70%);
-  --offline: oklch(0.47 0.12 46);
+  --success: oklch(0.63 0.17 149);
+  --error: oklch(0.58 0.22 27);
+  --warning: oklch(0.65 0.19 41);
+  --info: oklch(0.488 0.243 264.376);
+  --available: oklch(0.63 0.17 149);
+  --available-shadow: oklch(0.63 0.17 149 / 30%);
+  --unavailable: oklch(0.87 0.01 286.375 / 50%);
 
   --background: oklch(0.14 0 0);
   --foreground: oklch(0.985 0 0);
@@ -93,22 +102,23 @@
 }
 
 @theme {
-  --font-archivo: 'Archivo', sans-serif;
-  --font-default: 'Host Grotesk', sans-serif;
-  --font-space: 'Space Grotesk', sans-serif;
-  --font-label: 'Poppins', sans-serif;
-  --font-body: 'Poppins', sans-serif;
-  --font-mono: var(--font-jetbrains-mono);
+  --font-primary: var(--host-grotesk);
+  --font-secondary: var(--space-grotesk);
+  --font-accent: var(--poppins);
+  --font-mono: var(--jetbrains-mono);
 
   --color-from: var(--from);
   --color-via: var(--via);
   --color-to: var(--to);
 
   --color-surface: var(--surface);
-  --color-frame-corner: var(--frame-corner);
-  --color-online: var(--online);
-  --color-online-shadow: var(--online-shadow);
-  --color-offline: var(--offline);
+  --color-success: var(--success);
+  --color-error: var(--error);
+  --color-warning: var(--warning);
+  --color-info: var(--info);
+  --color-available: var(--available);
+  --color-available-shadow: var(--available-shadow);
+  --color-unavailable: var(--unavailable);
 
   --radius: var(--radius);
   --color-background: var(--background);
@@ -148,16 +158,22 @@
 @keyframes pulsar {
   0% {
     transform: scale(1);
-    box-shadow: 0 0 0 0 var(--online);
+    box-shadow: 0 0 0 0 var(--available);
+  }
+  30% {
+    transform: scale(1);
+    box-shadow: 0 0 0 3px var(--available-shadow);
   }
   100% {
     transform: scale(1);
-    box-shadow: 0 0 0 5 var(--online-shadow);
+    box-shadow: 0 0 0 0 transparent;
   }
 }
 
 .animate-pulsar {
   animation: pulsar 2s infinite ease-in-out;
+  border-radius: 100%;
+  padding: 0px;
 }
 
 /* Marquee container */
@@ -213,11 +229,15 @@
 }
 
 /* Prevent text selection */
-html, body, * {
+html,
+body,
+* {
   user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
   -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
   -webkit-tap-highlight-color: transparent;
   -webkit-focus-ring-color: transparent;
 }

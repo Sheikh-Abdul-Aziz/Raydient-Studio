@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useState } from "react"; // Added useState for state management
-import { ChevronRight } from "lucide-react";
-import { type TablerIcon } from "@tabler/icons-react";
-
+import Link from "next/link";
+import React, { useState } from "react";
+import { IconChevronRight, type TablerIcon } from "@tabler/icons-react";
 import {
     Collapsible,
     CollapsibleContent,
@@ -20,7 +19,6 @@ import {
     MobileMenuProvider,
 } from "@/components/ui/mobile-menu";
 import { Label } from "./ui/label";
-import Link from "next/link";
 import { Separator } from "./ui/separator";
 
 export function MobileNavigation({
@@ -72,21 +70,13 @@ export function MobileNavigation({
                 <MobileMenuGroupLabel>Resources</MobileMenuGroupLabel>
                 <MobileMenu>
                     {itemSecond.map((item) => (
-                        <Collapsible
-                            key={item.title}
-                            asChild
-                            open={activeMenu === item.title} // Dynamically control expansion
-                            className="group/collapsible"
-                        >
+                        <Collapsible key={item.title} asChild open={activeMenu === item.title} className="group/collapsible">
                             <MobileMenuItem>
                                 <CollapsibleTrigger asChild>
-                                    <MobileMenuButton
-                                        tooltip={item.title}
-                                        onClick={() => handleMenuToggle(item.title)}
-                                    >
+                                    <MobileMenuButton tooltip={item.title} onClick={() => handleMenuToggle(item.title)}>
                                         {item.icon && <item.icon />}
                                         <Label>{item.title}</Label>
-                                        <ChevronRight
+                                        <IconChevronRight
                                             className={`ml-auto transition-transform duration-200 ${
                                                 activeMenu === item.title
                                                     ? "rotate-90"
@@ -98,10 +88,7 @@ export function MobileNavigation({
                                 <CollapsibleContent>
                                     <MobileMenuSub>
                                         {item.items?.map((subItem) => (
-                                            <MobileMenuSubButton
-                                                asChild
-                                                key={subItem.id}
-                                            >
+                                            <MobileMenuSubButton asChild key={subItem.id}>
                                                 <Link href={subItem.url}>
                                                     <Label>{subItem.title}</Label>
                                                 </Link>

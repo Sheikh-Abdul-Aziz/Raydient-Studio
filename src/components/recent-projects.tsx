@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React from "react";
 import { useRouter } from "next/navigation";
@@ -7,8 +7,10 @@ import { Button } from "./ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { ArrowRight, Globe } from "lucide-react";
 import { fontMono } from "@/fonts/local";
+import { IconSquareFilled } from "@tabler/icons-react";
 
 export default function RecentProjects() {
+    
     const router = useRouter();
 
     const projects = [
@@ -41,8 +43,11 @@ export default function RecentProjects() {
             <div className="w-full h-auto px-4 py-0">
                 <div className="flex flex-col justify-center items-start text-left gap-y-6 left-0 right-0 max-w-7xl mx-auto">
                     <div className="text-left justify-center items-start align-middle">
-                        <h3 className={`${fontMono.className} antialiased text-xs font-medium tracking-tight text-muted-foreground uppercase`}>Projects</h3>
-                        <h2 className="text-xl font-medium text-foreground normal-case leading-[1.3]">Recent Projects</h2>
+                        <div className="inline-flex flex-row items-center justify-start gap-x-1">
+                            <IconSquareFilled size={12} className="text-foreground" />
+                            <h3 className={`${fontMono.className} antialiased translate-y-px md:translate-y-0 text-xs font-medium tracking-tight leading-none items-center text-muted-foreground uppercase`}>Recent Projects</h3>
+                        </div>
+                        <h2 className="text-xl font-medium text-foreground normal-case leading-[1.3]">Take a Quick Look at our{" "}<br className="md:hidden" />Recent Branding Projects</h2>
                     </div>
                     <div className="flex flex-col md:flex-row justify-center items-center gap-6">
                         {projects.map((project) => (
@@ -58,7 +63,7 @@ export default function RecentProjects() {
                                         <Button onClick={() => handleNavigation(project.websiteUrl)} variant="outlined" size="default">
                                             <Globe />Website
                                         </Button>
-                                        <Button onClick={() => handleNavigation(project.githubUrl)} variant="text" size="default">
+                                        <Button onClick={() => handleNavigation(project.githubUrl)} variant="tonal" size="default">
                                             Github<ArrowRight />
                                         </Button>
                                     </div>
