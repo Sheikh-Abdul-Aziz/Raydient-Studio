@@ -8,27 +8,28 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        scroll: 'scroll 20s linear infinite',
-        'scroll-reverse': 'scroll-reverse 20s linear infinite',
-        'scroll-vertical': 'scroll-vertical 20s linear infinite',
-        'scroll-vertical-reverse': 'scroll-vertical-reverse 20s linear infinite'
+        marquee: 'marquee var(--duration) linear infinite',
+        'marquee-reverse': 'marquee-reverse var(--duration) linear infinite',
+        'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
+        'marquee-vertical-reverse':
+          'marquee-vertical-reverse var(--duration) linear infinite'
       },
       keyframes: {
-        scroll: {
+        marquee: {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-100%)' }
         },
-        'scroll-reverse': {
-          '0%': { transform: 'translateX(0)' },
-          '100%': { transform: 'translateX(100%)' }
+        'marquee-reverse': {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(0)' }
         },
-        'scroll-vertical': {
+        'marquee-vertical': {
           '0%': { transform: 'translateY(0)' },
           '100%': { transform: 'translateY(-100%)' }
         },
-        'scroll-vertical-reverse': {
-          '0%': { transform: 'translateY(0)' },
-          '100%': { transform: 'translateY(100%)' }
+        'marquee-vertical-reverse': {
+          '0%': { transform: 'translateY(-100%)' },
+          '100%': { transform: 'translateY(0)' }
         }
       }
     }

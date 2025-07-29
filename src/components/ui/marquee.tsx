@@ -1,122 +1,68 @@
-"use client";
-
 import { cn } from "@/lib/utils";
-import React, { useEffect, useState } from "react";
+import { ComponentPropsWithoutRef, ReactNode } from "react";
 
-export const Marquee = ({
-    items,
-    direction = "left",
-    speed = "normal", // Default speed set to "normal"
-    pauseOnHover = true,
-    className,
-}: {
-    items: {
-        quote: string;
-        name: string;
-        title: string;
-    }[];
-    direction?: "left" | "right";
-    speed?: "fast" | "normal" | "slow";
-    pauseOnHover?: boolean;
+interface MarqueeProps extends ComponentPropsWithoutRef<"div"> {
     className?: string;
-}) => {
-    const containerRef = React.useRef<HTMLDivElement>(null);
-    const scrollerRef = React.useRef<HTMLUListElement>(null);
+    reverse?: boolean;
+    pauseOnHover?: boolean;
+    children: ReactNode;
+    vertical?: boolean;
+    repeat?: number;
+    duration?: number; // in seconds
+    gap?: number | string; // rem or px
+}
 
-    const [start, setStart] = useState(false);
+export function Marquee({
+    className,
+    reverse = false,
+    pauseOnHover = true,
+    children,
+    vertical = false,
+    repeat = 4,
+    duration = 40,
+    gap = "1rem",
+    ...props
+}: MarqueeProps) {
+    const directionClass = vertical
+        ? reverse
+            ? "animate-marquee-vertical-reverse"
+            : "animate-marquee-vertical"
+        : reverse
+            ? "animate-marquee-reverse"
+            : "animate-marquee";
 
-    useEffect(() => {
-        addAnimation();
-    }, []);
-
-    function addAnimation() {
-        if (containerRef.current && scrollerRef.current) {
-            const scrollerContent = Array.from(scrollerRef.current.children);
-            const scrollerWidth = scrollerRef.current.scrollWidth;
-            const containerWidth = containerRef.current.offsetWidth;
-
-            let totalWidth = scrollerWidth;
-            while (totalWidth < containerWidth * 2) {
-                scrollerContent.forEach((item) => {
-                    const duplicatedItem = item.cloneNode(true);
-                    if (scrollerRef.current) {
-                        scrollerRef.current.appendChild(duplicatedItem);
-                    }
-                });
-                totalWidth = scrollerRef.current.scrollWidth;
-            }
-
-            setAnimationProperties();
-            setStart(true);
-        }
-    }
-
-    const setAnimationProperties = () => {
-        if (containerRef.current) {
-            const duration = getSpeedDuration();
-            const directionValue = direction === "left" ? "forwards" : "reverse";
-
-            containerRef.current.style.setProperty("--animation-duration", duration);
-            containerRef.current.style.setProperty("--animation-direction", directionValue);
-        }
-    };
-
-    const getSpeedDuration = () => {
-        switch (speed) {
-            case "fast":
-                return "30s"; // Adjusted for smoother scrolling
-            case "normal":
-                return "50s"; // Default speed
-            case "slow":
-                return "70s"; // Slower scrolling
-            default:
-                return "50s";
-        }
-    };
+    const flexDirection = vertical ? "flex-col" : "flex-row";
 
     return (
         <div
-            ref={containerRef}
+            {...props}
             className={cn(
-                "scroller relative z-20 max-w-7xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
+                "group overflow-hidden p-2",
+                flexDirection,
+                "flex",
                 className
             )}
+            style={
+                {
+                    "--duration": `${duration}s`,
+                    "--gap": typeof gap === "number" ? `${gap}px` : gap,
+                } as React.CSSProperties
+            }
         >
-            <ul
-                ref={scrollerRef}
-                className={cn(
-                    "flex w-max min-w-full shrink-0 flex-nowrap gap-4 py-4",
-                    start && "animate-scroll",
-                    pauseOnHover && "hover:[animation-play-state:paused]"
-                )}
-            >
-                {items.map((item) => (
-                    <li
-                        className="relative w-[350px] max-w-full shrink-0 rounded-2xl border border-b-0 border-zinc-200 bg-[linear-gradient(180deg,#fafafa,#f5f5f5)] px-8 py-6 md:w-[450px] dark:border-zinc-700 dark:bg-[linear-gradient(180deg,#27272a,#18181b)]"
-                        key={item.name}
-                    >
-                        <blockquote>
-                            <div
-                                aria-hidden="true"
-                                className="user-select-none pointer-events-none absolute -top-0.5 -left-0.5 -z-1 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"
-                            ></div>
-                            <span className="relative z-20 text-sm leading-[1.6] font-normal text-neutral-800 dark:text-gray-100">
-                                {item.quote}
-                            </span>
-                            <div className="relative z-20 mt-6 flex flex-row items-center">
-                                <span className="flex flex-col gap-1">
-                                    <span className="text-sm leading-[1.6] font-normal text-neutral-500 dark:text-gray-400">
-                                        {item.name}
-                                    </span>
-                                    <span className="text-sm leading-[1.6] font-normal text-neutral-500 dark:text-gray-400">
-                                        {item.title}
-                                    </span>
-                                </span>
-                            </div>
-                        </blockquote>
-                    </li>
-                ))}
-            </ul>
+            {Array.from({ length: repeat }).map((_, i) => (
+                <div
+                    key={i}
+                    {...(i !== 0 ? { "aria-hidden": "true" } : {})}
+                    className={cn(
+                        "shrink-0 justify-around [gap:var(--gap)]",
+                        flexDirection,
+                        directionClass,
+                        pauseOnHover && "group-hover:[animation-play-state:paused]"
+                    )}
+                >
+                    {children}
+                </div>
+            ))}
         </div>
     );
-};
+}

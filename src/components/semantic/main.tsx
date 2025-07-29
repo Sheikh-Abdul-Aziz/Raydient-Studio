@@ -30,6 +30,70 @@ import { cn } from "@/lib/utils";
 const mainVariants = cva([],
     {
         variants: {
+             overflow: {
+                auto: "overflow-auto",
+                clip: "overflow-clip",
+                hidden: "overflow-hidden",
+                scroll: "overflow-scroll",
+                visible: "overflow-visible",
+                autoX: "overflow-x-auto",
+                autoY: "overflow-y-auto",
+                clipX: "overflow-x-clip",
+                clipY: "overflow-y-clip",
+                hiddenX: "overflow-x-hidden",
+                hiddenY: "overflow-y-hidden",
+                scrollX: "overflow-x-scroll",
+                scrollY: "overflow-y-scroll",
+                visibleX: "overflow-x-visible",
+                visibleY: "overflow-y-visible"
+            },
+            display: {
+                inline: "inline-flex",
+                flex: "flex"
+            },
+            direction: {
+                row: "flex-row",
+                column: "flex-col",
+                rowReverse: "flex-row-reverse",
+                columnReverse: "flex-col-reverse"
+            },
+            wrap: {
+                nowrap: "flex-nowrap",
+                wrap: "flex-wrap",
+                wrapReverse: "flex-wrap-reverse"
+            },
+            width: {
+                auto: "w-auto",
+                full: "w-full",
+                screen: "w-screen"
+            },
+            height: {
+                auto: "w-auto",
+                full: "h-full",
+                screen: "h-screen"
+            },
+            justify: {
+                start: "justify-start",
+                center: "justify-center",
+                end: "justify-end",
+                between: "justify-between",
+                around: "justify-around",
+                evenly: "justify-evenly"
+            },
+            items: {
+                start: "items-start",
+                center: "items-center",
+                end: "items-end",
+                stretch: "items-stretch",
+                baseline: "items-baseline",
+                normal: "items-normal"
+            },
+            align: {
+                left: "text-left",
+                right: "text-right",
+                center: "text-center",
+                justify: "text-justify"
+            },
             gap: {
                 auto: "gap-auto",
                 none: "gap-0",
@@ -100,6 +164,15 @@ const mainVariants = cva([],
             }
         },
         defaultVariants: {
+             overflow: "hidden",
+            display: "flex",
+            direction: "row",
+            wrap: "wrap",
+            width: "auto",
+            height: "auto",
+            justify: "center",
+            items: "center",
+            align: "left",
             gap: "none",
             gapX: "none",
             gapY: "none",
@@ -115,10 +188,10 @@ export interface MainProps extends React.HTMLAttributes<MainElement>, VariantPro
     asChild?: boolean
 }
 
-const Main = React.forwardRef<MainElement, MainProps>(({ className, gap, gapX, gapY, spacingX, spacingY, asChild = false, ...props }, ref) => {
+const Main = React.forwardRef<MainElement, MainProps>(({ className, overflow, display, direction, wrap, width, height, justify, items, align, gap, gapX, gapY, spacingX, spacingY, asChild = false, ...props }, ref) => {
     const Semantic = asChild ? Slot : "main"
     return (
-        <Semantic className={cn(mainVariants({ className, gap, gapX, gapY, spacingX, spacingY }))} ref={ref} {...props}/>
+        <Semantic className={cn(mainVariants({ className, overflow, display, direction, wrap, width, height, justify, items, align, gap, gapX, gapY, spacingX, spacingY }))} ref={ref} {...props}/>
     )
 })
 

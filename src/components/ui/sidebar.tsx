@@ -1,30 +1,30 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { Slot } from "@radix-ui/react-slot"
-import { VariantProps, cva } from "class-variance-authority"
-import { PanelLeft } from "lucide-react"
+import * as React from "react";
+import { Slot } from "@radix-ui/react-slot";
+import { VariantProps, cva } from "class-variance-authority";
+import { PanelLeft } from "lucide-react";
 
-import { useIsMobile } from "@/hooks/use-mobile"
-import { cn } from "@/lib/utils"
-import { Button } from "./button"
-import { Input } from "./input"
-import { Separator } from "./separator"
-import { Sheet, SheetContent } from "./sheet"
-import { Skeleton } from "./skeleton"
+import { useIsMobile } from "@/hooks/use-mobile";
+import { cn } from "@/lib/utils";
+import { Button } from "./button";
+import { Input } from "./input";
+import { Separator } from "./separator";
+import { Sheet, SheetClose, SheetContent } from "./sheet";
+import { Skeleton } from "./skeleton";
 import {
 	Tooltip,
 	TooltipContent,
 	TooltipProvider,
 	TooltipTrigger,
-} from "./tooltip"
+} from "./tooltip";
 
-const SIDEBAR_COOKIE_NAME = "sidebar:state"
-const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
-const SIDEBAR_WIDTH = "16rem"
-const SIDEBAR_WIDTH_MOBILE = "18rem"
-const SIDEBAR_WIDTH_ICON = "3rem"
-const SIDEBAR_KEYBOARD_SHORTCUT = "b"
+const SIDEBAR_COOKIE_NAME = "sidebar:state";
+const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
+const SIDEBAR_WIDTH = "16rem";
+const SIDEBAR_WIDTH_MOBILE = "18rem";
+const SIDEBAR_WIDTH_ICON = "3rem";
+const SIDEBAR_KEYBOARD_SHORTCUT = "b";
 
 type SidebarContext = {
 	state: "expanded" | "collapsed"
@@ -181,7 +181,7 @@ const Sidebar = React.forwardRef<
 			return (
 				<div
 					className={cn(
-						"flex h-full w-[--sidebar-width] flex-col bg-sidebar text-sidebar-foreground",
+						"flex h-full w-2/3 flex-col bg-surface text-sidebar-foreground",
 						className
 					)}
 					ref={ref}
@@ -195,10 +195,11 @@ const Sidebar = React.forwardRef<
 		if (isMobile) {
 			return (
 				<Sheet open={openMobile} onOpenChange={setOpenMobile} {...props}>
+					<SheetClose className="ml-auto"/>
 					<SheetContent
 						data-sidebar="sidebar"
 						data-mobile="true"
-						className="w-[--sidebar-width] bg-sidebar p-0 text-sidebar-foreground [&>button]:hidden"
+						className="w-2/3 bg-sidebar p-0 text-sidebar-foreground [&>button]:hidden"
 						style={
 							{
 								"--sidebar-width": SIDEBAR_WIDTH_MOBILE,
@@ -241,7 +242,7 @@ const Sidebar = React.forwardRef<
 						// Adjust the padding for floating and inset variants.
 						variant === "floating" || variant === "inset"
 							? "p-2 group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)_+_theme(spacing.4)_+2px)]"
-							: "group-data-[collapsible=icon]:w-[--sidebar-width-icon] group-data-[side=left]:border-r group-data-[side=right]:border-l",
+							: "group-data-[collapsible=icon]:w-[--sidebar-width-icon] group-data-[side=left]:border-r group-data-[side=left]:border-r-sidebar-border group-data-[side=right]:border-l group-data-[side=right]:border-l-sidebar-border",
 						className
 					)}
 					{...props}
@@ -271,7 +272,7 @@ const SidebarTrigger = React.forwardRef<
 			data-sidebar="trigger"
 			variant="text"
 			size="icon"
-			className={cn("h-7 w-7", className)}
+			className={cn([], className)}
 			onClick={(event) => {
 				onClick?.(event)
 				toggleSidebar()
@@ -322,7 +323,7 @@ const SidebarInset = React.forwardRef<
 		<main
 			ref={ref}
 			className={cn(
-				"relative flex min-h-svh flex-1 flex-col bg-background",
+				"relative flex min-h-svh flex-1 flex-col bg-surface",
 				"peer-data-[variant=inset]:min-h-[calc(100svh-theme(spacing.4))] md:peer-data-[variant=inset]:m-2 md:peer-data-[state=collapsed]:peer-data-[variant=inset]:ml-2 md:peer-data-[variant=inset]:ml-0 md:peer-data-[variant=inset]:rounded-xl md:peer-data-[variant=inset]:shadow",
 				className
 			)}
@@ -341,7 +342,7 @@ const SidebarInput = React.forwardRef<
 			ref={ref}
 			data-sidebar="input"
 			className={cn(
-				"h-8 w-full bg-background shadow-none focus-visible:ring-2 focus-visible:ring-sidebar-ring",
+				"h-8 w-full bg-surface shadow-none focus-visible:ring-2 focus-visible:ring-sidebar-ring",
 				className
 			)}
 			{...props}
@@ -518,7 +519,7 @@ const sidebarMenuButtonVariants = cva(
 			variant: {
 				default: "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
 				outline:
-					"bg-background shadow-[0_0_0_1px_hsl(var(--sidebar-border))] hover:bg-sidebar-accent hover:text-sidebar-accent-foreground hover:shadow-[0_0_0_1px_hsl(var(--sidebar-accent))]",
+					"bg-surface shadow-[0_0_0_1px_hsl(var(--sidebar-border))] hover:bg-sidebar-accent hover:text-sidebar-accent-foreground hover:shadow-[0_0_0_1px_hsl(var(--sidebar-accent))]",
 			},
 			size: {
 				default: "h-8 text-sm",

@@ -86,9 +86,9 @@ export default function MobileMenu() {
 			<Button
 				variant="outlined"
 				size="icon"
-				radius="large"
+				radius="medium"
 				onClick={toggleDrawer}
-				className="flex flex-col items-center justify-center p-2 gap-1.5 transition-opacity hover:opacity-100 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-secondary"
+				className="flex flex-col items-center justify-center p-2 gap-1.5 transition-opacity disabled:opacity-50 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-secondary"
 			>
 				<motion.span
 					className="block w-full h-0.5 bg-muted-foreground rounded-full"

@@ -28,7 +28,7 @@ const SheetOverlay = React.forwardRef<
 SheetOverlay.displayName = SheetPrimitive.Overlay.displayName
 
 const sheetVariants = cva(
-	"fixed z-50 gap-4 bg-background backdrop-blur supports-[backdrop-filter]:bg-background/90 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-300 data-[state=open]:animate-in data-[state=closed]:animate-out",
+	"fixed z-50 gap-4 bg-surface shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-300 data-[state=open]:animate-in data-[state=closed]:animate-out",
 	{
 		variants: {
 			side: {
@@ -66,7 +66,7 @@ const SheetHeader = ({
 }: React.HTMLAttributes<HTMLDivElement>) => (
 	<div
 		className={cn(
-			"flex flex-col text-left sm:text-left bg-background",
+			"flex flex-col text-left sm:text-left bg-surface",
 			className
 		)}
 		{...props}
@@ -80,7 +80,7 @@ const SheetFooter = ({
 }: React.HTMLAttributes<HTMLDivElement>) => (
 	<div
 		className={cn(
-			"flex flex-col-reverse bg-background",
+			"flex flex-col-reverse bg-surface",
 			className
 		)}
 		{...props}

@@ -89,7 +89,7 @@ export default function Hero() {
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-start md:text-center text-transparent tracking-normal leading-[1.1] bg-gradient-to-tl from-from via-via to-to bg-clip-text">
                         Reinforcing Brands with Minimalist Frontend{" "}<Cover>Solutions</Cover>
                     </h1>
-                    <p className="text-sm sm:text-base md:text-base lg:text-lg font-normal text-start md:text-center text-muted-foreground tracking-normal leading-[1.3] py-1 max-w-xl md:max-w-2xl">
+                    <p className="text-sm sm:text-base md:text-base lg:text-lg font-normal text-start md:text-center text-muted-foreground tracking-normal leading-[1.4] py-1 max-w-xl md:max-w-2xl">
                         Specialized in minimalist design, we create refined visuals that elevate your brand&apos;s presence with subtle strength and modern aesthetics.
                     </p>
                 </div>

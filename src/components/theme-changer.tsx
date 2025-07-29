@@ -43,32 +43,32 @@ export default function ThemeChanger() {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Button variant="outlined" size="icon" radius="large">
+                <Button variant={"tonal"} size={"icon"} radius={"medium"}>
                     <Icon />
                     <span className="sr-only">Toggle theme</span>
                 </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" defaultValue={theme}>
+            <DropdownMenuContent align={"end"} defaultValue={theme}>
                 <DropdownMenuItem
                     onClick={() => setTheme("light")}
                     aria-label="Light Theme"
                     aria-checked={resolvedTheme === "light" && theme !== "system"}
                     className={resolvedTheme === "light" && theme !== "system" ? "font-medium bg-muted/70 text-foreground" : ""}>
-                    <IconSun className="mr-2 h-4 w-4" /> Light
+                    <IconSun size={16} className="mr-2" /> Light
                 </DropdownMenuItem>
                 <DropdownMenuItem
                     onClick={() => setTheme("dark")}
                     aria-label="Dark Theme"
                     aria-checked={resolvedTheme === "dark" && theme !== "system"}
                     className={resolvedTheme === "dark" && theme !== "system" ? "font-medium bg-muted/70 text-foreground" : ""}>
-                    <IconMoonStars className="mr-2 h-4 w-4" /> Dark
+                    <IconMoonStars size={16} className="mr-2" /> Dark
                 </DropdownMenuItem>
                 <DropdownMenuItem
                     onClick={() => setTheme("system")}
                     aria-label="System Theme"
                     aria-checked={theme === "system"}
                     className={theme === "system" ? "font-medium bg-muted/70 text-foreground" : ""}>
-                    <IconDevices className="mr-2 h-4 w-4" /> System
+                    <IconDevices size={16} className="mr-2" /> System
                 </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>

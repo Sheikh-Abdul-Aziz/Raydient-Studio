@@ -1,23 +1,46 @@
 import "./style.css";
-import React from "react";
+import React, { ReactNode } from "react";
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/ui/theme-provider";
-import LayoutProvider from "@/components/layout-provider";
+import { LayoutProvider } from "@/components/layout-provider";
 import { fontPrimary } from "@/fonts/local";
 
 export const metadata: Metadata = {
 	title: "Raydient Studio",
-	description: "Specialized in minimalist design, we create refined visuals that elevate your brand's presence with subtle strength and modern aesthetics.",
+	description: "Premium Web Design Agency - Your Strategic Design Partner for AI, SaaS, Tech, and Startups.",
 	category: "technology",
 	creator: "Raydient Studio",
 	publisher: "Raydient Studio",
-	keywords: ["raydient", "raydient studio", "raydientstudio", "design", "minimalism", "branding"]
+	keywords: ["raydient", "raydient studio", "raydientstudio", "design", "minimalism", "branding"],
+	openGraph: {
+		images: [
+			{
+				url: "https://github.com/raydient-studio.png",
+				width: 1200,
+				height: 630,
+				alt: "Raydient Studio - Premium Web Design Agency"
+			}
+		],
+		title: "Raydient Studio",
+		description: "Premium Web Design Agency - Your Strategic Design Partner for AI, SaaS, Tech, and Startups.",
+		url: "https://raydientstudio.com",
+		type: "website",
+		siteName: "Raydient Studio"
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "Raydient Studio",
+		description: "Premium Web Design Agency - Your Strategic Design Partner for AI, SaaS, Tech, and Startups.",
+		creator: "@raydientstudio",
+		site: "@raydientstudio",
+		images: "https://github.com/raydient-studio.png"
+	}
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode; }) {
+export default function RootLayout({ children }: { children: ReactNode; }) {
 	return (
 		<html lang="en" suppressHydrationWarning suppressContentEditableWarning>
-			<body className={`${fontPrimary.className} antialiased `}>
+			<body className={`${fontPrimary.className} antialiased scroll-smooth scrollbar-hidden`}>
 				<ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
 					<LayoutProvider>
 						{children}

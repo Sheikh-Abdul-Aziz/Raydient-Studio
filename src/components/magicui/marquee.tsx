@@ -15,7 +15,7 @@ interface MarqueeProps extends ComponentPropsWithoutRef<"div"> {
 	 * Whether to pause the animation on hover
 	 * @default false
 	 */
-	pauseOnHover?: boolean;
+	pause?: boolean;
 	/**
 	 * Content to be displayed in the marquee
 	 */
@@ -33,45 +33,34 @@ interface MarqueeProps extends ComponentPropsWithoutRef<"div"> {
 }
 
 export function Marquee({
-  className,
-  reverse = false,
-  pauseOnHover = true,
-  children,
-  vertical = false,
-  repeat = 4,
-  ...props
+	className,
+	reverse = false,
+	pause = true,
+	children,
+	vertical = false,
+	repeat = 4,
+	...props
 }: MarqueeProps) {
-  return (
-    <div
-      {...props}
-      className={cn(
-        "group flex overflow-hidden p-2 [--duration:40s] [--gap:1rem] [gap:var(--gap)]",
-        {
-          "flex-row": !vertical,
-          "flex-col": vertical,
-        },
-        className
-      )}
-    >
-      {Array(repeat)
-        .fill(0)
-        .map((_, i) => (
-          <div
-            key={i}
-            className={cn(
-              "flex shrink-0 justify-around [gap:var(--gap)]",
-              {
-                "animate-marquee flex-row": !vertical,
-                "animate-marquee-reverse flex-row": !vertical && reverse,
-                "animate-marquee-vertical flex-col": vertical,
-                "animate-marquee-vertical-reverse flex-col": vertical && reverse,
-                "animation-play-state-paused": pauseOnHover,
-              }
-            )}
-          >
-            {children}
-          </div>
-        ))}
-    </div>
-  );
+	return (
+		<div {...props} className={cn(
+				"group flex overflow-hidden p-2 [--duration:40s] [--gap:1rem] [gap:var(--gap)]",
+				{
+					"flex-row": !vertical,
+					"flex-col": vertical,
+				},
+				className
+				)}>
+				{Array(repeat).fill(0).map((_, i) => (
+					<div key={i} className={cn("flex shrink-0 justify-around [gap:var(--gap)]", {
+						"animate-marquee flex-row": !vertical,
+						"animate-marquee-reverse flex-row": !vertical && reverse,
+						"animate-marquee-vertical flex-col": vertical,
+						"animate-marquee-vertical-reverse flex-col": vertical && reverse,
+						"animation-play-state-paused": pause,
+					})}>
+						{children}
+					</div>
+				))}
+		</div>
+	);
 }
