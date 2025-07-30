@@ -78,7 +78,7 @@ export default function Docs() {
 							</p>
 
 							<p>
-								Welcome to the centralized documentation hub of <code>Raydient Studio™</code>, your trusted remote-first premium design and frontend development agency. This portal serves as the authoritative source for all operational, legal, licensing, and service-related policies that govern our engagement with clients, partners, and third parties.
+								Welcome to the centralized documentation hub of Raydient Studio™, your trusted remote-first premium design and frontend development agency. This portal serves as the authoritative source for all operational, legal, licensing, and service-related policies that govern our engagement with clients, partners, and third parties.
 							</p>
 
 							<p>
@@ -86,7 +86,7 @@ export default function Docs() {
 							</p>
 
 							<p>
-								Whether you are a client, collaborator, or vendor, we strongly advise you to review the relevant documents before entering into any agreement, submitting a project request, or engaging in business with <code>Raydient Studio™</code>.
+								Whether you are a client, collaborator, or vendor, we strongly advise you to review the relevant documents before entering into any agreement, submitting a project request, or engaging in business with Raydient Studio™.
 							</p>
 
 							<h3 className="text-xl font-semibold mt-6">
@@ -98,7 +98,7 @@ export default function Docs() {
 							</p>
 
 							<p>
-								Your use of any <code>Raydient Studio™</code> services constitutes your full acceptance of the latest versions of these documents.
+								Your use of any Raydient Studio™ services constitutes your full acceptance of the latest versions of these documents.
 							</p>
 
 							<p>

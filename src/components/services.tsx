@@ -52,7 +52,7 @@ export default function Services() {
                             <IconSquareFilled size={12} className="text-foreground" />
                             <h3 className={`${fontMono.className} antialiased translate-y-px md:translate-y-0 text-xs font-medium tracking-tight leading-none items-center text-muted-foreground uppercase`}>Services</h3>
                         </div>
-                        <h2 className="text-xl font-medium text-foreground normal-case leading-[1.4]">Specialisng in Websites,{" "}<br className="md:hidden" />Products, and Brand Identity</h2>
+                        <h2 className="text-xl font-medium text-foreground normal-case leading-[1.4]">Experienced in Websites, Products,{" "}<br className="md:hidden" />and Brand Identity</h2>
                     </div>
                     <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 lg:gap-5 w-full h-auto">
                         {services.map((service) => (

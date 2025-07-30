@@ -47,7 +47,7 @@ export default function RecentProjects() {
                             <IconSquareFilled size={12} className="text-foreground" />
                             <h3 className={`${fontMono.className} antialiased translate-y-px md:translate-y-0 text-xs font-medium tracking-tight leading-none items-center text-muted-foreground uppercase`}>Recent Projects</h3>
                         </div>
-                        <h2 className="text-xl font-medium text-foreground normal-case leading-[1.3]">Take a Quick Look at our{" "}<br className="md:hidden" />Recent Branding Projects</h2>
+                        <h2 className="text-xl font-medium text-foreground normal-case leading-[1.3]">Take a Quick Look at our Recent{" "}<br className="md:hidden" />Branding Projects</h2>
                     </div>
                     <div className="flex flex-col md:flex-row justify-center items-center gap-6">
                         {projects.map((project) => (

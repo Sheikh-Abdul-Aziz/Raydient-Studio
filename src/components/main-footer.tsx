@@ -18,12 +18,12 @@ export default function MainFooter() {
         {
             title: "Solutions",
             links: [
-                { name: "Commercial", href: "/", external: false, icon: null },
-                { name: "Educational", href: "", external: false, icon: null },
+                { name: "Corporations", href: "/", external: false, icon: null },
                 { name: "Startups", href: "/", external: false, icon: null },
+                { name: "Individuals", href: "/", external: false, icon: null },
                 { name: "Processing", href: "/", external: false, icon: null },
                 { name: "Pricing", href: "/", external: false, icon: null },
-                { name: "Feedbacks", href: "/", external: false, icon: null },
+                { name: "Services", href: "/", external: false, icon: null },
                 { name: "Integrations", href: "/", external: false, icon: null }
             ],
         },
@@ -32,35 +32,35 @@ export default function MainFooter() {
             links: [
                 { name: "Development", href: "/", external: false, icon: null },
                 { name: "Agency", href: "/", external: false, icon: null },
-                { name: "Foundation", href: "/", external: false, icon: null },
-                { name: "Partners", href: "/", external: false, icon: null },
+                { name: "Foundation", href: "/docs/foundation", external: false, icon: null },
                 { name: "Commitment", href: "/", external: false, icon: null },
-                { name: "Brand Assets", href: "/", external: false, icon: null },
-                { name: "Testimonials", href: "/", external: false, icon: null }
+                { name: "Partners", href: "/docs/partnership-policy", external: false, icon: null },
+                { name: "Testimonials", href: "/", external: false, icon: null },
+                { name: "Brand Assets", href: "/docs/brand-assets", external: false, icon: null },
             ],
         },
         {
             title: "Community",
             links: [
-                { name: "Communities", href: "/", external: false, icon: null },
+                { name: "Communities", href: "https://medium.com/@raydientstudio", external: true, icon: null },
                 { name: "Events", href: "/", external: false, icon: null },
-                { name: "News", href: "/", external: false, icon: null },
-                { name: "FAQ's", href: "/", external: false, icon: null },
-                { name: "Support", href: "/", external: false, icon: null },
+                { name: "News", href: "https://x.com/raydientstudio", external: true, icon: null },
+                { name: "FAQ's", href: "#faqs", external: false, icon: null },
+                { name: "Support", href: "/docs/support", external: false, icon: null },
                 { name: "Careers", href: "/", external: false, icon: null },
-                { name: "Contact Us", href: "/", external: false, icon: null }
+                { name: "Contact Us", href: "/docs/contact-us", external: false, icon: null }
             ],
         },
         {
             title: "Resources",
             links: [
                 { name: "All Resources", href: "/", external: false, icon: null },
-                { name: "Docs", href: "/", external: false, icon: null },
-                { name: "Guides", href: "/", external: false, icon: null },
-                { name: "Help", href: "/", external: false, icon: null },
-                { name: "Licensing", href: "/", external: false, icon: null },
-                { name: "Blog", href: "/", external: false, icon: null },
-                { name: "Case Studies", href: "/", external: false, icon: null }
+                { name: "Docs", href: "/docs", external: false, icon: null },
+                { name: "Guides", href: "/docs/guide", external: false, icon: null },
+                { name: "Help", href: "/docs/help", external: false, icon: null },
+                { name: "Licensing", href: "/docs/end-user-license-agreement", external: false, icon: null },
+                { name: "Blog", href: "https://medium.com/@raydientstudio", external: true, icon: null },
+                { name: "Case Studies", href: "/docs/case-studies", external: false, icon: null }
             ],
         },
     ], []);
@@ -69,11 +69,11 @@ export default function MainFooter() {
         {
             title: "Quick Links",
             links: [
-                { name: "Privacy & Security", href: "/", external: false },
-                { name: "Terms & Conditions", href: "/", external: false },
-                { name: "Attributions", href: "/", external: false },
-                { name: "Legal", href: "/", external: false },
-                { name: "Opt-Out", href: "/", external: false },
+                { name: "Privacy & Security", href: "/docs/privacy-and-policy", external: false },
+                { name: "Terms & Conditions", href: "/docs/terms-and-conditions", external: false },
+                { name: "Attributions", href: "/docs/attributions", external: false },
+                { name: "Legal", href: "/docs/legal", external: false },
+                { name: "Opt-Out", href: "/docs/opt-out", external: false },
             ]
         }
     ], []);

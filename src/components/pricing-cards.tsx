@@ -9,23 +9,27 @@ import {
     IconCornerDownRight,
     IconFlameFilled,
     IconHeadset,
+    IconHourglassFilled,
     IconRosetteDiscountCheckFilled,
     IconSparkles,
     IconSquareCheckFilled,
     IconSquareFilled,
-    IconTopologyFullHierarchy,
-    IconTopologyStarRing2,
-    IconTopologyStarRing3,
+    IconTopologyRing,
+    IconTopologyStar,
+    IconTopologyStar2,
+    IconTopologyStar3,
 } from "@tabler/icons-react";
 
-// Icon mapping for easier reference
+
 const iconMap = {
-    fullHierarchy: <IconTopologyFullHierarchy size={16} />,
-    starRing2: <IconTopologyStarRing2 size={16} />,
-    starRing3: <IconTopologyStarRing3 size={16} />,
+    topology: <IconTopologyRing size={16} />,
+    topologyStar1: <IconTopologyStar size={16} />,
+    topologyStar2: <IconTopologyStar2 size={16} />,
+    topologyStar3: <IconTopologyStar3 size={16} />,
     sparkles: <IconSparkles size={12} />,
     flame: <IconFlameFilled size={12} />,
     rosette: <IconRosetteDiscountCheckFilled size={12} />,
+    hourglass: <IconHourglassFilled size={12} />,
     clock: <IconClockHour4 size={16} />,
     headset: <IconHeadset size={16} />,
 };
@@ -33,19 +37,20 @@ const iconMap = {
 const pricingData = [
     {
         id: 1,
-        icon: "fullHierarchy",
+        icon: "topology",
         title: "Basic Plan",
         squares: [
             { size: 14, className: "text-foreground" },
+            { size: 12, className: "text-ring/30" },
             { size: 12, className: "text-ring/30" },
             { size: 12, className: "text-ring/30" },
         ],
         description: "Best for individuals and small teams seeking professional design services to establish a strong online presence.",
         tagicon: "sparkles",
         tagline: "Starter",
-        price: "$99",
-        validity: "/Per month",
-        buttonLabel: "Get Started",
+        price: "$299",
+        validity: "/One time",
+        buttonLabel: "Start Your Project",
         benefitIcons: ["clock", "headset"],
         benefits: [
             "Project timeline: 1-2 weeks",
@@ -57,25 +62,26 @@ const pricingData = [
             "UI/UX design with responsive layouts",
             "Responsive design across all devices",
             "1 round of revisions included",
-            "Delivered in Figma",
+            "Delivered in Figma file",
             "Development available at additional cost",
         ],
     },
     {
         id: 2,
-        icon: "starRing2",
+        icon: "topologyStar1",
         title: "Standard Plan",
         squares: [
             { size: 12, className: "text-ring/30" },
             { size: 14, className: "text-foreground" },
             { size: 12, className: "text-ring/30" },
+            { size: 12, className: "text-ring/30" },
         ],
         description: "Best for medium-sized teams or startups looking to enhance their online presence and achieve their business goals.",
         tagicon: "flame",
         tagline: "Popular",
-        price: "$299",
-        validity: "/Per month",
-        buttonLabel: "Get Started",
+        price: "$599",
+        validity: "/One time",
+        buttonLabel: "Start Your Project",
         benefitIcons: ["clock", "headset"],
         benefits: [
             "Project timeline: 3-4 weeks",
@@ -88,24 +94,25 @@ const pricingData = [
             "Responsive design across all devices",
             "2 rounds of revisions included",
             "Design handoff with prototype",
-            "Optional: Front-end development available",
+            "Development available at additional cost",
         ],
     },
     {
         id: 3,
-        icon: "starRing3",
+        icon: "topologyStar2",
         title: "Premium Plan",
         squares: [
             { size: 12, className: "text-ring/30" },
             { size: 12, className: "text-ring/30" },
             { size: 14, className: "text-foreground" },
+            { size: 12, className: "text-ring/30" },
         ],
         description: "Best for large teams and corporations seeking comprehensive, enterprise-level design solutions, and advanced features.",
         tagicon: "rosette",
         tagline: "Valuable",
-        price: "$499",
-        validity: "/Per month",
-        buttonLabel: "Get Started",
+        price: "$1,099",
+        validity: "/One time",
+        buttonLabel: "Start Your Project",
         benefitIcons: ["clock", "headset"],
         benefits: [
             "Project timeline: 5-6 weeks",
@@ -117,8 +124,39 @@ const pricingData = [
             "UI/UX strategy with wireframing",
             "Responsive design across all devices",
             "Unlimited revisions (within agreed scope)",
-            "Full front-end development",
             "Basic on-page SEO implementation",
+            "Development available at additional cost",
+        ],
+    },
+    {
+        id: 4,
+        icon: "topologyStar3",
+        title: "Partnership Plan",
+        squares: [
+            { size: 12, className: "text-ring/30" },
+            { size: 12, className: "text-ring/30" },
+            { size: 12, className: "text-ring/30" },
+            { size: 14, className: "text-foreground" },
+        ],
+        description: "Best for those who need ongoing support, handle multiple projects, or have a flexible or undefined scope of work.",
+        tagicon: "hourglass",
+        tagline: "Limited",
+        price: "$4,999",
+        validity: "/Per month",
+        buttonLabel: "Start Your Project",
+        benefitIcons: ["clock", "headset"],
+        benefits: [
+            "Project timeline: 6-12 months",
+            "Priority Support",
+        ],
+        listTitle: "What you will get?",
+        features: [
+            "Dedicated Design Leadership",
+            "Senior UI/UX designer on-demand",
+            "Full-scope project management",
+            "Unlimited requests & refinements",
+            "Regular Updates and maintenance",
+            "Focused Workflow with weekly Syncs",
         ],
     },
 ];
@@ -144,7 +182,7 @@ export default function PricingCards() {
                             Unexpected Surprises
                         </h2>
                     </div>
-                    <div className="flex flex-col md:flex-row justify-start items-start w-full h-auto gap-6 lg:gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 w-full h-auto gap-6 lg:gap-8">
                         {plans.map((plan) => (
                             <div key={plan.id} className="flex flex-col relative overflow-hidden rounded-lg bg-surface text-card-foreground justify-start items-start shadow-none w-full">
                                 <div className="flex flex-row justify-start items-center w-auto h-5 absolute top-0 right-0 gap-x-1 px-2 py-2 rounded-bl-lg bg-foreground text-background">
@@ -155,7 +193,7 @@ export default function PricingCards() {
                                     <div className="flex flex-row justify-start items-center gap-x-1.5 w-auto h-6">
                                         <div className="flex justify-center items-center bg-foreground text-surface rounded-sm h-full px-1">{iconMap[plan.icon as keyof typeof iconMap]}</div>
                                         <div className="flex justify-center items-center border border-border rounded-sm h-full px-1.5">
-                                            <h3 className="font-semibold leading-[1.3] whitespace-nowrap tracking-tight text-xs uppercase translate-y-[0.5px] md:translate-y-0">{plan.title}</h3>
+                                            <h3 className="font-bold leading-[1.3] whitespace-nowrap tracking-tight text-xs uppercase translate-y-[0.5px] md:translate-y-0">{plan.title}</h3>
                                         </div>
                                     </div>
                                     <div className="flex flex-row justify-center items-center gap-x-1">
@@ -179,7 +217,7 @@ export default function PricingCards() {
                                 </div>
                                 <div className="flex flex-col justify-center items-center w-full h-auto gap-y-4 px-6">
                                     {plan.benefits && (
-                                        <ul className="w-full list-none px-0 mb-0">
+                                        <ul className="w-full list-none space-y-2">
                                             {plan.benefits.map((benefit, idx) => (
                                                 <li key={idx} className="flex flex-row gap-x-2 text-foreground items-center">
                                                     {iconMap[plan.benefitIcons[idx] as keyof typeof iconMap]}
@@ -188,7 +226,7 @@ export default function PricingCards() {
                                             ))}
                                         </ul>
                                     )}
-                                    <Separator orientation="horizontal" className="mt-4" />
+                                    <Separator orientation="horizontal" className="mt-2.5 h-[0.5px]" />
                                 </div>
                                 <div className="flex flex-col justify-start items-start w-full h-auto p-6 gap-y-4">
                                     <h4 className="text-sm font-bold tracking-tight uppercase text-foreground">{plan.listTitle}</h4>
@@ -196,7 +234,7 @@ export default function PricingCards() {
                                         {plan.features.map((feature, idx) => (
                                             <li key={idx} className="flex flex-row gap-x-2 items-center mb-4 last:mb-0">
                                                 <IconSquareCheckFilled size={18} className="text-success" />
-                                                <span className="text-sm text-muted-foreground whitespace-nowrap">{feature}</span>
+                                                <span className="text-sm text-muted-foreground">{feature}</span>
                                             </li>
                                         ))}
                                     </ul>

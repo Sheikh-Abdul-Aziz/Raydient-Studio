@@ -16,14 +16,13 @@ export default function WhyChooseUs() {
         },
         {
             id: 2,
-            title: "Fully Organised Team",
+            title: "Fully Dedicated Team",
             description: "You work with a dedicated team focused solely on your project. No juggling, no outsourcing.",
             icon: <IconUsersGroup strokeWidth={1.5} size={28} className="text-muted-foreground" />
-
         },
         {
             id: 3,
-            title: "Advanced Motion Design",
+            title: "Optimized Motion Design",
             description: "We create animations that explain, guide, and keep users engaged at every step of the journey.",
             icon: <IconLayersIntersect strokeWidth={1.5} size={28} className="text-muted-foreground" />
         },
@@ -44,11 +43,11 @@ export default function WhyChooseUs() {
                             <IconSquareFilled size={12} className="text-foreground" />
                             <h3 className={`${fontMono.className} antialiased translate-y-px md:translate-y-0 text-xs font-medium tracking-tight text-muted-foreground uppercase`}>Why Choose Us?</h3>
                         </div>
-                        <h2 className="text-xl font-medium text-foreground normal-case leading-[1.4]">The Design Partner{" "}<br className="md:hidden" />You&apos;ve Been Looking For</h2>
+                        <h2 className="text-xl font-medium text-foreground normal-case leading-[1.4]">The Design Partner You&apos;ve{" "}<br className="md:hidden" />Been Looking For</h2>
                     </div>
-                    <div className="flex flex-col md:flex-row justify-start items-start gap-3 lg:gap-5 w-full h-auto">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 lg:gap-5 w-full h-auto">
                         {items.map((item) => (
-                            <Card key={item.id} className="flex flex-col justify-start items-center shadow-none">
+                            <Card key={item.id} className="flex flex-col justify-start items-center shadow-none hover:bg-muted/80 active:bg-muted/80 transition-colors duration-170 ease-in-out cursor-pointer">
                                 <CardContent>
                                     {item.icon}
                                     <CardTitle>{item.title}</CardTitle>
