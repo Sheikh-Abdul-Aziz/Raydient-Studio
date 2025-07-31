@@ -3,10 +3,12 @@ import localFont from 'next/font/local'
 const Host_Grotesk = localFont({
   src: [
     {
-      path: './typeface/variable/Host-Grotesk.woff2'
+      path: './typeface/variable/Host-Grotesk.woff2',
+      style: 'normal'
     },
     {
-      path: './typeface/variable/Host-Grotesk.woff'
+      path: './typeface/variable/Host-Grotesk.woff',
+      style: 'normal'
     }
   ],
   variable: '--font-host-grotesk',
@@ -16,10 +18,12 @@ const Host_Grotesk = localFont({
 const Space_Grotesk = localFont({
   src: [
     {
-      path: './typeface/variable/Space-Grotesk.woff2'
+      path: './typeface/variable/Space-Grotesk.woff2',
+      style: 'normal'
     },
     {
-      path: './typeface/variable/Space-Grotesk.woff'
+      path: './typeface/variable/Space-Grotesk.woff',
+      style: 'normal'
     }
   ],
   variable: '--font-space-grotesk',
@@ -126,10 +130,12 @@ const Poppins = localFont({
 const JetBrains_Mono = localFont({
   src: [
     {
-      path: './typeface/variable/JetBrains-Mono.woff2'
+      path: './typeface/variable/JetBrains-Mono.woff2',
+      style: 'normal'
     },
     {
-      path: './typeface/variable/JetBrains-Mono.woff2'
+      path: './typeface/variable/JetBrains-Mono.woff',
+      style: 'normal'
     }
   ],
   variable: '--font-jetbrains-mono',
