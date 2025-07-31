@@ -89,7 +89,7 @@ export function CodeComparison({
         <div
           style={{ "--highlight-color": highlightColor } as React.CSSProperties}
           className={cn(
-            "h-full w-full overflow-auto bg-background font-mono text-xs",
+            "h-full w-full overflow-auto bg-background font-jetbrains-mono text-xs",
             "[&>pre]:h-full [&>pre]:!w-screen [&>pre]:py-2",
             "[&>pre>code]:!inline-block [&>pre>code]:!w-full",
             "[&>pre>code>span]:!inline-block [&>pre>code>span]:w-full [&>pre>code>span]:px-4 [&>pre>code>span]:py-0.5",
@@ -105,7 +105,7 @@ export function CodeComparison({
       );
     } else {
       return (
-        <pre className="h-full overflow-auto break-all bg-background p-4 font-mono text-xs text-foreground">
+        <pre className="h-full overflow-auto break-all bg-background p-4 font-jetbrains-mono text-xs text-foreground">
           {code}
         </pre>
       );

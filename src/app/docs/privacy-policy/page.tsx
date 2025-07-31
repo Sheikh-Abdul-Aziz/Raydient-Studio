@@ -136,6 +136,10 @@ export default function PrivacyPolicy() {
 
                 <h3 className="text-xl font-semibold mt-6">6. Cookies Policy</h3>
 
+                <p>
+                    We use cookies and similar tracking technologies to enhance user experience, improve website performance, and deliver relevant content.
+                </p>
+
                 <h4 className="font-semibold">6.1 What Are Cookies</h4>
                 <p>
                     Cookies are small text files stored on your device when you visit our site. They help us remember preferences, understand interactions, and ensure functionality.

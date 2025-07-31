@@ -2,9 +2,9 @@ import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
+import { Poppins } from "@/fonts/local";
 
-const buttonVariants = cva(
-    "inline-flex items-center justify-center text-center gap-x-2 whitespace-nowrap rounded-md text-sm font-normal font-accent leading-none tracking-normal transition-colors duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-transparent disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+const buttonVariants = cva(`${Poppins.className} antialiased inline-flex items-center justify-center text-center gap-x-2 whitespace-nowrap rounded-md text-sm font-normal leading-none tracking-normal transition-colors duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-transparent disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0`,
     {
         variants: {
             variant: {

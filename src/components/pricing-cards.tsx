@@ -3,7 +3,7 @@
 import React, { useMemo } from "react";
 import { Separator } from "./ui/separator";
 import { Button } from "./ui/button";
-import { fontMono } from "@/fonts/local";
+import { JetBrains_Mono } from "@/fonts/local";
 import {
     IconClockHour4,
     IconCornerDownRight,
@@ -110,7 +110,7 @@ const pricingData = [
         description: "Best for large teams and corporations seeking comprehensive, enterprise-level design solutions, and advanced features.",
         tagicon: "rosette",
         tagline: "Valuable",
-        price: "$1,099",
+        price: "$1,199",
         validity: "/One time",
         buttonLabel: "Start Your Project",
         benefitIcons: ["clock", "headset"],
@@ -141,7 +141,7 @@ const pricingData = [
         description: "Best for those who need ongoing support, handle multiple projects, or have a flexible or undefined scope of work.",
         tagicon: "hourglass",
         tagline: "Limited",
-        price: "$4,999",
+        price: "$5,199",
         validity: "/Per month",
         buttonLabel: "Start Your Project",
         benefitIcons: ["clock", "headset"],
@@ -172,7 +172,7 @@ export default function PricingCards() {
                     <div className="text-left justify-center items-start align-middle">
                         <div className="inline-flex flex-row items-center justify-start gap-x-1">
                             <IconSquareFilled size={12} className="text-foreground" />
-                            <h3 className={`${fontMono.className} antialiased translate-y-px md:translate-y-0 text-xs font-medium tracking-tight leading-none items-center text-muted-foreground uppercase`}>
+                            <h3 className={`${JetBrains_Mono.className} antialiased translate-y-px md:translate-y-0 text-xs font-medium tracking-tight leading-none items-center text-muted-foreground uppercase`}>
                                 Pricing
                             </h3>
                         </div>

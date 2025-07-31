@@ -12,6 +12,7 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from "./tooltip"
+import { Poppins } from "@/fonts/local"
 
 const MOBILE_MENU_COOKIE_NAME = "mobile-menu:state"
 const MOBILE_MENU_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
@@ -161,16 +162,15 @@ const MobileMenuGroupLabel = React.forwardRef<
             ref={ref}
             data-mobile-menu="group-label"
             className={cn(
-                "antialiased flex h-8 shrink-0 items-center rounded-md text-xs normal tracking-tight font-accent font-medium text-muted-foreground outline-none ring-ring transition-[margin,opa] duration-200 ease-linear focus-visible:ring-2 [&>svg]:size-4 [&>svg]:shrink-0",
-                "group-data-[collapsible=icon]:-mt-8 group-data-[collapsible=icon]:opacity-0",
+                `${Poppins.className} antialiased flex h-8 shrink-0 items-center rounded-md text-xs normal tracking-tight font-medium text-muted-foreground outline-none ring-ring transition-[margin,opacity] duration-200 ease-linear focus-visible:ring-2 [&>svg]:size-4 [&>svg]:shrink-0`,
+                `group-data-[collapsible=icon]:-mt-8 group-data-[collapsible=icon]:opacity-0`,
                 className
             )}
             {...props}
         />
     )
-
 })
-MobileMenuGroupLabel.displayName = "MobileMenuGroupLabel"
+MobileMenuGroupLabel.displayName = "MobileMenuGroupLabel";
 
 const MobileMenu = React.forwardRef<
     HTMLUListElement,
@@ -183,7 +183,7 @@ const MobileMenu = React.forwardRef<
         {...props}
     />
 ))
-MobileMenu.displayName = "MobileMenu"
+MobileMenu.displayName = "MobileMenu";
 
 const MobileMenuItem = React.forwardRef<
     HTMLLIElement,
@@ -196,7 +196,7 @@ const MobileMenuItem = React.forwardRef<
         {...props}
     />
 ))
-MobileMenuItem.displayName = "MobileMenuItem"
+MobileMenuItem.displayName = "MobileMenuItem";
 
 const mobileMenuButtonVariants = cva(
     "peer/menu-button flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-left text-sm outline-none ring-ring transition-[width,height,padding,color] duration-170 ease-in-out bg-transparent text-muted-foreground hover:bg-accent hover:text-accent-foreground focus-visible:ring-2 active:bg-accent active:text-accent-foreground disabled:pointer-events-none disabled:opacity-50 group-has-[[data-mobile-menu=menu-action]]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-mobile-menu-accent data-[active=true]:font-medium data-[active=true]:text-mobile-menu-accent-foreground data-[state=open]:hover:bg-accent data-[state=open]:hover:text-accent-foreground group-data-[collapsible=icon]:!size-8 group-data-[collapsible=icon]:!p-2 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0",
@@ -249,7 +249,7 @@ const MobileMenuAction = React.forwardRef<
         />
     )
 })
-MobileMenuAction.displayName = "MobileMenuAction"
+MobileMenuAction.displayName = "MobileMenuAction";
 
 const MobileMenuButton = React.forwardRef<
     HTMLButtonElement,
@@ -308,7 +308,7 @@ const MobileMenuButton = React.forwardRef<
         )
     }
 )
-MobileMenuButton.displayName = "MobileMenuButton"
+MobileMenuButton.displayName = "MobileMenuButton";
 
 const MobileMenuSubButton = React.forwardRef<
     HTMLAnchorElement,
@@ -347,7 +347,7 @@ const MobileMenuSubButton = React.forwardRef<
         />
     )
 })
-MobileMenuSubButton.displayName = "MobileMenuSubButton"
+MobileMenuSubButton.displayName = "MobileMenuSubButton";
 
 const MobileMenuSub = React.forwardRef<
     HTMLUListElement,
@@ -396,7 +396,7 @@ const MobileMenuSub = React.forwardRef<
         </ul>
     )
 })
-MobileMenuSub.displayName = "MobileMenuSub"
+MobileMenuSub.displayName = "MobileMenuSub";
 
 // Removed `MobileMenuSubItem` export as it doesn't exist
 export {

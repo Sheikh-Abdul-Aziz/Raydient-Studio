@@ -91,7 +91,7 @@ export default function Hero() {
                     </Status>
                     <FlexLayout display={"flex"} direction={"col"} justify={{ initial: "start", medium: "center" }} items={{ initial: "start", medium: "center" }} maxWidth={"7xl"} gapY={2} marginX={"auto"}>
                         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-start md:text-center text-transparent tracking-normal leading-[1.1] bg-gradient-to-tl from-from via-via to-to bg-clip-text">
-                            Reinforcing Brands With Minimalist Frontend{" "}<Cover>Solutions</Cover>
+                            Reinforcing Brands with Minimalist Frontend{" "}<Cover>Solutions</Cover>
                         </h1>
                         <p className="text-sm sm:text-base md:text-base lg:text-lg font-normal text-start md:text-center text-muted-foreground tracking-normal leading-[1.4] py-1 max-w-xl md:max-w-2xl">
                             Specialized in minimalist design, we create refined visuals that elevate your brand&apos;s presence with subtle strength and modern aesthetics.

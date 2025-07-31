@@ -5,12 +5,6 @@
 
 /* This is the default root theme */
 :root {
-  /* Fonts */
-  --host-grotesk: 'Host Grotesk', sans-serif;
-  --space-grotesk: 'Space Grotesk', sans-serif;
-  --poppins: 'Poppins', sans-serif;
-  --jetbrains-mono: 'JetBrains Mono', monospace;
-
   /* Heading Gradient */
   --from: oklch(0.55 0.01 286.375);
   --via: oklch(0.37 0.01 286.375);
@@ -118,12 +112,6 @@
 
 /* Define CSS variables for the theme */
 @theme {
-  /* Fonts */
-  --font-primary: var(--host-grotesk);
-  --font-secondary: var(--space-grotesk);
-  --font-accent: var(--poppins);
-  --font-mono: var(--jetbrains-mono);
-
   /* Heading Gradient */
   --color-from: var(--from);
   --color-via: var(--via);
@@ -277,7 +265,7 @@
   body {
     @apply bg-background text-foreground;
     min-height: 100vh;
-    font-family: var(--font-primary, sans-serif);
+    font-family: var(--font-host-grotesk, sans-serif);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -295,8 +283,11 @@
     user-select: none;
   }
 
-  code, pre, kbd, samp {
-    @apply font-mono;
-    font-family: var(--font-mono, monospace);
+  code,
+  pre,
+  kbd,
+  samp {
+    @apply font-jetbrains-mono;
+    font-family: var(--font-jetbrains-mono, monospace);
   }
 }

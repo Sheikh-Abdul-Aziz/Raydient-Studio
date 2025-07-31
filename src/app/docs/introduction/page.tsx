@@ -34,7 +34,7 @@ const policies = [
 	},
 	{
 		title: "Cookie Policy:",
-		description: "We use cookies and smiliar tracking technologies to enhance user experience, improve website performance, and provide relevant content.",
+		description: "We use cookies and similar tracking technologies to enhance user experience, improve website performance, and provide relevant content.",
 	},
 	{
 		title: "Refund and Replacement Policy:",

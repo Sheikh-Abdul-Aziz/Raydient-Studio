@@ -22,7 +22,7 @@ export function LayoutProvider({ children }: { children: ReactNode; }) {
     return (
         <>
             {isDocsPage ? null : <Header />}
-            {isDocsPage ? <Main display={"flex"} direction={"column"} justify={"start"} items={"start"} className="bg-surface"> {/* Main for docs pages */} {children} </Main> : <Main display={"flex"} direction={"column"} justify={"start"} items={"start"} className="bg-background"> {/* Main for non-docs pages */} {children} </Main>}
+            {isDocsPage ? <Main display={"flex"} direction={"column"} justify={"center"} items={"start"} className="bg-surface"> {/* Main for docs pages */} {children} </Main> : <Main display={"flex"} direction={"column"} justify={"center"} items={"start"} className="bg-background"> {/* Main for non-docs pages */} {children} </Main>}
             {isBriefFooter ? <BriefFooter /> : <MainFooter />}
         </>
     );

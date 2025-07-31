@@ -124,11 +124,21 @@ export default function Docs() {
 								<IconCopy />
 								Copy Docs
 							</Button>
-							<FlexLayout direction={"row"} marginLeft={"auto"} spaceX={2}>
+							<FlexLayout display={{initial: "flex", medium: "hidden"}} direction={"row"} marginLeft={"auto"} spaceX={2}>
 								<RouterButton onClick={() => navigateTo("/")} variant="tonal" size="icon" radius="medium">
 									<IconChevronLeft />
 								</RouterButton>
 								<RouterButton onClick={() => navigateTo("/docs/introduction")} variant="tonal" size="icon" radius="medium">
+									<IconChevronRight />
+								</RouterButton>
+							</FlexLayout>
+							<FlexLayout display={{initial: "hidden", medium: "flex"}} direction={"row"} marginLeft={"auto"} spaceX={2}>
+								<RouterButton onClick={() => navigateTo("/")} variant="tonal" size="icon" radius="medium">
+									<IconChevronLeft />
+									Previous
+								</RouterButton>
+								<RouterButton onClick={() => navigateTo("/docs/introduction")} variant="tonal" size="icon" radius="medium">
+									Next
 									<IconChevronRight />
 								</RouterButton>
 							</FlexLayout>

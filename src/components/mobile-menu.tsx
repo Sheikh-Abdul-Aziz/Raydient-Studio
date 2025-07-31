@@ -10,6 +10,7 @@ import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
 import { MobileNavigation } from "./mobile-navigation";
 import { Label } from "./ui/label";
+import { Poppins } from "@/fonts/local";
 
 const data = {
 	user: {
@@ -30,20 +31,21 @@ const data = {
 	},
 	navigationMenu: [
 		{ title: "Home", url: "/" },
-		{ title: "About", url: "/about" },
+		{ title: "Docs", url: "/docs" },
 		{ title: "Projects", url: "/projects" },
 	],
 	projectsMenu: [
 		{
-			title: "All Projects",
+			title: "All Categories",
 			id: "id1",
 			url: "#",
 			icon: IconLayoutGrid,
 			isActive: false,
 			items: [
-				{ id: "web-designs", title: "Web designs", url: "#" },
-				{ id: "mobile-designs", title: "Mobile designs", url: "#" },
-				{ id: "web-development", title: "Web development", url: "#" },
+				{ id: "web-designs", title: "Website Design", url: "#" },
+				{ id: "ui-ux-designs", title: "UI/UX Design", url: "#" },
+				{ id: "product-designs", title: "Product Design", url: "#" },
+				{ id: "web-development", title: "Frontend Development", url: "#" },
 			],
 		},
 		{
@@ -132,7 +134,7 @@ export default function MobileMenu() {
 							</Button>
 						</div>
 
-						<Label className="text-xs font-medium font-accent tracking-tight normal text-muted-foreground mt-4">
+						<Label className={`${Poppins.className} antialiased text-xs font-medium tracking-tight normal text-muted-foreground mt-4`}>
 							Settings
 						</Label>
 

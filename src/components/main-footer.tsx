@@ -10,7 +10,7 @@ import { Wrapper } from "./semantic/wrapper";
 import { Section } from "./semantic/section";
 import { Container } from "./semantic/container";
 import { GridLayout } from "./layout/grid-layout";
-import { fontSecondary, fontMono } from "@/fonts/local";
+import { Space_Grotesk, JetBrains_Mono } from "@/fonts/local";
 
 export default function MainFooter() {
 
@@ -95,8 +95,8 @@ export default function MainFooter() {
                 <Container distance={5}>
                     <Wrapper gapX={"none"} gapY={4} className="flex flex-col max-w-7xl mx-auto">
                         <div className="flex flex-col items-center justify-center text-center bg-foreground p-8 gap-y-1 rounded-lg">
-                            <h2 className={`${fontSecondary.className} antialiased text-surface text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gap-y-4`}>Raydient Studio</h2>
-                            <p className={`${fontSecondary.className} antialiased text-muted tracking-tight text-xs sm:text-sm md:text-base lg:text-lg font-normal uppercase`}>Brand Design Agency</p>
+                            <h2 className={`${Space_Grotesk.className} antialiased text-surface text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gap-y-4`}>Raydient Studio</h2>
+                            <p className={`${Space_Grotesk.className} antialiased text-muted tracking-tight text-xs sm:text-sm md:text-base lg:text-lg font-normal uppercase`}>Brand Design Agency</p>
                         </div>
                         {/* Quick Links */}
                         <GridLayout display={"grid"} gapX={"none"} gapY={6} className="grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4">
@@ -104,7 +104,7 @@ export default function MainFooter() {
                                 <div key={section.title} className="border border-border border-solid px-4 py-4 rounded-lg">
                                     <div className="flex flex-row items-center justify-start gap-x-1 mb-2">
                                         <IconSquareFilled size={14} className="text-foreground" />
-                                        <h4 className={`${fontMono.className} antialiased translate-y-px md:translate-y-0 text-base tracking-tight leading-none font-bold uppercase text-foreground items-center`}>{section.title}</h4>
+                                        <h4 className={`${JetBrains_Mono.className} antialiased translate-y-px md:translate-y-0 text-base tracking-tight leading-none font-bold uppercase text-foreground items-center`}>{section.title}</h4>
                                     </div>
                                     <ul className="space-y-2 text-sm normal">
                                         {section.links.map(({ name, href, external, icon }) => (

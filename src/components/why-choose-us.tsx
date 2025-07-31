@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Card, CardContent, CardDescription, CardTitle } from "./ui/card";
-import { fontMono } from "@/fonts/local";
+import { JetBrains_Mono } from "@/fonts/local";
 import { IconLayersIntersect, IconSquareFilled, IconUsersGroup, IconWand, IconWriting } from "@tabler/icons-react";
 
 export default function WhyChooseUs() {
@@ -41,7 +41,7 @@ export default function WhyChooseUs() {
                     <div className="text-left justify-center items-start align-middle">
                         <div className="inline-flex flex-row items-center justify-start gap-x-1">
                             <IconSquareFilled size={12} className="text-foreground" />
-                            <h3 className={`${fontMono.className} antialiased translate-y-px md:translate-y-0 text-xs font-medium tracking-tight text-muted-foreground uppercase`}>Why Choose Us?</h3>
+                            <h3 className={`${JetBrains_Mono.className} antialiased translate-y-px md:translate-y-0 text-xs font-medium tracking-tight text-muted-foreground uppercase`}>Why Choose Us?</h3>
                         </div>
                         <h2 className="text-xl font-medium text-foreground normal-case leading-[1.4]">The Design Partner You&apos;ve{" "}<br className="md:hidden" />Been Looking For</h2>
                     </div>

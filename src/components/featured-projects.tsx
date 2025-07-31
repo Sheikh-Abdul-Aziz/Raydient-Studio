@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardTitle } from "./ui/card";
 import { Button } from "./ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { ArrowRight, Globe } from "lucide-react";
-import { fontMono } from "@/fonts/local";
+import { JetBrains_Mono } from "@/fonts/local";
 import { IconSquareFilled } from "@tabler/icons-react";
 
 export default function FeaturedProjects() {
@@ -44,7 +44,7 @@ export default function FeaturedProjects() {
                     <div className="text-left justify-center items-start align-middle">
                         <div className="inline-flex flex-row items-center justify-start gap-x-1">
                             <IconSquareFilled size={12} className="text-foreground" />
-                            <h3 className={`${fontMono.className} antialiased translate-y-px md:translate-y-0 text-xs font-medium tracking-tight text-muted-foreground uppercase`}>Featured Projects</h3>
+                            <h3 className={`${JetBrains_Mono.className} antialiased translate-y-px md:translate-y-0 text-xs font-medium tracking-tight text-muted-foreground uppercase`}>Featured Projects</h3>
                         </div>
                         <h2 className="text-xl font-medium text-foreground normal-case leading-[1.3]">Featuring our Latest Designs{" "}<br className="md:hidden" />and Brand Solutions</h2>
                     </div>

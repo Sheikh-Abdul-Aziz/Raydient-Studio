@@ -3,7 +3,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import { Card, CardContent, CardDescription, CardTitle } from "./ui/card";
-import { fontMono } from "@/fonts/local";
+import { JetBrains_Mono } from "@/fonts/local";
 import { IconContract, IconDevicesCode, IconPaint, IconSquareFilled, IconVector } from "@tabler/icons-react";
 
 export default function Services() {
@@ -50,9 +50,9 @@ export default function Services() {
                     <div className="text-left justify-center items-start align-middle">
                         <div className="inline-flex flex-row items-center justify-start gap-x-1">
                             <IconSquareFilled size={12} className="text-foreground" />
-                            <h3 className={`${fontMono.className} antialiased translate-y-px md:translate-y-0 text-xs font-medium tracking-tight leading-none items-center text-muted-foreground uppercase`}>Services</h3>
+                            <h3 className={`${JetBrains_Mono.className} antialiased translate-y-px md:translate-y-0 text-xs font-medium tracking-tight leading-none items-center text-muted-foreground uppercase`}>Services</h3>
                         </div>
-                        <h2 className="text-xl font-medium text-foreground normal-case leading-[1.4]">Experienced in Websites, Products,{" "}<br className="md:hidden" />and Brand Identity</h2>
+                        <h2 className="text-xl font-medium text-foreground normal-case leading-[1.4]">Expertise in Websites, Products,{" "}<br className="md:hidden" />and Brand Identity</h2>
                     </div>
                     <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 lg:gap-5 w-full h-auto">
                         {services.map((service) => (

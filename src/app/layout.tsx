@@ -3,7 +3,7 @@ import React, { ReactNode } from "react";
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import { LayoutProvider } from "@/components/layout-provider";
-import { fontPrimary } from "@/fonts/local";
+import { Host_Grotesk } from "@/fonts/local";
 
 export const metadata: Metadata = {
 	title: "Raydient Studio",
@@ -12,6 +12,9 @@ export const metadata: Metadata = {
 	creator: "Raydient Studio",
 	publisher: "Raydient Studio",
 	keywords: ["raydient", "raydient studio", "raydientstudio", "design", "minimalism", "branding"],
+	icons: {
+		icon: "/favicon.ico"
+	},
 	openGraph: {
 		images: [
 			{
@@ -40,7 +43,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode; }) {
 	return (
 		<html lang="en" suppressHydrationWarning suppressContentEditableWarning>
-			<body className={`${fontPrimary.className} antialiased scroll-smooth scrollbar-hidden`}>
+			<body className={`${Host_Grotesk.className} antialiased scroll-smooth scrollbar-hidden`}>
 				<ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
 					<LayoutProvider>
 						{children}
