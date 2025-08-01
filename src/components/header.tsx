@@ -58,7 +58,7 @@ const Header = () => {
                     {/* Avatar */}
                     <div className="hidden lg:flex">
                         <Avatar className="w-8 h-8 border border-border rounded-full">
-                            <AvatarImage src="https://github.com/sheikh-abdul-aziz.png" />
+                            <AvatarImage src="https://github.com/sheikh-abdul-aziz.png" alt="alt" />
                             <AvatarFallback>SA</AvatarFallback>
                         </Avatar>
                     </div>

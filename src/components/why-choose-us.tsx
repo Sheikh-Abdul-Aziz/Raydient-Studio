@@ -2,8 +2,17 @@
 
 import React from "react";
 import { Card, CardContent, CardDescription, CardTitle } from "./ui/card";
-import { JetBrains_Mono } from "@/fonts/local";
-import { IconLayersIntersect, IconSquareFilled, IconUsersGroup, IconWand, IconWriting } from "@tabler/icons-react";
+import { IconLayersIntersect, IconUsersGroup, IconWand, IconWriting } from "@tabler/icons-react";
+import SectionHeader from "./section-header";
+
+const info = {
+    title: "WHY CHOOSE US?",
+    subtitle: (
+        <>
+            The Design Partner You&apos;ve{" "}<br className="md:hidden" />Been Looking For
+        </>
+    ),
+};
 
 export default function WhyChooseUs() {
 
@@ -38,13 +47,7 @@ export default function WhyChooseUs() {
         <div className="w-full h-auto px-0 py-8">
             <div className="w-full h-auto px-4 py-0">
                 <div className="flex flex-col justify-center items-start text-left gap-y-6 left-0 right-0 max-w-7xl mx-auto">
-                    <div className="text-left justify-center items-start align-middle">
-                        <div className="inline-flex flex-row items-center justify-start gap-x-1">
-                            <IconSquareFilled size={12} className="text-foreground" />
-                            <h3 className={`${JetBrains_Mono.className} antialiased translate-y-px md:translate-y-0 text-xs font-medium tracking-tight text-muted-foreground uppercase`}>Why Choose Us?</h3>
-                        </div>
-                        <h2 className="text-xl font-medium text-foreground normal-case leading-[1.4]">The Design Partner You&apos;ve{" "}<br className="md:hidden" />Been Looking For</h2>
-                    </div>
+                    <SectionHeader info={info} />
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 lg:gap-5 w-full h-auto">
                         {items.map((item) => (
                             <Card key={item.id} className="flex flex-col justify-start items-center shadow-none hover:bg-muted/80 active:bg-muted/80 transition-colors duration-170 ease-in-out cursor-pointer">

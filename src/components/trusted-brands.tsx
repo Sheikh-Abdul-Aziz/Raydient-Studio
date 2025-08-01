@@ -25,13 +25,18 @@ export default function TrustedBrands() {
         <div>
             <InfiniteScroll
                 items={items}
-                isTilted={true}
-                tiltDirection='left'
+                isTilted={false}
+                width="100%"
+                
+                scrollDirection="horizontal"
+                isReverse={true}
+                isIntervention={true}
                 autoplay={true}
-                autoplaySpeed={0.1}
-                autoplayDirection={"down"}
+                autoplaySpeed={3}
+                autoplayDirection="right"
                 pauseOnHover={true}
             />
+
         </div>
     );
 }

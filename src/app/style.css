@@ -257,9 +257,6 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
-    scrollbar-width: none;
-    overflow: auto;
-    -ms-overflow-style: none;
   }
 
   body {

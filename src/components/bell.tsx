@@ -30,7 +30,7 @@ export default function Bell() {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Button variant="outlined" size="icon" radius="medium" className="data-[state=open]:bg-secondary data-[state=open]:text-secondary-foreground">
+                <Button aria-label="notifications" variant="outlined" size="icon" radius="medium" className="data-[state=open]:bg-secondary data-[state=open]:text-secondary-foreground">
                     <BellIcon />
                     <span className="sr-only">Toggle theme</span>
                 </Button>

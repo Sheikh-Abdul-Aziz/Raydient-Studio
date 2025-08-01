@@ -79,14 +79,14 @@ export default function MainFooter() {
     ], []);
 
     const socialLinks = useMemo(() => [
-        { href: "https://www.instagram.com/raydientstudio", icon: <IconBrandInstagram /> },
-        { href: "https://www.threads.net/@raydientstudio", icon: <IconBrandThreads /> },
-        { href: "https://x.com/raydientstudio", icon: <IconBrandX /> },
-        { href: "https://discord.gg/JjXJ2UZnDX", icon: <IconBrandDiscord /> },
-        { href: "https://medium.com/@raydientstudio", icon: <IconBrandMedium /> },
-        { href: "https://dribbble.com/raydientstudio", icon: <IconBrandDribbble /> },
-        { href: "https://www.behance.net/raydientstudio", icon: <IconBrandBehance /> },
-        { href: "mailto:hello@raydientstudio.com", icon: <IconMail /> }
+        { href: "https://www.instagram.com/raydientstudio", icon: <IconBrandInstagram />, label: "instagram" },
+        { href: "https://www.threads.net/@raydientstudio", icon: <IconBrandThreads />, label: "threads" },
+        { href: "https://x.com/raydientstudio", icon: <IconBrandX />, label: "x" },
+        { href: "https://discord.gg/JjXJ2UZnDX", icon: <IconBrandDiscord />, label:"discord" },
+        { href: "https://medium.com/@raydientstudio", icon: <IconBrandMedium />, label: "medium" },
+        { href: "https://dribbble.com/raydientstudio", icon: <IconBrandDribbble />, label: "dribbble" },
+        { href: "https://www.behance.net/raydientstudio", icon: <IconBrandBehance />, label: "behance" },
+        { href: "mailto:hello@raydientstudio.com", icon: <IconMail />, label: "email" }
     ], []);
 
     return (
@@ -104,7 +104,7 @@ export default function MainFooter() {
                                 <div key={section.title} className="border border-border border-solid px-4 py-4 rounded-lg">
                                     <div className="flex flex-row items-center justify-start gap-x-1 mb-2">
                                         <IconSquareFilled size={14} className="text-foreground" />
-                                        <h4 className={`${JetBrains_Mono.className} antialiased translate-y-px md:translate-y-0 text-base tracking-tight leading-none font-bold uppercase text-foreground items-center`}>{section.title}</h4>
+                                        <h3 className={`${JetBrains_Mono.className} antialiased translate-y-px md:translate-y-0 text-base tracking-tight leading-none font-bold uppercase text-foreground items-center`}>{section.title}</h3>
                                     </div>
                                     <ul className="space-y-2 text-sm normal">
                                         {section.links.map(({ name, href, external, icon }) => (
@@ -130,9 +130,9 @@ export default function MainFooter() {
                         <div className="flex flex-col gap-y-4">
                             <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-2 text-sm border border-border border-solid p-4 rounded-lg">
                                 <div className="flex flex-wrap justify-center md:justify-start gap-2">
-                                    {socialLinks.map(({ href, icon }) => (
+                                    {socialLinks.map(({ href, icon, label }) => (
                                         <Link key={href} href={href}>
-                                            <Button variant="outlined" size="social" radius="large">{icon}</Button>
+                                            <Button aria-label={label} variant="outlined" size="social" radius="large">{icon}</Button>
                                         </Link>
                                     ))}
                                 </div>

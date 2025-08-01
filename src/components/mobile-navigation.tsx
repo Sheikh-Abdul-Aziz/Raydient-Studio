@@ -75,7 +75,7 @@ export function MobileNavigation({
                                 <CollapsibleTrigger asChild>
                                     <MobileMenuButton tooltip={item.title} onClick={() => handleMenuToggle(item.title)}>
                                         {item.icon && <item.icon />}
-                                        <Label>{item.title}</Label>
+                                        <span className="text-sm font-normal text-foreground/80 leading-none">{item.title}</span>
                                         <IconChevronRight
                                             className={`ml-auto transition-transform duration-200 ${
                                                 activeMenu === item.title
@@ -90,7 +90,7 @@ export function MobileNavigation({
                                         {item.items?.map((subItem) => (
                                             <MobileMenuSubButton asChild key={subItem.id}>
                                                 <Link href={subItem.url}>
-                                                    <Label>{subItem.title}</Label>
+                                                    <span className="text-sm font-normal text-foreground/80 leading-none">{subItem.title}</span>
                                                 </Link>
                                             </MobileMenuSubButton>
                                         ))}

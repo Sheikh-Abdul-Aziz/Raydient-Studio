@@ -3,7 +3,6 @@
 import React, { useMemo } from "react";
 import { Separator } from "./ui/separator";
 import { Button } from "./ui/button";
-import { JetBrains_Mono } from "@/fonts/local";
 import {
     IconClockHour4,
     IconCornerDownRight,
@@ -19,7 +18,18 @@ import {
     IconTopologyStar2,
     IconTopologyStar3,
 } from "@tabler/icons-react";
+import SectionHeader from "./section-header";
 
+const info = {
+    title: "PRICING",
+    subtitle: (
+        <>
+            Pricing Transparency Without{" "}
+            <br className="md:hidden" />
+            Unexpected Surprises
+        </>
+    ),
+};
 
 const iconMap = {
     topology: <IconTopologyRing size={16} />,
@@ -169,31 +179,19 @@ export default function PricingCards() {
         <div className="w-full h-auto px-0 py-8">
             <div className="w-full h-auto px-4 py-0">
                 <div className="flex flex-col justify-center items-start text-left gap-y-6 left-0 right-0 max-w-7xl mx-auto">
-                    <div className="text-left justify-center items-start align-middle">
-                        <div className="inline-flex flex-row items-center justify-start gap-x-1">
-                            <IconSquareFilled size={12} className="text-foreground" />
-                            <h3 className={`${JetBrains_Mono.className} antialiased translate-y-px md:translate-y-0 text-xs font-medium tracking-tight leading-none items-center text-muted-foreground uppercase`}>
-                                Pricing
-                            </h3>
-                        </div>
-                        <h2 className="text-xl font-medium text-foreground normal-case leading-[1.3]">
-                            Pricing Transparency Without{" "}
-                            <br className="md:hidden" />
-                            Unexpected Surprises
-                        </h2>
-                    </div>
+                    <SectionHeader info={info} />
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 w-full h-auto gap-6 lg:gap-8">
                         {plans.map((plan) => (
                             <div key={plan.id} className="flex flex-col relative overflow-hidden rounded-lg bg-surface text-card-foreground justify-start items-start shadow-none w-full">
                                 <div className="flex flex-row justify-start items-center w-auto h-5 absolute top-0 right-0 gap-x-1 px-2 py-2 rounded-bl-lg bg-foreground text-background">
                                     {iconMap[plan.tagicon as keyof typeof iconMap]}
-                                    <h6 className="text-[10px] font-medium tracking-tight leading-none uppercase">{plan.tagline}</h6>
+                                    <h4 className="text-[10px] font-medium tracking-tight leading-none uppercase">{plan.tagline}</h4>
                                 </div>
                                 <div className="flex flex-row justify-between items-start p-6 mt-4 w-full">
                                     <div className="flex flex-row justify-start items-center gap-x-1.5 w-auto h-6">
                                         <div className="flex justify-center items-center bg-foreground text-surface rounded-sm h-full px-1">{iconMap[plan.icon as keyof typeof iconMap]}</div>
                                         <div className="flex justify-center items-center border border-border rounded-sm h-full px-1.5">
-                                            <h3 className="font-bold leading-[1.3] whitespace-nowrap tracking-tight text-xs uppercase translate-y-[0.5px] md:translate-y-0">{plan.title}</h3>
+                                            <h5 className="font-bold leading-[1.3] whitespace-nowrap tracking-tight text-xs uppercase translate-y-[0.5px] md:translate-y-0">{plan.title}</h5>
                                         </div>
                                     </div>
                                     <div className="flex flex-row justify-center items-center gap-x-1">
@@ -229,7 +227,7 @@ export default function PricingCards() {
                                     <Separator orientation="horizontal" className="mt-2.5 h-[0.5px]" />
                                 </div>
                                 <div className="flex flex-col justify-start items-start w-full h-auto p-6 gap-y-4">
-                                    <h4 className="text-sm font-bold tracking-tight uppercase text-foreground">{plan.listTitle}</h4>
+                                    <h6 className="text-sm font-bold tracking-tight uppercase text-foreground">{plan.listTitle}</h6>
                                     <ul className="w-full list-none px-0 mb-0">
                                         {plan.features.map((feature, idx) => (
                                             <li key={idx} className="flex flex-row gap-x-2 items-center mb-4 last:mb-0">

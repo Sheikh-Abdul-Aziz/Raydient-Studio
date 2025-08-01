@@ -7,8 +7,16 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "./ui/accordion";
-import { JetBrains_Mono } from "@/fonts/local";
-import { IconSquareFilled } from "@tabler/icons-react";
+import SectionHeader from "./section-header";
+
+const info = {
+    title: "FAQ's",
+    subtitle: (
+        <>
+            Frequently Asked{" "}<br className="md:hidden" />Questions
+        </>
+    ),
+};
 
 const faqItems = [
     {
@@ -42,19 +50,7 @@ export default function FAQ() {
         <div className="w-full h-auto px-0 py-6">
             <div className="w-full h-auto px-4 py-0">
                 <div className="flex flex-col w-full h-full gap-y-6 max-w-7xl mx-auto">
-                    <div className="text-left justify-center items-start align-middle">
-                        <div className="inline-flex flex-row items-center justify-start gap-x-1">
-                            <IconSquareFilled size={12} className="text-foreground" />
-                            <h3 className={`${JetBrains_Mono.className} antialiased translate-y-px md:translate-y-0 text-xs font-medium tracking-tight leading-none items-center text-muted-foreground`}>
-                                FAQ&apos;s
-                            </h3>
-                        </div>
-                        <h2 className="text-xl font-medium text-foreground normal-case">
-                            Frequently Asked{" "}
-                            <br className="md:hidden" />
-                            Questions
-                        </h2>
-                    </div>
+                    <SectionHeader info={info} />
                     <Accordion type="single" collapsible>
                         {faqItems.map((item, idx) => (
                             <AccordionItem value={`item-${idx + 1}`} key={item.question}>
