@@ -8,7 +8,7 @@ const buttonVariants = cva(`${Poppins.className} antialiased inline-flex items-c
     {
         variants: {
             variant: {
-                destructive: "bg-destructive text-destructive-foreground hover:text-destructive-foreground/90 active:text-destructive-foreground/90 hover:bg-destructive/80 active:bg-destructive/80 shadow-xs",
+                destructive: "bg-destructive text-foreground hover:text-foreground/90 active:text-foreground/90 hover:bg-destructive/80 active:bg-destructive/80 shadow-xs",
                 elevated: "bg-background text-secondary-foreground shadow-xs hover:bg-secondary hover:text-secondary-foreground active:bg-secondary active:text-secondary-foreground",
                 filled: "bg-primary text-primary-foreground hover:bg-primary/90 active:bg-primary/90 shadow-xs ",
                 linked: "bg-transparent text-primary underline-offset-4 hover:underline active:underline",
@@ -54,14 +54,11 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
     asChild?: boolean
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({ 
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({
     className, variant, size, radius, align, asChild = false, ...props }, ref) => {
-        const Element = asChild ? Slot : "button"
-        return (
-            <Element className={cn(buttonVariants({ className, variant, size, radius, align }))} ref={ref} {...props}/>
-        )
-    }
-)
+    const Component = asChild ? Slot : "button"
+    return <Component className={cn(buttonVariants({ className, variant, size, radius, align }))} ref={ref} {...props} />
+})
 Button.displayName = "Button";
 
 export { Button, buttonVariants };

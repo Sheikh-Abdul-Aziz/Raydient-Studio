@@ -15,8 +15,8 @@ export default function Profile() {
     };
 
     return (
-        <div className="w-full h-auto px-0 py-6">
-            <div className="flex flex-col justify-center items-center gap-y-3 mt-16 px-6 py-0">
+        <div className="w-full h-auto px-0 py-0">
+            <div className="flex flex-col justify-center items-center gap-y-0 px-0 py-0">
                 <Card className="flex flex-col justify-start items-center shadow-none">
                     <CardContent className="flex flex-col justify-start items-start gap-y-2">
                         <Avatar className="w-16 h-16 border border-border rounded-lg">
@@ -24,7 +24,7 @@ export default function Profile() {
                             <AvatarFallback>SA</AvatarFallback>
                         </Avatar>
                         <CardTitle>Sheikh Abdul Aziz</CardTitle>
-                        <CardDescription>
+                        <CardDescription className="whitespace-normal">
                             Hi, I&apos;m Sheikh Abdul Aziz — An Entrepreneur, Frontend Developer & Web Designer — helping businesses grow with elegant design and powerful development.
                         </CardDescription>
                         <div className="flex flex-row justify-start items-center gap-x-3">

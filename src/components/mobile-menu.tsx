@@ -89,7 +89,7 @@ export default function MobileMenu() {
                 aria-label="menu"
                 variant="outlined"
                 size="icon"
-                radius="medium"
+                radius="large"
                 onClick={toggleDrawer}
                 className="flex flex-col items-center justify-center p-2 gap-1.5 transition-opacity disabled:opacity-50 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-secondary"
             >

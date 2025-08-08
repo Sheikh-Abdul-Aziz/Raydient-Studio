@@ -40,7 +40,7 @@ export default function Search() {
 
 	return (
 		<>
-			<Button onClick={() => setOpen(true)} aria-label="search" variant="outlined" size="icon" radius="medium">
+			<Button onClick={() => setOpen(true)} aria-label="search" variant="outlined" size="icon" radius="large">
 				<SearchIcon />
 			</Button>
 			<CommandDialog open={open} onOpenChange={setOpen}>

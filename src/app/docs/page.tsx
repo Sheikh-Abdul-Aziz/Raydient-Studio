@@ -132,12 +132,12 @@ export default function Docs() {
 									<IconChevronRight />
 								</RouterButton>
 							</FlexLayout>
-							<FlexLayout display={{initial: "hidden", medium: "flex"}} direction={"row"} marginLeft={"auto"} spaceX={2}>
-								<RouterButton onClick={() => navigateTo("/")} variant="tonal" size="icon" radius="medium">
+							<FlexLayout display={{initial: "hidden", medium: "flex"}} direction={"row"} marginLeft={"auto"} spaceX={4}>
+								<RouterButton onClick={() => navigateTo("/")} variant="tonal" size="default" radius="medium">
 									<IconChevronLeft />
 									Previous
 								</RouterButton>
-								<RouterButton onClick={() => navigateTo("/docs/introduction")} variant="tonal" size="icon" radius="medium">
+								<RouterButton onClick={() => navigateTo("/docs/introduction")} variant="tonal" size="default" radius="medium">
 									Next
 									<IconChevronRight />
 								</RouterButton>

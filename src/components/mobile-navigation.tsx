@@ -18,7 +18,6 @@ import {
     MobileMenuSubButton,
     MobileMenuProvider,
 } from "@/components/ui/mobile-menu";
-import { Label } from "./ui/label";
 import { Separator } from "./ui/separator";
 
 export function MobileNavigation({
@@ -57,7 +56,7 @@ export function MobileNavigation({
                         <MobileMenuItem key={item.title}>
                             <MobileMenuButton asChild>
                                 <Link href={item.url}>
-                                    <Label>{item.title}</Label>
+                                    <span className="text-sm font-normal text-foreground/80 leading-none">{item.title}</span>
                                 </Link>
                             </MobileMenuButton>
                         </MobileMenuItem>

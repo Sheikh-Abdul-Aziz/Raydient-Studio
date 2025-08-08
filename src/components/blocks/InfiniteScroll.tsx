@@ -12,8 +12,6 @@ interface InfiniteScrollProps {
     width?: string;
     maxHeight?: string;
     items?: InfiniteScrollItem[];
-    itemMinWidth?: number;
-    itemMinHeight?: number;
     isTilted?: boolean;
     tiltDirection?: "left" | "right";
     autoplay?: boolean;
@@ -23,15 +21,13 @@ interface InfiniteScrollProps {
     scrollDirection?: "vertical" | "horizontal";
     isReverse?: boolean;
     isIntervention?: boolean;
-    distance?: number; // 👈 New
+    distance?: number;
 }
 
 const InfiniteScroll: FC<InfiniteScrollProps> = ({
     width = "100%",
     maxHeight = "100%",
     items = [],
-    itemMinWidth = 150,
-    itemMinHeight = 150,
     isTilted = false,
     tiltDirection = "left",
     autoplay = false,
@@ -41,7 +37,7 @@ const InfiniteScroll: FC<InfiniteScrollProps> = ({
     scrollDirection = "vertical",
     isReverse = false,
     isIntervention = true,
-    distance = 20, // 👈 Default distance
+    distance = 10,
 }) => {
     const wrapperRef = useRef<HTMLDivElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
@@ -61,22 +57,20 @@ const InfiniteScroll: FC<InfiniteScrollProps> = ({
         const divItems = gsap.utils.toArray<HTMLDivElement>(container.children);
         if (!divItems.length) return;
 
-        const firstItem = divItems[0];
-        const itemSize =
-            scrollDirection === "horizontal"
-                ? firstItem.offsetWidth
-                : firstItem.offsetHeight;
+        // Position each item based on its real size + distance
+        let currentOffset = 0;
 
-        const totalItemSize = itemSize + distance;
-        const totalSize = totalItemSize * items.length;
+        divItems.forEach((child) => {
+            const size = scrollDirection === "horizontal"
+                ? child.offsetWidth
+                : child.offsetHeight;
 
-        const wrapFn = gsap.utils.wrap(-totalSize, totalSize);
-
-        // Set initial positions
-        divItems.forEach((child, i) => {
-            const pos = i * totalItemSize;
-            gsap.set(child, { [axis]: pos });
+            gsap.set(child, { [axis]: currentOffset });
+            currentOffset += size + distance;
         });
+
+        const totalSize = currentOffset;
+        const wrapFn = gsap.utils.wrap(-totalSize, totalSize);
 
         let observer: Observer | null = null;
 
@@ -170,7 +164,7 @@ const InfiniteScroll: FC<InfiniteScrollProps> = ({
         scrollDirection,
         isReverse,
         isIntervention,
-        distance, // 👈 Dependency
+        distance,
     ]);
 
     return (
@@ -186,16 +180,14 @@ const InfiniteScroll: FC<InfiniteScrollProps> = ({
                     transform: getTiltTransform(),
                     display: scrollDirection === "horizontal" ? "inline-flex" : "block",
                     flexDirection: scrollDirection === "horizontal" ? "row" : "column",
-                    gap: `${distance}px`, // 👈 Use spacing here
                 }}
             >
-                {items.map((item, i) => (
+                {[...items].map((item, i) => (
                     <div
                         key={i}
                         style={{
-                            height: scrollDirection === "vertical" ? `${itemMinHeight}px` : undefined,
-                            width: scrollDirection === "horizontal" ? `${itemMinWidth}px` : undefined,
                             flexShrink: 0,
+                            display: "inline-block",
                         }}
                     >
                         {item.content}

@@ -8,6 +8,9 @@ import {
     AccordionTrigger,
 } from "./ui/accordion";
 import SectionHeader from "./section-header";
+import { FlexLayout } from "./layout/flex-layout";
+import { Container } from "./semantic/container";
+import { Section } from "./semantic/section";
 
 const info = {
     title: "FAQ's",
@@ -47,9 +50,9 @@ const faqItems = [
 
 export default function FAQ() {
     return (
-        <div className="w-full h-auto px-0 py-6">
-            <div className="w-full h-auto px-4 py-0">
-                <div className="flex flex-col w-full h-full gap-y-6 max-w-7xl mx-auto">
+        <Section distance={6}>
+            <Container distance={4}>
+                <FlexLayout display={"flex"} direction={"col"} justify={"start"} items={"center"} width={"full"} height={"fit-content"} gapY={6}>
                     <SectionHeader info={info} />
                     <Accordion type="single" collapsible>
                         {faqItems.map((item, idx) => (
@@ -59,8 +62,8 @@ export default function FAQ() {
                             </AccordionItem>
                         ))}
                     </Accordion>
-                </div>
-            </div>
-        </div>
+                </FlexLayout>
+            </Container>
+        </Section>
     );
 }
