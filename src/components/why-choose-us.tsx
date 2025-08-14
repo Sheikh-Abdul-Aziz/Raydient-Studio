@@ -1,5 +1,3 @@
-"use client"
-
 import React from "react";
 import { Card, CardContent, CardDescription, CardTitle } from "./ui/card";
 import { IconLayersIntersect, IconUsersGroup, IconWand, IconWriting } from "@tabler/icons-react";

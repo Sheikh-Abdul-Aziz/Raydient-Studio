@@ -4,6 +4,7 @@ import React, { useMemo } from "react";
 import { Separator } from "./ui/separator";
 import { Button } from "./ui/button";
 import {
+    IconClockDollar,
     IconClockHour4,
     IconCornerDownRight,
     IconFlameFilled,
@@ -11,7 +12,6 @@ import {
     IconHourglassFilled,
     IconRosetteDiscountCheckFilled,
     IconSparkles,
-    IconSquareCheckFilled,
     IconSquareFilled,
     IconTopologyRing,
     IconTopologyStar,
@@ -19,6 +19,7 @@ import {
     IconTopologyStar3,
 } from "@tabler/icons-react";
 import SectionHeader from "./section-header";
+import { Poppins } from "@/fonts/local";
 
 const info = {
     title: "PRICING",
@@ -38,7 +39,7 @@ const iconMap = {
     topologyStar3: <IconTopologyStar3 size={16} />,
     sparkles: <IconSparkles size={12} />,
     flame: <IconFlameFilled size={12} />,
-    rosette: <IconRosetteDiscountCheckFilled size={12} />,
+    clockDollar: <IconClockDollar size={12} />,
     hourglass: <IconHourglassFilled size={12} />,
     clock: <IconClockHour4 size={16} />,
     headset: <IconHeadset size={16} />,
@@ -58,6 +59,7 @@ const pricingData = [
         description: "Best for individuals and small teams seeking professional design services to establish a strong online presence.",
         tagicon: "sparkles",
         tagline: "Starter",
+        isVisible: "flex",
         price: "$299",
         validity: "/One time",
         buttonLabel: "Start Your Project",
@@ -89,6 +91,7 @@ const pricingData = [
         description: "Best for medium-sized teams or startups looking to enhance their online presence and achieve their business goals.",
         tagicon: "flame",
         tagline: "Popular",
+        isVisible: "flex",
         price: "$599",
         validity: "/One time",
         buttonLabel: "Start Your Project",
@@ -118,8 +121,9 @@ const pricingData = [
             { size: 12, className: "text-ring/30" },
         ],
         description: "Best for large teams and corporations seeking comprehensive, enterprise-level design solutions, and advanced features.",
-        tagicon: "rosette",
+        tagicon: "clockDollar",
         tagline: "Valuable",
+        isVisible: "flex",
         price: "$1,199",
         validity: "/One time",
         buttonLabel: "Start Your Project",
@@ -151,6 +155,7 @@ const pricingData = [
         description: "Best for those who need ongoing support, handle multiple projects, or have a flexible or undefined scope of work.",
         tagicon: "hourglass",
         tagline: "Limited",
+        isVisible: "flex",
         price: "$5,199",
         validity: "/Per month",
         buttonLabel: "Start Your Project",
@@ -183,7 +188,7 @@ export default function PricingCards() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 w-full h-auto gap-6 lg:gap-8">
                         {plans.map((plan) => (
                             <div key={plan.id} className="flex flex-col relative overflow-hidden rounded-lg bg-surface text-card-foreground justify-start items-start shadow-none w-full">
-                                <div className="flex flex-row justify-start items-center w-auto h-5 absolute top-0 right-0 gap-x-1 px-2 py-2 rounded-bl-lg bg-foreground text-background">
+                                <div className={`${plan.isVisible} flex-row justify-start items-center w-auto h-5 absolute top-0 right-0 gap-x-1 px-2 py-2 rounded-bl-lg bg-primary text-primary-foreground`}>
                                     {iconMap[plan.tagicon as keyof typeof iconMap]}
                                     <h4 className="text-[10px] font-medium tracking-tight leading-none uppercase">{plan.tagline}</h4>
                                 </div>
@@ -227,11 +232,11 @@ export default function PricingCards() {
                                     <Separator orientation="horizontal" className="mt-2.5 h-[0.5px]" />
                                 </div>
                                 <div className="flex flex-col justify-start items-start w-full h-auto p-6 gap-y-4">
-                                    <h6 className="text-sm font-bold tracking-tight uppercase text-foreground">{plan.listTitle}</h6>
+                                    <h6 className={`${Poppins.className} text-base font-medium tracking-tight text-foreground`}>{plan.listTitle}</h6>
                                     <ul className="w-full list-none px-0 mb-0">
                                         {plan.features.map((feature, idx) => (
                                             <li key={idx} className="flex flex-row gap-x-2 items-center mb-4 last:mb-0">
-                                                <IconSquareCheckFilled size={18} className="text-success" />
+                                                <IconRosetteDiscountCheckFilled size={18} className="text-success" />
                                                 <span className="text-sm text-muted-foreground">{feature}</span>
                                             </li>
                                         ))}

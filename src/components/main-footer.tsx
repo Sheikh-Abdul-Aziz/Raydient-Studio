@@ -3,14 +3,21 @@
 import React, { useMemo } from "react";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { Separator } from "./ui/separator";
-import { IconBrandBehance, IconBrandDiscord, IconBrandDribbble, IconBrandInstagram, IconBrandMedium, IconBrandThreads, IconBrandX, IconMail, IconSquareFilled } from "@tabler/icons-react";
-import { Footer } from "./semantic/footer";
-import { Wrapper } from "./semantic/wrapper";
-import { Section } from "./semantic/section";
-import { Container } from "./semantic/container";
-import { GridLayout } from "./layout/grid-layout";
+import {
+    IconBrandBehance,
+    IconBrandDiscord,
+    IconBrandDribbble,
+    IconBrandInstagram,
+    IconBrandMedium,
+    IconBrandThreads,
+    IconBrandX,
+    IconCornerDownRight,
+    IconMail,
+    IconSquareFilled,
+    IconUser
+} from "@tabler/icons-react";
 import { Space_Grotesk, JetBrains_Mono } from "@/fonts/local";
+import { Input } from "./ui/input";
 
 export default function MainFooter() {
 
@@ -82,7 +89,7 @@ export default function MainFooter() {
         { href: "https://www.instagram.com/raydientstudio", icon: <IconBrandInstagram />, label: "instagram" },
         { href: "https://www.threads.net/@raydientstudio", icon: <IconBrandThreads />, label: "threads" },
         { href: "https://x.com/raydientstudio", icon: <IconBrandX />, label: "x" },
-        { href: "https://discord.gg/JjXJ2UZnDX", icon: <IconBrandDiscord />, label:"discord" },
+        { href: "https://discord.gg/JjXJ2UZnDX", icon: <IconBrandDiscord />, label: "discord" },
         { href: "https://medium.com/@raydientstudio", icon: <IconBrandMedium />, label: "medium" },
         { href: "https://dribbble.com/raydientstudio", icon: <IconBrandDribbble />, label: "dribbble" },
         { href: "https://www.behance.net/raydientstudio", icon: <IconBrandBehance />, label: "behance" },
@@ -90,77 +97,136 @@ export default function MainFooter() {
     ], []);
 
     return (
-        <Footer className="bg-surface bottom-0 left-0 right-0 mt-8 rounded-t-lg border-t border-border border-dashed">
-            <Section distance={5}>
-                <Container distance={5}>
-                    <Wrapper gapX={"none"} gapY={4} className="flex flex-col max-w-7xl mx-auto">
-                        <div className="flex flex-col items-center justify-center text-center bg-foreground p-8 gap-y-1 rounded-lg">
-                            <h2 className={`${Space_Grotesk.className} antialiased text-surface text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gap-y-4`}>Raydient Studio</h2>
-                            <p className={`${Space_Grotesk.className} antialiased text-muted tracking-tight text-xs sm:text-sm md:text-base lg:text-lg font-normal uppercase`}>Brand Design Agency</p>
-                        </div>
-                        {/* Quick Links */}
-                        <GridLayout display={"grid"} gapX={"none"} gapY={6} className="grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4">
-                            {footerLinks.map((section) => (
-                                <div key={section.title} className="border border-border border-solid px-4 py-4 rounded-lg">
-                                    <div className="flex flex-row items-center justify-start gap-x-1 mb-2">
-                                        <IconSquareFilled size={14} className="text-foreground" />
-                                        <h3 className={`${JetBrains_Mono.className} antialiased translate-y-px md:translate-y-0 text-base tracking-tight leading-none font-bold uppercase text-foreground items-center`}>{section.title}</h3>
-                                    </div>
-                                    <ul className="space-y-2 text-sm normal">
-                                        {section.links.map(({ name, href, external, icon }) => (
-                                            <li key={name}>
-                                                {external ? (
-                                                    <a href={href} className="antialiased flex items-center justify-start text-muted-foreground hover:text-foreground active:text-foreground transition-colors duration-150 ease-in-out">
-                                                        {name} {icon}
-                                                    </a>
-                                                ) : (
-                                                    <Link href={href} className="antialiased flex items-center justify-start text-muted-foreground hover:text-foreground active:text-foreground transition-colors duration-150 ease-in-out">
-                                                        {name} {icon}
-                                                    </Link>
-                                                )}
-                                            </li>
-                                        ))}
-                                    </ul>
+        <footer className="bg-surface bottom-0 left-0 right-0 mt-8 py-5 rounded-t-lg border-t border-border border-dashed">
+            <div className="px-5">
+                <div className="flex flex-col gap-y-4 max-w-7xl mx-auto">
+
+                    {/* Banner Section */}
+                    <div className="flex flex-col items-center justify-center text-center bg-foreground p-8 gap-y-1.5 rounded-lg">
+                        <h2 className={`${Space_Grotesk.className} antialiased text-surface text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gap-y-4`}>
+                            Raydient Studio
+                        </h2>
+                        <p className={`${JetBrains_Mono.className} antialiased text-muted tracking-tight text-xs sm:text-sm md:text-base lg:text-lg font-normal uppercase`}>
+                            Web Design Agency
+                        </p>
+                    </div>
+
+                    {/* Footer Links Grid */}
+                    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                        {footerLinks.map((section) => (
+                            <div key={section.title} className="border border-border border-solid px-4 py-4 rounded-lg">
+                                <div className="flex flex-row items-center justify-start gap-x-1 mb-2">
+                                    <IconSquareFilled size={14} className="text-foreground" />
+                                    <h3 className={`${JetBrains_Mono.className} antialiased translate-y-px md:translate-y-0 text-base tracking-tight leading-none font-bold uppercase text-foreground`}>
+                                        {section.title}
+                                    </h3>
                                 </div>
-                            ))}
-                        </GridLayout>
-                        {/* Horizontal Divider */}
-                        <Separator orientation="horizontal" className="hidden" />
-                        {/* Social Media & Short Links */}
-                        <div className="flex flex-col gap-y-4">
-                            <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-2 text-sm border border-border border-solid p-4 rounded-lg">
-                                <div className="flex flex-wrap justify-center md:justify-start gap-2">
-                                    {socialLinks.map(({ href, icon, label }) => (
-                                        <Link key={href} href={href}>
-                                            <Button aria-label={label} variant="outlined" size="social" radius="large">{icon}</Button>
-                                        </Link>
-                                    ))}
-                                </div>
-                                <div className="flex flex-wrap justify-center md:justify-end text-xs sm:text-sm gap-2">
-                                    {quickLinks[0].links.map(({ name, href, external }) => (
-                                        <p key={name}>
+                                <ul className="space-y-2 text-sm normal">
+                                    {section.links.map(({ name, href, external, icon }) => (
+                                        <li key={name}>
                                             {external ? (
-                                                <a href={href}><span className="text-muted-foreground hover:text-foreground active:text-foreground transition-colors duration-150 ease-in-out">{name}</span></a>
+                                                <a href={href} className="antialiased flex items-center justify-start text-muted-foreground hover:text-foreground active:text-foreground transition-colors duration-250 ease-in-out">
+                                                    {name} {icon}
+                                                </a>
                                             ) : (
-                                                <Link href={href}><span className="text-muted-foreground hover:text-foreground active:text-foregroundtransition-colors duration-150 ease-in-out">{name}</span></Link>
+                                                <Link href={href} className="antialiased flex items-center justify-start text-muted-foreground hover:text-foreground active:text-foreground transition-colors duration-250 ease-in-out">
+                                                    {name} {icon}
+                                                </Link>
                                             )}
-                                        </p>
+                                        </li>
                                     ))}
-                                </div>
+                                </ul>
                             </div>
-                            {/* Copyright & Attribution */}
-                            <div className="flex flex-col md:flex-row items-center justify-center md:justify-between text-xs sm:text-sm gap-2 border border-border border-solid p-4 rounded-lg">
-                                <div className="flex flex-wrap text-center md:text-left justify-center md:justify-start">
-                                    <p className="text-muted-foreground">Copyright © 2025 <Link href="https://raydientstudio.com"><span className="text-muted-foreground hover:text-foreground active:text-foreground transition-colors duration-150 ease-in-out">Raydient Studio</span></Link> | All rights reserved.</p>
-                                </div>
-                                <div className="flex flex-wrap text-center md:text-right justify-center md:justify-end">
-                                    <p className="text-muted-foreground">Developed with <Link href="https://nextjs.org"><span className="text-muted-foreground hover:text-foreground active:text-foreground transition-colors duration-150 ease-in-out">NextJS</span></Link> | Powered by <Link href="https://vercel.com"><span className="text-muted-foreground hover:text-foreground">Vercel</span></Link>.</p>
-                                </div>
+                        ))}
+                    </div>
+
+                    {/* Newsletter */}
+                    <div className="border border-border border-solid px-4 py-4 rounded-lg space-y-4 w-full">
+                        <div className="flex flex-col items-start justify-start space-y-4">
+                            <div className="flex flex-row items-center justify-start gap-x-1 mb-2 w-full">
+                                <IconSquareFilled size={14} className="text-foreground" />
+                                <h3 className={`${JetBrains_Mono.className} antialiased translate-y-px md:translate-y-0 text-base tracking-tight leading-none font-bold uppercase text-foreground`}>
+                                    Newsletter
+                                </h3>
+                            </div>
+                            <p className="text-sm text-muted-foreground">
+                                Sign up to be the first to know about our exclusive
+                                offers and upcoming events at
+                                {" "}
+                                <Link href="https://raydientstudio.com" className="text-muted-foreground hover:text-foreground active:text-foreground transition-colors duration-250 ease-in-out">
+                                    Raydient Studio
+                                </Link>
+                                .
+                            </p>
+                        </div>
+                        <form className="flex flex-col space-y-4 w-full">
+                            <Input type="text" startIcon={IconUser} placeholder="Enter your name" />
+                            <Input type="email" startIcon={IconMail} placeholder="Enter your email address" />
+                            <Button variant="filled" radius="medium">
+                                <IconCornerDownRight />
+                                Join the newsletter
+                            </Button>
+                        </form>
+                    </div>
+
+                    {/* Social Media & Quick Links */}
+                    <div className="flex flex-col gap-y-4">
+                        <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-2 text-sm border border-border border-solid p-4 rounded-lg">
+                            <div className="flex flex-wrap justify-center md:justify-start gap-2">
+                                {socialLinks.map(({ href, icon, label }) => (
+                                    <Link key={href} href={href}>
+                                        <Button aria-label={label} variant="outlined" size="social" radius="large">
+                                            {icon}
+                                        </Button>
+                                    </Link>
+                                ))}
+                            </div>
+                            <div className="flex flex-wrap justify-center md:justify-end text-xs sm:text-sm gap-2">
+                                {quickLinks[0].links.map(({ name, href, external }) => (
+                                    <p key={name}>
+                                        {external ? (
+                                            <a href={href} className="text-muted-foreground hover:text-foreground active:text-foreground transition-colors duration-250 ease-in-out">
+                                                {name}
+                                            </a>
+                                        ) : (
+                                            <Link href={href} className="text-muted-foreground hover:text-foreground active:text-foreground transition-colors duration-250 ease-in-out">
+                                                {name}
+                                            </Link>
+                                        )}
+                                    </p>
+                                ))}
                             </div>
                         </div>
-                    </Wrapper>
-                </Container>
-            </Section>
-        </Footer>
+
+                        {/* Copyright & Attributions */}
+                        <div className="flex flex-col md:flex-row items-center justify-center md:justify-between text-xs sm:text-sm gap-2 border border-border border-solid p-4 rounded-lg">
+                            <p className="text-muted-foreground text-center md:text-left">
+                                Copyright © 2025
+                                {" "}
+                                <Link href="https://raydientstudio.com" className="text-muted-foreground hover:text-foreground active:text-foreground transition-colors duration-250 ease-in-out">
+                                    Raydient Studio
+                                </Link>
+                                {" "}
+                                | All rights reserved.
+                            </p>
+                            <p className="text-muted-foreground text-center md:text-right">
+                                Developed with
+                                {" "}
+                                <Link href="https://nextjs.org" className="text-muted-foreground hover:text-foreground active:text-foreground transition-colors duration-250 ease-in-out">
+                                    NextJS
+                                </Link>
+                                {" "}
+                                | Powered by
+                                {" "}
+                                <Link href="https://vercel.com" className="text-muted-foreground hover:text-foreground active:text-foreground transition-colors duration-250 ease-in-out">
+                                    Vercel
+                                </Link>
+                                .
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
     );
 }

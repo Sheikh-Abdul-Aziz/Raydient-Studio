@@ -1,22 +1,16 @@
 "use client";
 
 import React from "react";
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-} from "./ui/accordion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
 import SectionHeader from "./section-header";
-import { FlexLayout } from "./layout/flex-layout";
-import { Container } from "./semantic/container";
-import { Section } from "./semantic/section";
 
 const info = {
     title: "FAQ's",
     subtitle: (
         <>
-            Frequently Asked{" "}<br className="md:hidden" />Questions
+            Frequently Asked{" "}
+            <br className="md:hidden" />
+            Questions
         </>
     ),
 };
@@ -50,9 +44,9 @@ const faqItems = [
 
 export default function FAQ() {
     return (
-        <Section distance={6}>
-            <Container distance={4}>
-                <FlexLayout display={"flex"} direction={"col"} justify={"start"} items={"center"} width={"full"} height={"fit-content"} gapY={6}>
+        <section className="w-full h-auto py-6">
+            <div className="w-full h-auto px-4">
+                <div className="flex flex-col w-full h-full gap-y-6 max-w-7xl mx-auto">
                     <SectionHeader info={info} />
                     <Accordion type="single" collapsible>
                         {faqItems.map((item, idx) => (
@@ -62,8 +56,8 @@ export default function FAQ() {
                             </AccordionItem>
                         ))}
                     </Accordion>
-                </FlexLayout>
-            </Container>
-        </Section>
+                </div>
+            </div>
+        </section>
     );
 }

@@ -14,15 +14,14 @@ export interface IconProps extends HTMLAttributes<HTMLElement>, VariantProps<typ
 }
 
 const IconRaydientStudio = forwardRef<HTMLElement, IconProps>(
-
     ({ className, asChild = false, ...props }) => {
 
         const Icon = asChild ? Slot : "div"
 
         return (
             <Icon className={cn(iconVariants({ className }))} {...props}>
-                <Background width="36" height="36" className="absolute text-surface-foreground" />
-                <Foreground width="22" height="22" className="absolute text-surface" />
+                <Background width="36" height="36" className="absolute text-primary" />
+                <Foreground width="20" height="20" className="absolute text-primary-foreground" />
             </Icon>
         );
     });

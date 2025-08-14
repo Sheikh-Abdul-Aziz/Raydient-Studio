@@ -1,7 +1,7 @@
 /**
  * MIT License
- *
- * Copyright (c) [2025] [Miracle UI, Library] {@link https://github.com/Miracle-UI-Suite}.
+ * Copyright (c) [2025] [Miracle UI, Library]
+ * {@link https://github.com/Miracle-UI-Suite}.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,36 +22,53 @@
  * SOFTWARE.
  */
 
+/**
+ * Maps human-friendly names and Tailwind keys to the actual breakpoint prefix.
+ * This ensures both long and short keys are accepted.
+ */
 const breakpointAliasMap: Record<string, string> = {
 	initial: "",
 	small: "sm",
+	sm: "sm",
 	medium: "md",
+	md: "md",
 	large: "lg",
+	lg: "lg",
 	xl: "xl",
 	"2xl": "2xl",
 };
 
+/**
+ * Resolves responsive Tailwind classes for spacing, sizing, etc.
+ */
 export const resolveResponsiveClass = <T extends string | number>(
 	prefix: string,
-	value?: T | { initial?: T; [key: string]: T | undefined }
+	value?: T | { initial?: T;[key: string]: T | undefined }
 ): string[] => {
 	if (value === undefined) return [];
 	if (typeof value !== "object") return [`${prefix}-${value}`];
 
-	return Object.entries(value).map(([key, val]) => {
-		const bp = breakpointAliasMap[key] ?? key;
-		return bp ? `${bp}:${prefix}-${val}` : `${prefix}-${val}`;
-	});
+	return Object.entries(value)
+		.filter(([, val]) => val !== undefined)
+		.map(([key, val]) => {
+			const bp = breakpointAliasMap[key] ?? key;
+			return bp ? `${bp}:${prefix}-${val}` : `${prefix}-${val}`;
+		});
 };
 
+/**
+ * Resolves responsive Tailwind classes for enums (e.g., flex, grid alignment).
+ */
 export const resolveEnumClass = <T extends string>(
-	value?: T | { initial?: T; [key: string]: T | undefined }
+	value?: T | { initial?: T;[key: string]: T | undefined }
 ): string[] => {
 	if (!value) return [];
 	if (typeof value !== "object") return [value];
 
-	return Object.entries(value).map(([key, val]) => {
-		const bp = breakpointAliasMap[key] ?? key;
-		return bp ? `${bp}:${val}` : `${val}`;
-	});
+	return Object.entries(value)
+		.filter(([, val]) => val !== undefined)
+		.map(([key, val]) => {
+			const bp = breakpointAliasMap[key] ?? key;
+			return bp ? `${bp}:${val}` : `${val}`;
+		});
 };

@@ -20,7 +20,7 @@ const Header = () => {
     };
 
     return (
-        <header className="fixed z-20 top-0 left-0 right-0 w-full h-16 rounded-b-lg border-b border-border border-dashed bg-surface backdrop-blur supports-[backdrop-filter]:bg-surface/80">
+        <header className="fixed z-20 top-0 left-0 right-0 w-full h-16 rounded-b-lg border-b border-border border-dashed bg-surface">
             <div className="flex items-center justify-between w-full h-full px-4 gap-x-4">
                 <div className="flex items-center gap-x-2 w-auto h-auto">
                     {/* MOBILE */}

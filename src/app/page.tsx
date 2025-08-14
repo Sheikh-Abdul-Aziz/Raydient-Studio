@@ -6,6 +6,7 @@ import PricingCards from "@/components/pricing-cards";
 import RecentProjects from "@/components/recent-projects";
 import Services from "@/components/services";
 import WhyChooseUs from "@/components/why-choose-us";
+import Newsletter from "@/components/newsletter";
 
 export default function Home() {
     return (
@@ -19,6 +20,7 @@ export default function Home() {
             <RecentProjects /> {/* Recent Projects */}
             <PricingCards /> {/* Pricing Cards */}
             <FAQ /> {/* FAQ */}
+            <Newsletter /> {/* Newsletter */}
             {/* Footer */}
         </>
     );

@@ -23,7 +23,7 @@ export default function CookieToast() {
                         <div className="flex gap-2 justify-end">
                             <Button
                                 size="small"
-                                variant="filled"
+                                variant={"text"}
                                 onClick={() => {
                                     localStorage.setItem('cookie-consent', 'accepted');
                                 }}
@@ -32,7 +32,7 @@ export default function CookieToast() {
                             </Button>
                             <Button
                                 size="small"
-                                variant="destructive"
+                                variant={"alert"}
                                 onClick={() => {
                                     // Optionally hide or close the toast manually here
                                 }}

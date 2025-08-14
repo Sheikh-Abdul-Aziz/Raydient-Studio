@@ -1,5 +1,3 @@
-"use client";
-
 import React, { ReactNode } from "react";
 import { JetBrains_Mono } from "@/fonts/local";
 import { IconSquareFilled } from "@tabler/icons-react";

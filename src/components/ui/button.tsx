@@ -4,11 +4,12 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import { Poppins } from "@/fonts/local";
 
-const buttonVariants = cva(`${Poppins.className} antialiased inline-flex items-center justify-center text-center gap-x-2 whitespace-nowrap rounded-md text-sm font-normal leading-none tracking-normal transition-colors duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-transparent disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0`,
+const buttonVariants = cva(`${Poppins.className} antialiased inline-flex items-center justify-center text-center gap-x-2 whitespace-nowrap rounded-md text-sm font-normal leading-none tracking-normal transition-colors duration-250 ease-in-out focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-transparent disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0`,
     {
         variants: {
             variant: {
-                destructive: "bg-destructive text-foreground hover:text-foreground/90 active:text-foreground/90 hover:bg-destructive/80 active:bg-destructive/80 shadow-xs",
+                alert: "bg-transparent text-destructive/80 hover:bg-destructive/10 hover:text-destructive active:bg-destructive/10 active:text-destructive",
+                destructive: "bg-destructive text-primary-foreground hover:text-primary-foreground/90 active:text-primary-foreground/90 hover:bg-destructive/80 active:bg-destructive/80 shadow-xs",
                 elevated: "bg-background text-secondary-foreground shadow-xs hover:bg-secondary hover:text-secondary-foreground active:bg-secondary active:text-secondary-foreground",
                 filled: "bg-primary text-primary-foreground hover:bg-primary/90 active:bg-primary/90 shadow-xs ",
                 linked: "bg-transparent text-primary underline-offset-4 hover:underline active:underline",
