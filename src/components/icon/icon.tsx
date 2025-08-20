@@ -20,8 +20,8 @@ const IconRaydientStudio = forwardRef<HTMLElement, IconProps>(
 
         return (
             <Icon className={cn(iconVariants({ className }))} {...props}>
-                <Background width="36" height="36" className="absolute text-primary" />
-                <Foreground width="20" height="20" className="absolute text-primary-foreground" />
+                <Background width="36" height="36" className="absolute text-surface-foreground" />
+                <Foreground width="20" height="20" className="absolute text-surface" />
             </Icon>
         );
     });

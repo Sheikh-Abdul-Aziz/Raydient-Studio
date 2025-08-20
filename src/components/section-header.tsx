@@ -13,7 +13,7 @@ export default function SectionHeader({ info }: { info: Info }) {
         <FlexLayout display={"flex"} direction={"col"} justify={"start"} items={"start"} align={"left"} width={"full"} height={"fit-content"} gapY={2}>
             <FlexLayout display={"inline-flex"} direction={"row"} justify={"start"} items={"start"} gapX={1}>
                 <IconSquareFilled size={12} className="text-foreground" />
-                <h2 className={`${JetBrains_Mono.className} antialiased translate-y-px md:translate-y-0 text-xs font-semibold tracking-tight leading-none items-center text-muted-foreground`}>
+                <h2 className={`${JetBrains_Mono.className} antialiased translate-y-px md:translate-y-0 text-xs font-medium tracking-tight leading-none items-center text-muted-foreground`}>
                     {info.title}
                 </h2>
             </FlexLayout>

@@ -19,7 +19,7 @@ export default function Hero() {
     );
 
     return (
-        <section className="w-full h-auto mb-8 bg-surface rounded-b-lg py-8">
+        <section className="w-full h-auto rounded-b-lg py-8">
             <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Main Vertical Layout */}
                 <div className="flex flex-col justify-start md:justify-center items-start md:items-center w-full h-fit max-w-7xl gap-y-2 mt-16 mx-auto">
@@ -48,11 +48,11 @@ export default function Hero() {
 
                     {/* Buttons */}
                     <div className="flex flex-row overflow-visible justify-start md:justify-center items-start md:items-center gap-x-4 md:gap-x-6">
-                        <HeroButton onClick={() => navigateTo("/shop")} variant={"filled"} size={"default"} radius={"large"}>
+                        <HeroButton onClick={() => navigateTo("/shop")} variant={"filled"} size={"default"} radius={"medium"}>
                             <IconSparkles />
                             Get Started
                         </HeroButton>
-                        <HeroButton onClick={() => navigateTo("/docs")} variant={"tonal"} size={"default"} radius={"large"}>
+                        <HeroButton onClick={() => navigateTo("/docs")} variant={"tonal"} size={"default"} radius={"medium"}>
                             Learn More
                             <IconChevronRight />
                         </HeroButton>

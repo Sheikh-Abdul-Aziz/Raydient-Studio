@@ -25,43 +25,43 @@ export default function MainFooter() {
         {
             title: "Solutions",
             links: [
-                { name: "Corporations", href: "/", external: false, icon: null },
-                { name: "Startups", href: "/", external: false, icon: null },
-                { name: "Individuals", href: "/", external: false, icon: null },
-                { name: "Processing", href: "/", external: false, icon: null },
-                { name: "Pricing", href: "/", external: false, icon: null },
-                { name: "Services", href: "/", external: false, icon: null },
-                { name: "Integrations", href: "/", external: false, icon: null }
+                { name: "Professional", href: "/", external: false, icon: null },
+                { name: "Educational", href: "/", external: false, icon: null },
+                { name: "Nonprofit", href: "/", external: false, icon: null },
+                { name: "Philosophies", href: "/", external: false, icon: null },
+                { name: "Prototype", href: "/", external: false, icon: null },
+                { name: "Typography", href: "/", external: false, icon: null },
+                { name: "Wireframing", href: "/", external: false, icon: null }
             ],
         },
         {
             title: "Company",
             links: [
-                { name: "Development", href: "/", external: false, icon: null },
-                { name: "Agency", href: "/", external: false, icon: null },
+                { name: "Architecture", href: "/", external: false, icon: null },
+                { name: "Studio", href: "/", external: false, icon: null },
                 { name: "Foundation", href: "/docs/foundation", external: false, icon: null },
-                { name: "Commitment", href: "/", external: false, icon: null },
-                { name: "Partners", href: "/docs/partnership-policy", external: false, icon: null },
-                { name: "Testimonials", href: "/", external: false, icon: null },
-                { name: "Brand Assets", href: "/docs/brand-assets", external: false, icon: null },
+                { name: "Brands", href: "/", external: false, icon: null },
+                { name: "Partnership", href: "/docs/partnership-policy", external: false, icon: null },
+                { name: "Portfolio", href: "/", external: false, icon: null },
+                { name: "Testimonials", href: "/docs/brand-assets", external: false, icon: null },
             ],
         },
         {
             title: "Community",
             links: [
-                { name: "Communities", href: "https://medium.com/@raydientstudio", external: true, icon: null },
+                { name: "Fellowship", href: "https://medium.com/@raydientstudio", external: true, icon: null },
                 { name: "Events", href: "/", external: false, icon: null },
-                { name: "News", href: "https://x.com/raydientstudio", external: true, icon: null },
+                { name: "Updates", href: "https://x.com/raydientstudio", external: true, icon: null },
                 { name: "FAQ's", href: "#faqs", external: false, icon: null },
-                { name: "Support", href: "/docs/support", external: false, icon: null },
+                { name: "Advisory", href: "/docs/support", external: false, icon: null },
                 { name: "Careers", href: "/", external: false, icon: null },
-                { name: "Contact Us", href: "/docs/contact-us", external: false, icon: null }
+                { name: "Get in touch", href: "/docs/contact-us", external: false, icon: null }
             ],
         },
         {
             title: "Resources",
             links: [
-                { name: "All Resources", href: "/", external: false, icon: null },
+                { name: "References", href: "/", external: false, icon: null },
                 { name: "Docs", href: "/docs", external: false, icon: null },
                 { name: "Guides", href: "/docs/guide", external: false, icon: null },
                 { name: "Help", href: "/docs/help", external: false, icon: null },
@@ -97,7 +97,7 @@ export default function MainFooter() {
     ], []);
 
     return (
-        <footer className="bg-surface bottom-0 left-0 right-0 mt-8 py-5 rounded-t-lg border-t border-border border-dashed">
+        <footer className="bg-surface bottom-0 left-0 right-0 mt-8 py-5 rounded-t-lg border-t border-border border-solid">
             <div className="px-5">
                 <div className="flex flex-col gap-y-4 max-w-7xl mx-auto">
 

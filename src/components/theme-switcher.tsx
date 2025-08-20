@@ -16,7 +16,7 @@ export default function ThemeSwitcher() {
     }, [theme]);
 
     return (
-        <div className="flex flex-row items-center border border-border bg-transparent rounded-lg shadow-none"> {/* Theme */}
+        <div className="flex flex-row items-center border border-border bg-surface rounded-lg shadow-none"> {/* Theme */}
             <ToggleGroup type="single" size="sm" defaultValue={defaultValue} value={defaultValue} disabled={!defaultValue} className="m-0">
                 <ToggleGroupItem value="system" aria-label="System" className="aria-checked:bg-accent aria-checked:text-foreground text-muted-foreground rounded-lg" onClick={() => setTheme("system")}>
                     <IconDevices />

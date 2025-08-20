@@ -39,7 +39,7 @@ export const Cover = ({
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             ref={ref}
-            className="relative bg-surface border-[2px] outline-none ring-0 border-border inline-block px-2 py-[2px] transition duration-200 rounded-none"
+            className="relative bg-background border-[2px] outline-none ring-0 border-border inline-block px-2 py-[2px] transition duration-200 rounded-none"
         >
             <AnimatePresence>
                 {hovered && (
@@ -227,7 +227,7 @@ const Beam = ({
 
 const CircleIcon = memo(({ className }: { className?: string; delay?: number; }) => {
     return (
-        <div className={cn(`pointer-events-none h-3 w-3 border-[2px] border-border rounded-full bg-surface`, className)} />
+        <div className={cn(`pointer-events-none h-3 w-3 border-[2px] border-border rounded-full bg-background`, className)} />
     );
 });
 CircleIcon.displayName = "Circle Icon";

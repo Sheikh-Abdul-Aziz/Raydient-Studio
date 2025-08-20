@@ -114,14 +114,14 @@ export default function MobileMenu() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.1, ease: "easeInOut" }}
-                        className="z-20 flex flex-col fixed left-0 right-0 top-16 bottom-0 h-[100dvh] w-screen bg-surface text-foreground px-4 py-4 gap-y-3"
+                        className="z-20 flex flex-col fixed left-0 right-0 top-16 bottom-0 h-[100dvh] w-screen bg-background text-foreground px-4 py-4 gap-y-3"
                     >
                         <div className="flex flex-col items-center justify-between gap-y-4">
                             <Button
                                 onClick={() => navigateTo("/signup")}
                                 variant="filled"
                                 size="wide"
-                                radius="large"
+                                radius="medium"
                             >
                                 Signup
                             </Button>
@@ -129,7 +129,7 @@ export default function MobileMenu() {
                                 onClick={() => navigateTo("/login")}
                                 variant="outlined"
                                 size="wide"
-                                radius="large"
+                                radius="medium"
                             >
                                 Login
                             </Button>

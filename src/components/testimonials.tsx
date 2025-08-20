@@ -1,6 +1,6 @@
 import React from "react";
 import { cn } from "@/lib/utils";
-import { Marquee } from "./ui/marquee";
+import { Marquee } from "./ui/scroll";
 import SectionHeader from "./section-header";
 
 const info = {
@@ -89,18 +89,18 @@ const ReviewCard = ({
 
 export default function Testimonial() {
     return (
-        <div className="flex flex-col justify-start items-start w-full h-auto overflow-hidden px-4 py-8 gap-y-6 max-w-7xl mx-auto">
+        <div className="hidden flex-col justify-start items-start w-full h-auto overflow-hidden px-4 py-8 gap-y-6 max-w-7xl mx-auto">
             <SectionHeader info={info} />
             <div className="relative flex flex-col justify-start items-start w-full h-auto overflow-hidden max-w-7xl">
                 <div className="relative w-full h-auto flex flex-col gap-y-4">
                     {/* First row marquee */}
-                    <Marquee pauseOnHover className="w-full" duration={30} gap="1rem">
+                    <Marquee duration={30}>
                         {[...firstRow, ...firstRow].map((review, idx) => (
                             <ReviewCard key={review.username + idx} {...review} />
                         ))}
                     </Marquee>
                     {/* Second row marquee (reverse) */}
-                    <Marquee reverse pauseOnHover className="w-full" duration={30} gap="1rem">
+                    <Marquee  duration={30}>
                         {[...secondRow, ...secondRow].map((review, idx) => (
                             <ReviewCard key={review.username + idx} {...review} />
                         ))}

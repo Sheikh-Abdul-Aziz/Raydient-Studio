@@ -10,12 +10,12 @@ const buttonVariants = cva(`${Poppins.className} antialiased inline-flex items-c
             variant: {
                 alert: "bg-transparent text-destructive/80 hover:bg-destructive/10 hover:text-destructive active:bg-destructive/10 active:text-destructive",
                 destructive: "bg-destructive text-primary-foreground hover:text-primary-foreground/90 active:text-primary-foreground/90 hover:bg-destructive/80 active:bg-destructive/80 shadow-xs",
-                elevated: "bg-background text-secondary-foreground shadow-xs hover:bg-secondary hover:text-secondary-foreground active:bg-secondary active:text-secondary-foreground",
+                elevated: "bg-surface text-secondary-foreground shadow-xs hover:bg-secondary hover:text-secondary-foreground active:bg-secondary active:text-secondary-foreground",
                 filled: "bg-primary text-primary-foreground hover:bg-primary/90 active:bg-primary/90 shadow-xs ",
                 linked: "bg-transparent text-primary underline-offset-4 hover:underline active:underline",
                 outlined: "bg-surface text-foreground hover:bg-secondary active:bg-secondary hover:text-secondary-foreground active:text-secondary-foreground border border-border border-solid",
                 text: "bg-transparent text-secondary-foreground/80 hover:bg-secondary hover:text-secondary-foreground active:bg-secondary active:text-secondary-foreground",
-                tonal: "bg-accent/80 hover:bg-accent active:bg-accent text-accent-foreground hover:text-accent-foreground active:text-accent-foreground",
+                tonal: "bg-accent hover:bg-accent/80 active:bg-accent/80 text-accent-foreground hover:text-accent-foreground active:text-accent-foreground",
             },
             size: {
                 badge: "h-7 gap-1.5 px-3 py-1 text-xs font-display font-[700] items-center align-middle text- uppercase bg-surface/80 text-foreground/80 shadow-none",

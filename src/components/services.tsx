@@ -57,9 +57,9 @@ export default function Services() {
             <div className="w-full h-auto px-4 py-0">
                 <div className="flex flex-col justify-center items-start text-left gap-y-6 left-0 right-0 max-w-7xl mx-auto">
                     <SectionHeader info={info} />
-                    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 lg:gap-5 w-full h-auto">
+                    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6 w-full h-auto">
                         {services.map((service) => (
-                            <Card key={service.id} onClick={() => handleNavigation(service.serviceUrl ?? "/")} className="flex flex-col justify-start items-start shadow-none hover:bg-muted/80 active:bg-muted/80 transition-colors duration-170 ease-in-out cursor-pointer">
+                            <Card key={service.id} onClick={() => handleNavigation(service.serviceUrl ?? "/")} className="flex flex-col justify-start items-start border border-border hover:bg-muted/80 active:bg-muted/80 transition-colors duration-270 ease-in-out cursor-pointer">
                                 <CardContent>
                                     {service.icon}
                                     <CardTitle>{service.title}</CardTitle>

@@ -46,9 +46,9 @@ export default function WhyChooseUs() {
             <div className="w-full h-auto px-4 py-0">
                 <div className="flex flex-col justify-center items-start text-left gap-y-6 left-0 right-0 max-w-7xl mx-auto">
                     <SectionHeader info={info} />
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 lg:gap-5 w-full h-auto">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6 w-full h-auto">
                         {items.map((item) => (
-                            <Card key={item.id} className="flex flex-col justify-start items-center shadow-none hover:bg-muted/80 active:bg-muted/80 transition-colors duration-170 ease-in-out cursor-pointer">
+                            <Card key={item.id} className="flex flex-col justify-start items-center border border-border hover:bg-muted/80 active:bg-muted/80 transition-colors duration-270 ease-in-out cursor-pointer">
                                 <CardContent>
                                     {item.icon}
                                     <CardTitle>{item.title}</CardTitle>
