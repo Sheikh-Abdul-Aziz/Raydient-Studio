@@ -13,7 +13,7 @@ import {
 	DialogTitle,
 } from "@/components/ui/dialog"
 
-function Command({
+function Search({
 	className,
 	...props
 }: React.ComponentProps<typeof CommandPrimitive>) {
@@ -21,7 +21,7 @@ function Command({
 		<CommandPrimitive
 			data-slot="command"
 			className={cn(
-				"bg-card text-card-foreground backdrop-blur supports-[backdrop-filter]:bg-card/80 flex h-full w-full flex-col overflow-hidden rounded-xl",
+				"bg-card text-card-foreground backdrop-blur supports-[backdrop-filter]:bg-card/80 flex h-full w-full flex-col overflow-hidden rounded-lg",
 				className
 			)}
 			{...props}
@@ -29,8 +29,8 @@ function Command({
 	)
 }
 
-function CommandDialog({
-	title = "Command Palette",
+function SearchDialog({
+	title = "Search",
 	description = "Search for a command to run...",
 	children,
 	className,
@@ -52,21 +52,21 @@ function CommandDialog({
 				className={cn("overflow-hidden p-0", className)}
 				showCloseButton={showCloseButton}
 			>
-				<Command className="[&_[cmdk-group-heading]]:text-muted-foreground **:data-[slot=command-input-wrapper]:h-12 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group]]:px-2 [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-input-wrapper]_svg]:h-5 [&_[cmdk-input-wrapper]_svg]:w-5 [&_[cmdk-input]]:h-12 [&_[cmdk-item]]:px-2 [&_[cmdk-item]]:py-3 [&_[cmdk-item]_svg]:h-5 [&_[cmdk-item]_svg]:w-5">
+				<Search className="[&_[cmdk-group-heading]]:text-muted-foreground **:data-[slot=command-input-wrapper]:h-12 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group]]:px-2 [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-input-wrapper]_svg]:h-5 [&_[cmdk-input-wrapper]_svg]:w-5 [&_[cmdk-input]]:h-12 [&_[cmdk-item]]:px-2 [&_[cmdk-item]]:py-3 [&_[cmdk-item]_svg]:h-5 [&_[cmdk-item]_svg]:w-5">
 					{children}
-				</Command>
+				</Search>
 			</DialogContent>
 		</Dialog>
 	)
 }
 
-function CommandInput({
+function SearchInput({
 	className,
 	...props
 }: React.ComponentProps<typeof CommandPrimitive.Input>) {
 	return (
 		<div
-			data-slot="command-input-wrapper"
+			data-slot="search-input-wrapper"
 			className="flex h-9 items-center gap-2 border-b border-border px-3"
 		>
 			<SearchIcon className="size-4 shrink-0 opacity-50" />
@@ -82,13 +82,13 @@ function CommandInput({
 	)
 }
 
-function CommandList({
+function SearchList({
 	className,
 	...props
 }: React.ComponentProps<typeof CommandPrimitive.List>) {
 	return (
 		<CommandPrimitive.List
-			data-slot="command-list"
+			data-slot="search-list"
 			className={cn(
 				"max-h-[300px] scroll-py-1 overflow-x-hidden overflow-y-auto",
 				className
@@ -98,25 +98,25 @@ function CommandList({
 	)
 }
 
-function CommandEmpty({
+function SearchEmpty({
 	...props
 }: React.ComponentProps<typeof CommandPrimitive.Empty>) {
 	return (
 		<CommandPrimitive.Empty
-			data-slot="command-empty"
+			data-slot="search-empty"
 			className="py-6 text-center text-sm"
 			{...props}
 		/>
 	)
 }
 
-function CommandGroup({
+function SearchGroup({
 	className,
 	...props
 }: React.ComponentProps<typeof CommandPrimitive.Group>) {
 	return (
 		<CommandPrimitive.Group
-			data-slot="command-group"
+			data-slot="search-group"
 			className={cn(
 				"text-foreground [&_[cmdk-group-heading]]:text-muted-foreground overflow-hidden p-1 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium",
 				className
@@ -126,26 +126,26 @@ function CommandGroup({
 	)
 }
 
-function CommandSeparator({
+function SearchSeparator({
 	className,
 	...props
 }: React.ComponentProps<typeof CommandPrimitive.Separator>) {
 	return (
 		<CommandPrimitive.Separator
-			data-slot="command-separator"
+			data-slot="search-separator"
 			className={cn("bg-border -mx-1 h-px", className)}
 			{...props}
 		/>
 	)
 }
 
-function CommandItem({
+function SearchItem({
 	className,
 	...props
 }: React.ComponentProps<typeof CommandPrimitive.Item>) {
 	return (
 		<CommandPrimitive.Item
-			data-slot="command-item"
+			data-slot="search-item"
 			className={cn(
 				"data-[selected=true]:bg-accent/80 data-[selected=true]:text-accent-foreground [&_svg:not([class*='text-'])]:text-muted-foreground relative flex cursor-default items-center gap-2 rounded-lg px-2 py-1.5 text-sm outline-hidden select-none data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
 				className
@@ -155,13 +155,13 @@ function CommandItem({
 	)
 }
 
-function CommandShortcut({
+function SearchShortcut({
 	className,
 	...props
 }: React.ComponentProps<"span">) {
 	return (
 		<span
-			data-slot="command-shortcut"
+			data-slot="search-shortcut"
 			className={cn(
 				"text-muted-foreground ml-auto text-xs tracking-widest",
 				className
@@ -172,13 +172,13 @@ function CommandShortcut({
 }
 
 export {
-	Command,
-	CommandDialog,
-	CommandInput,
-	CommandList,
-	CommandEmpty,
-	CommandGroup,
-	CommandItem,
-	CommandShortcut,
-	CommandSeparator,
+	Search,
+	SearchDialog,
+	SearchInput,
+	SearchList,
+	SearchEmpty,
+	SearchGroup,
+	SearchItem,
+	SearchShortcut,
+	SearchSeparator,
 }

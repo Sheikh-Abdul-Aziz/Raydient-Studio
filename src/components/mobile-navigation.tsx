@@ -74,7 +74,7 @@ export function MobileNavigation({
                                 <CollapsibleTrigger asChild>
                                     <MobileMenuButton tooltip={item.title} onClick={() => handleMenuToggle(item.title)}>
                                         {item.icon && <item.icon />}
-                                        <span className="text-sm font-normal text-foreground/80 leading-none">{item.title}</span>
+                                        <span className="text-sm font-normal text-foreground leading-none">{item.title}</span>
                                         <IconChevronRight
                                             className={`ml-auto transition-transform duration-200 ${
                                                 activeMenu === item.title

@@ -9,6 +9,7 @@ import WhyChooseUs from "@/components/why-choose-us";
 import Newsletter from "@/components/newsletter";
 import Testimonial from "@/components/testimonials";
 import TrustedBrands from "@/components/trusted-brands";
+import Advantages from "@/components/advantages";
 
 export default function Home() {
     return (
@@ -18,6 +19,7 @@ export default function Home() {
             <Hero /> {/* Hero */}
             <TrustedBrands />
             <Services /> {/* Services */}
+            <Advantages /> {/* Strategic Edge We’ve */}
             <FeaturedProjects /> {/* Featured Projects */}
             <RecentProjects /> {/* Recent Projects */}
             <WhyChooseUs /> {/* Why Choose Us */}

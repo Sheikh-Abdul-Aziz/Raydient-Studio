@@ -12,24 +12,24 @@ import {
 } from "lucide-react";
 
 import {
-	CommandDialog,
-	CommandEmpty,
-	CommandGroup,
-	CommandInput,
-	CommandItem,
-	CommandList,
-	CommandSeparator,
-	CommandShortcut,
-} from "./ui/command";
+	SearchDialog,
+	SearchEmpty,
+	SearchGroup,
+	SearchInput,
+	SearchItem,
+	SearchList,
+	SearchSeparator,
+	SearchShortcut,
+} from "./ui/search";
 import { Button } from "./ui/button";
 
 export default function Search() {
 	const [open, setOpen] = useState(false)
 
 	useEffect(() => {
-		const down = (e: KeyboardEvent) => {
-			if (e.key === "s" && (e.metaKey || e.ctrlKey)) {
-				e.preventDefault()
+		const down = (event: KeyboardEvent) => {
+			if (event.key === "s" && (event.metaKey || event.ctrlKey)) {
+				event.preventDefault()
 				setOpen((open) => !open)
 			}
 		}
@@ -40,47 +40,47 @@ export default function Search() {
 
 	return (
 		<>
-			<Button onClick={() => setOpen(true)} aria-label="search" variant="outlined" size="icon" radius="large">
+			<Button onClick={() => setOpen(true)} aria-label="search" variant="outlined" size="icon" radius={"medium"}>
 				<SearchIcon />
 			</Button>
-			<CommandDialog open={open} onOpenChange={setOpen}>
-				<CommandInput placeholder="Type a command or search..." />
-				<CommandList>
-					<CommandEmpty>No results found.</CommandEmpty>
-					<CommandGroup heading="Suggestions">
-						<CommandItem>
+			<SearchDialog open={open} onOpenChange={setOpen}>
+				<SearchInput placeholder="Type a command or search..." />
+				<SearchList>
+					<SearchEmpty>No results found.</SearchEmpty>
+					<SearchGroup heading="Suggestions">
+						<SearchItem>
 							<Calendar />
 							<span>Calendar</span>
-						</CommandItem>
-						<CommandItem>
+						</SearchItem>
+						<SearchItem>
 							<Smile />
 							<span>Search Emoji</span>
-						</CommandItem>
-						<CommandItem>
+						</SearchItem>
+						<SearchItem>
 							<Calculator />
 							<span>Calculator</span>
-						</CommandItem>
-					</CommandGroup>
-					<CommandSeparator />
-					<CommandGroup heading="Settings">
-						<CommandItem>
+						</SearchItem>
+					</SearchGroup>
+					<SearchSeparator />
+					<SearchGroup heading="Settings">
+						<SearchItem>
 							<User />
 							<span>Profile</span>
-							<CommandShortcut>⌘P</CommandShortcut>
-						</CommandItem>
-						<CommandItem>
+							<SearchShortcut>⌘P</SearchShortcut>
+						</SearchItem>
+						<SearchItem>
 							<CreditCard />
 							<span>Billing</span>
-							<CommandShortcut>⌘B</CommandShortcut>
-						</CommandItem>
-						<CommandItem>
+							<SearchShortcut>⌘B</SearchShortcut>
+						</SearchItem>
+						<SearchItem>
 							<Settings />
 							<span>Settings</span>
-							<CommandShortcut>⌘S</CommandShortcut>
-						</CommandItem>
-					</CommandGroup>
-				</CommandList>
-			</CommandDialog>
+							<SearchShortcut>⌘S</SearchShortcut>
+						</SearchItem>
+					</SearchGroup>
+				</SearchList>
+			</SearchDialog>
 		</>
 	)
 }

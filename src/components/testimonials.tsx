@@ -4,7 +4,7 @@ import { Marquee } from "./ui/scroll";
 import SectionHeader from "./section-header";
 
 const info = {
-    title: "TESTIMONIALS",
+    title: "CLIENT TESTIMONIALS",
     subtitle: (
         <>
             Take a Quick Look at What Our{" "}<br className="md:hidden" />Clients Are Saying
@@ -89,18 +89,18 @@ const ReviewCard = ({
 
 export default function Testimonial() {
     return (
-        <div className="hidden flex-col justify-start items-start w-full h-auto overflow-hidden px-4 py-8 gap-y-6 max-w-7xl mx-auto">
+        <div className="flex flex-col justify-start items-start w-full h-auto overflow-hidden px-4 py-8 gap-y-6 max-w-7xl mx-auto">
             <SectionHeader info={info} />
             <div className="relative flex flex-col justify-start items-start w-full h-auto overflow-hidden max-w-7xl">
                 <div className="relative w-full h-auto flex flex-col gap-y-4">
                     {/* First row marquee */}
-                    <Marquee duration={30}>
+                    <Marquee >
                         {[...firstRow, ...firstRow].map((review, idx) => (
                             <ReviewCard key={review.username + idx} {...review} />
                         ))}
                     </Marquee>
                     {/* Second row marquee (reverse) */}
-                    <Marquee  duration={30}>
+                    <Marquee >
                         {[...secondRow, ...secondRow].map((review, idx) => (
                             <ReviewCard key={review.username + idx} {...review} />
                         ))}

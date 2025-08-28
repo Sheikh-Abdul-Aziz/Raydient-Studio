@@ -12,7 +12,7 @@ const info = {
     title: "RECENT PROJECTS",
     subtitle: (
         <>
-            Take a Quick Look at our Recent{" "}<br className="md:hidden" />Branding Projects
+            Presenting our Recent Branding{" "}<br className="md:hidden" />and Design Projects
         </>
     ),
 };
@@ -53,7 +53,7 @@ export default function RecentProjects() {
                     <SectionHeader info={info} />
                     <div className="flex flex-col md:flex-row justify-center items-center gap-6">
                         {projects.map((project) => (
-                            <Card key={project.id} className="flex flex-col justify-start items-center shadow-none">
+                            <Card key={project.id} className="flex flex-col justify-start items-center">
                                 <CardContent className="flex flex-col justify-start items-start gap-y-2">
                                     <Avatar className="w-16 h-16 border border-border rounded-lg">
                                         <AvatarImage src={project.avatarSrc} alt={"Alt"} />
@@ -62,10 +62,10 @@ export default function RecentProjects() {
                                     <CardTitle>{project.title}</CardTitle>
                                     <CardDescription>{project.description}</CardDescription>
                                     <div className="flex flex-row justify-start items-center gap-x-3">
-                                        <Button onClick={() => handleNavigation(project.websiteUrl)} variant="outlined" size="default">
+                                        <Button onClick={() => handleNavigation(project.websiteUrl)} variant="outlined" size="default" radius={"large"}>
                                             <Globe />Website
                                         </Button>
-                                        <Button onClick={() => handleNavigation(project.githubUrl)} variant="tonal" size="default">
+                                        <Button onClick={() => handleNavigation(project.githubUrl)} variant="tonal" size="default" radius={"large"}>
                                             Github<ArrowRight />
                                         </Button>
                                     </div>

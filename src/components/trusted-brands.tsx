@@ -7,14 +7,14 @@ import { Marquee } from "./ui/scroll";
 export default function TrustedBrands() {
 
     const brands = useMemo(
-        () => ["1", "2", "3", "4", "5", "6", "7", "8"],
+        () => ["2", "3", "4", "5", "6"],
         []
     );
 
     return (
         <div className="w-full h-fit px-0 py-6">
-            <div className="w-full h-fit px-4 py-0">
-                <div className="flex flex-col relative justify-center items-start text-left left-0 right-0 max-w-7xl mx-auto">
+            <div className="w-full h-fit px-0 py-0">
+                <div className="flex flex-col relative bg-surface rounded-lg p-4 justify-center items-start text-left left-0 right-0 max-w-7xl mx-auto">
                     {/* Marquee component */}
                     <Marquee>
                         {brands.map((brand) => (

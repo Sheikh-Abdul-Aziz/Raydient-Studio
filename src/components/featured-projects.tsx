@@ -1,76 +1,83 @@
-"use client"
+"use client";
 
 import React from "react";
-import { useRouter } from "next/navigation";
-import { Card, CardContent, CardDescription, CardTitle } from "./ui/card";
-import { Button } from "./ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { ArrowRight, Globe } from "lucide-react";
 import SectionHeader from "./section-header";
+import { PortfolioCard } from "./portfolio-card";
 
 const info = {
     title: "FEATURED PROJECTS",
     subtitle: (
         <>
-            Featuring our Latest Designs{" "}<br className="md:hidden" />and Brand Solutions
+            Highlighting our Standout Designs{" "}<br className="md:hidden" />and Brand Solutions
         </>
     ),
 };
 
+const brandLogo = "https://raydientstudio.vercel.app/android-chrome-512x512.png";
+const imageUrl = "https://raydientstudio.vercel.app/og-image.jpg";
+
 export default function FeaturedProjects() {
 
-    const router = useRouter();
-
-    const projects = [
+    const portfolioProjects = [
         {
-            id: 1,
-            title: "Fraymit",
-            description: "Let's create a suite of free-to-premium templates and components for Figma, Framer, and Webflow.",
-            avatarSrc: "https://github.com/fraymit.png",
-            avatarFallback: "FR",
-            websiteUrl: "https://fraymit.com",
-            githubUrl: "https://github.com/fraymit",
+            title: "FinanceHub Dashboard",
+            description:
+                "Professional financial management dashboard for investment firms. Features real-time market data, portfolio analytics.",
+            category: "Fintech",
+            type: "Dashboard",
+            imageUrl: imageUrl,
+            brandLogo: brandLogo,
+            caseStudyUrl: "#",
         },
         {
-            id: 2,
-            title: "Miracle UI Suite",
-            description: "Let's create a free to premium suite of modern web components and templates, building responsive designs and seamless user experiences.",
-            avatarSrc: "https://github.com/miracle-ui-suite.png",
-            avatarFallback: "MU",
-            websiteUrl: "https://miracle-ui.com",
-            githubUrl: "https://github.com/miracle-ui-suite",
+            title: "MedConnect Telemedicine",
+            description:
+                "HIPAA-compliant telemedicine platform enabling secure video consultations, patient records management.",
+            category: "Healthcare",
+            type: "Platform",
+            imageUrl: imageUrl,
+            brandLogo: brandLogo,
+            caseStudyUrl: "#",
         },
-    ];
-
-    const handleNavigation = (url: string) => {
-        router.push(url);
-    };
+        {
+            title: "EduLearn LMS",
+            description:
+                "Modern learning management system for educational institutions. Features interactive courses, progress tracking.",
+            category: "Education",
+            type: "LMS",
+            imageUrl: imageUrl,
+            brandLogo: brandLogo,
+            caseStudyUrl: "#",
+        },
+        {
+            title: "FoodieHub Restaurant",
+            description:
+                "Premium restaurant website with online reservations, menu management, and integrated ordering system.",
+            category: "Restaurant",
+            type: "Website",
+            imageUrl: imageUrl,
+            brandLogo: brandLogo,
+            caseStudyUrl: "#",
+        },
+    ]
 
     return (
         <div className="w-full h-auto px-0 py-8">
             <div className="w-full h-auto px-4 py-0">
                 <div className="flex flex-col justify-center items-start text-left gap-y-6 left-0 right-0 max-w-7xl mx-auto">
                     <SectionHeader info={info} />
-                    <div className="flex flex-col md:flex-row justify-center items-center gap-6">
-                        {projects.map((project) => (
-                            <Card key={project.id} className="flex flex-col justify-start items-center shadow-none">
-                                <CardContent className="flex flex-col justify-start items-start gap-y-2">
-                                    <Avatar className="w-16 h-16 border border-border rounded-lg">
-                                        <AvatarImage src={project.avatarSrc} alt={"Alt"} />
-                                        <AvatarFallback>{project.avatarFallback}</AvatarFallback>
-                                    </Avatar>
-                                    <CardTitle>{project.title}</CardTitle>
-                                    <CardDescription>{project.description}</CardDescription>
-                                    <div className="flex flex-row justify-start items-center gap-x-3">
-                                        <Button onClick={() => handleNavigation(project.websiteUrl)} variant="outlined" size="default">
-                                            <Globe />Website
-                                        </Button>
-                                        <Button onClick={() => handleNavigation(project.githubUrl)} variant="tonal" size="default">
-                                            Github<ArrowRight />
-                                        </Button>
-                                    </div>
-                                </CardContent>
-                            </Card>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                        {portfolioProjects.map((project, index) => (
+                            <PortfolioCard
+                                key={index}
+                                title={project.title}
+                                description={project.description}
+                                category={project.category}
+                                type={project.type}
+                                imageUrl={project.imageUrl}
+                                brandLogo={project.brandLogo}
+                                caseStudyUrl={project.caseStudyUrl}
+                            />
                         ))}
                     </div>
                 </div>

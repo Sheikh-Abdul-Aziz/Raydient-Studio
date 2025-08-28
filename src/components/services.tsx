@@ -3,11 +3,11 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import { Card, CardContent, CardDescription, CardTitle } from "./ui/card";
-import { IconContract, IconDevicesCode, IconPaint, IconVector } from "@tabler/icons-react";
+import { IconContract, IconDevelopment, IconPaint, IconVector } from "./miracle-ui/icons-services";
 import SectionHeader from "./section-header";
 
 const info = {
-    title: "SERVICES",
+    title: "SERVICES WE PROVIDE",
     subtitle: (
         <>
             Expertise in Websites, Products,{" "}<br className="md:hidden" />and Brand Identity
@@ -24,28 +24,28 @@ export default function Services() {
     const services = [
         {
             id: 1,
-            icon: <IconPaint strokeWidth={1.5} size={28} className="text-muted-foreground" />,
+            icon: <IconPaint size={28} />,
             title: "Branding & Visual Identity",
             description: "Creating memorable brands with a focus on visual identity.",
             serviceUrl: "/",
         },
         {
             id: 2,
-            icon: <IconVector strokeWidth={1.5} size={28} className="text-muted-foreground" />,
+            icon: <IconVector size={28} />,
             title: "Website & Product Design",
             description: "Designing clean user-friendly websites and products.",
             serviceUrl: "/",
         },
         {
             id: 3,
-            icon: <IconDevicesCode strokeWidth={1.5} size={28} className="text-muted-foreground" />,
+            icon: <IconDevelopment size={28} />,
             title: "Frontend Development",
             description: "Developing responsive, fast, and optimized solutions.",
             serviceUrl: "/",
         },
         {
             id: 4,
-            icon: <IconContract strokeWidth={1.5} size={28} className="text-muted-foreground" />,
+            icon: <IconContract size={28} />,
             title: "Smart Contract Solutions",
             description: "Building smart, secure, reliable, and efficient contracts.",
             serviceUrl: "/",
@@ -59,7 +59,7 @@ export default function Services() {
                     <SectionHeader info={info} />
                     <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6 w-full h-auto">
                         {services.map((service) => (
-                            <Card key={service.id} onClick={() => handleNavigation(service.serviceUrl ?? "/")} className="flex flex-col justify-start items-start border border-border hover:bg-muted/80 active:bg-muted/80 transition-colors duration-270 ease-in-out cursor-pointer">
+                            <Card key={service.id} onClick={() => handleNavigation(service.serviceUrl ?? "/")} className="flex flex-col justify-start items-start hover:bg-muted/80 active:bg-muted/80 transition-colors duration-270 ease-in-out cursor-pointer">
                                 <CardContent>
                                     {service.icon}
                                     <CardTitle>{service.title}</CardTitle>

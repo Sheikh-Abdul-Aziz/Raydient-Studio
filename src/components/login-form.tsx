@@ -9,7 +9,7 @@ export function LoginForm({className, ...props}: React.ComponentProps<"div">) {
 	return (
 		<div className={cn("flex flex-col gap-6", className)} {...props}>
 			<Card className="overflow-hidden">
-				<CardContent className="grid p-0 md:grid-cols-2">
+				<CardContent className="grid p-0 grid-cols-1 md:grid-cols-2">
 					<form className="p-6 md:p-8">
 						<div className="flex flex-col gap-6">
 							<div className="flex flex-col items-center text-center">
@@ -84,9 +84,9 @@ export function LoginForm({className, ...props}: React.ComponentProps<"div">) {
 							</div>
 						</div>
 					</form>
-					<div className="relative hidden bg-muted md:block">
+					<div className="relative bg-muted md:block">
 						<Image
-							src="/placeholder.svg"
+							src="/500.svg"
 							alt="Image"
 							className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
 						/>

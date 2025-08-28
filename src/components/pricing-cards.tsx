@@ -22,7 +22,7 @@ import SectionHeader from "./section-header";
 import { Poppins } from "@/fonts/local";
 
 const info = {
-    title: "PRICING",
+    title: "PRICING PLANS",
     subtitle: (
         <>
             Pricing Transparency Without{" "}
@@ -187,7 +187,7 @@ export default function PricingCards() {
                     <SectionHeader info={info} />
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 w-full h-auto gap-6 lg:gap-8">
                         {plans.map((plan) => (
-                            <div key={plan.id} className="flex flex-col relative overflow-hidden rounded-lg border border-border bg-surface text-card-foreground justify-start items-start shadow-none w-full">
+                            <div key={plan.id} className="flex flex-col relative overflow-hidden rounded-lg border border-border bg-surface text-card-foreground justify-start items-start shadow-[0.5px_0.5px_1px_rgba(0,0,0,0.03)] w-full">
                                 <div className={`${plan.isVisible} flex-row justify-start items-center w-auto h-5 absolute top-0 right-0 gap-x-1 px-2 py-2 rounded-bl-lg bg-primary text-primary-foreground`}>
                                     {iconMap[plan.tagicon as keyof typeof iconMap]}
                                     <h4 className="text-[10px] font-medium tracking-tight leading-none uppercase">{plan.tagline}</h4>

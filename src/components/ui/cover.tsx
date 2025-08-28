@@ -148,16 +148,16 @@ export const Cover = ({
                     },
                 }}
                 className={cn(
-                    "text-via z-10 inline-block relative transition duration-200",
+                    "text-primary z-10 inline-block relative transition duration-200",
                     className
                 )}
             >
                 {children}
             </motion.span>
             <CircleIcon className="absolute -right-[6.5px] -top-[6.5px]" />
-            <CircleIcon className="absolute -bottom-[6.5px] -right-[6.5px]" delay={0.4} />
-            <CircleIcon className="absolute -left-[6.5px] -top-[6.5px]" delay={0.8} />
-            <CircleIcon className="absolute -bottom-[6.5px] -left-[6.5px]" delay={1.6} />
+            <CircleIcon className="absolute -bottom-[6.5px] -right-[6.5px]" />
+            <CircleIcon className="absolute -left-[6.5px] -top-[6.5px]" />
+            <CircleIcon className="absolute -bottom-[6.5px] -left-[6.5px]" />
         </div>
     );
 };
@@ -225,7 +225,7 @@ const Beam = ({
     );
 };
 
-const CircleIcon = memo(({ className }: { className?: string; delay?: number; }) => {
+const CircleIcon = memo(({ className }: { className?: string; }) => {
     return (
         <div className={cn(`pointer-events-none h-3 w-3 border-[2px] border-border rounded-full bg-background`, className)} />
     );

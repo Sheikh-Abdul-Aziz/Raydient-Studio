@@ -97,7 +97,7 @@ export default function MainFooter() {
     ], []);
 
     return (
-        <footer className="bg-surface bottom-0 left-0 right-0 mt-8 py-5 rounded-t-lg border-t border-border border-solid">
+        <footer className="bg-surface bottom-0 left-0 right-0 py-5 rounded-t-lg border-t border-border border-solid">
             <div className="px-5">
                 <div className="flex flex-col gap-y-4 max-w-7xl mx-auto">
 
@@ -162,7 +162,7 @@ export default function MainFooter() {
                         <form className="flex flex-col space-y-4 w-full">
                             <Input type="text" startIcon={IconUser} placeholder="Enter your name" />
                             <Input type="email" startIcon={IconMail} placeholder="Enter your email address" />
-                            <Button variant="filled" radius="medium">
+                            <Button variant="filled" radius={"medium"}>
                                 <IconCornerDownRight />
                                 Join the newsletter
                             </Button>
@@ -175,7 +175,7 @@ export default function MainFooter() {
                             <div className="flex flex-wrap justify-center md:justify-start gap-2">
                                 {socialLinks.map(({ href, icon, label }) => (
                                     <Link key={href} href={href}>
-                                        <Button aria-label={label} variant="outlined" size="social" radius="large">
+                                        <Button aria-label={label} variant="outlined" size="social" radius={"medium"}>
                                             {icon}
                                         </Button>
                                     </Link>

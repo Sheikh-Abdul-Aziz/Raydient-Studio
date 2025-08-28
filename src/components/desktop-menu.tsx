@@ -13,6 +13,7 @@ import {
     NavigationMenuTrigger,
     NavigationMenuTriggerStyle,
 } from "./ui/navigation-menu"
+import { useCallback } from "react";
 
 const components: { title: string; href: string; description: string }[] = [
     {
@@ -53,31 +54,31 @@ const components: { title: string; href: string; description: string }[] = [
 ]
 
 export function DesktopMenu() {
+
     const router = useRouter();
-    const home = () => {
-        router.push("/");
-    }
-    const about = () => {
-        router.push("/about");
-    }
-    const portfolio = () => {
-        router.push("/portfolio");
-    }
+
+    const navigateTo = useCallback(
+        (path: string) => {
+            router.push(path);
+        },
+        [router]
+    );
+
     return (
         <NavigationMenu>
             <NavigationMenuList>
                 <NavigationMenuItem>
-                    <NavigationMenuLink onClick={home} className={NavigationMenuTriggerStyle()}>
+                    <NavigationMenuLink onClick={() => navigateTo("/")} className={NavigationMenuTriggerStyle()}>
                         Home
                     </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <NavigationMenuLink onClick={about} className={NavigationMenuTriggerStyle()}>
-                        About
+                    <NavigationMenuLink onClick={() => navigateTo("/docs")} className={NavigationMenuTriggerStyle()}>
+                        Docs
                     </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <NavigationMenuLink onClick={portfolio} className={NavigationMenuTriggerStyle()}>
+                    <NavigationMenuLink onClick={() => navigateTo("/projects")} className={NavigationMenuTriggerStyle()}>
                         Projects
                     </NavigationMenuLink>
                 </NavigationMenuItem>
@@ -132,7 +133,7 @@ const ListItem = React.forwardRef<React.ComponentRef<typeof Link>, React.Compone
                     <div className="text-sm font-medium leading-none">
                         {title}
                     </div>
-                    <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                    <p className="line-clamp-2 text-sm leading-none text-muted-foreground">
                         {children}
                     </p>
                 </Link>

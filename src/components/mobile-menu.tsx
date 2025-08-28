@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import ThemeSwitcher from "./theme-switcher";
 import { AnimatePresence, motion } from "framer-motion";
 import { IconLayoutGrid, IconShape } from "@tabler/icons-react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
@@ -11,13 +10,13 @@ import { Separator } from "./ui/separator";
 import { MobileNavigation } from "./mobile-navigation";
 import { Label } from "./ui/label";
 import { Poppins } from "@/fonts/local";
+import ThemeSwitcher from "./theme-switcher";
 
 const data = {
     user: {
         name: "Entrepreneur Aziz",
         title: "Entrepreneur | Developer | Designer",
-        description:
-            "I am a passionate entrepreneur, developer, and designer with a keen interest in creating innovative solutions that make a difference.",
+        description: "I am a passionate entrepreneur, developer, and designer with a keen interest in creating innovative solutions that make a difference.",
         website: "https://entrepreneuraziz.com",
         github: "https://github.com/sheikh-abdul-aziz",
         x: "https://x.com/@ShekhAbdulAzeez",
@@ -76,61 +75,29 @@ export default function MobileMenu() {
     const navigateTo = (path: string) => router.push(path);
 
     useEffect(() => {
-        document.body.style.overflow = isOpen ? "hidden" : "";
+        document.body.style.overflow = isOpen ? "hidden" : "visible";
         return () => {
-            document.body.style.overflow = "";
+            document.body.style.overflow = "visible";
         };
     }, [isOpen]);
 
     return (
-        <div>
+        <>
             {/* Hamburger Button */}
-            <Button
-                aria-label="menu"
-                variant="outlined"
-                size="icon"
-                radius="large"
-                onClick={toggleDrawer}
-                className="flex flex-col items-center justify-center p-2 gap-1.5 transition-opacity disabled:opacity-50 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-secondary"
-            >
-                <motion.span
-                    className="block w-full h-0.5 bg-muted-foreground rounded-full"
-                    animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 4 : 0 }}
-                    transition={{ duration: 0.1, ease: "linear" }}
-                />
-                <motion.span
-                    className="block w-full h-0.5 bg-muted-foreground rounded-full"
-                    animate={{ rotate: isOpen ? -45 : 0, y: isOpen ? -4 : 0 }}
-                    transition={{ duration: 0.1, ease: "linear" }}
-                />
+            <Button aria-label="menu" variant="outlined" size="icon" radius={"medium"} onClick={toggleDrawer} className="flex flex-col items-center justify-center p-2 gap-1.5 transition-opacity disabled:opacity-50 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-secondary">
+                <motion.span animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 4 : 0 }} transition={{ duration: 0.150, ease: "linear" }} className="block w-full h-0.5 bg-muted-foreground rounded-none" />
+                <motion.span animate={{ rotate: isOpen ? -45 : 0, y: isOpen ? -4 : 0 }} transition={{ duration: 0.150, ease: "linear" }} className="block w-full h-0.5 bg-muted-foreground rounded-none" />
             </Button>
 
             {/* Drawer Content */}
             <AnimatePresence>
                 {isOpen && (
-                    <motion.div
-                        key="mobile-drawer"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.1, ease: "easeInOut" }}
-                        className="z-20 flex flex-col fixed left-0 right-0 top-16 bottom-0 h-[100dvh] w-screen bg-background text-foreground px-4 py-4 gap-y-3"
-                    >
+                    <motion.div key="mobile-drawer" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.150, ease: "easeInOut" }} className="z-20 flex flex-col fixed left-0 right-0 top-16 bottom-0 h-[100dvh] w-screen bg-background text-foreground px-4 py-4 gap-y-3">
                         <div className="flex flex-col items-center justify-between gap-y-4">
-                            <Button
-                                onClick={() => navigateTo("/signup")}
-                                variant="filled"
-                                size="wide"
-                                radius="medium"
-                            >
+                            <Button onClick={() => navigateTo("/signup")} variant="filled" size="wide" radius={"medium"}>
                                 Signup
                             </Button>
-                            <Button
-                                onClick={() => navigateTo("/login")}
-                                variant="outlined"
-                                size="wide"
-                                radius="medium"
-                            >
+                            <Button onClick={() => navigateTo("/login")} variant="outlined" size="wide" radius={"medium"}>
                                 Login
                             </Button>
                         </div>
@@ -156,14 +123,11 @@ export default function MobileMenu() {
                         <Separator orientation="horizontal" className="my-3" />
 
                         <div className="flex flex-col">
-                            <MobileNavigation
-                                itemFirst={data.navigationMenu}
-                                itemSecond={data.projectsMenu}
-                            />
+                            <MobileNavigation itemFirst={data.navigationMenu} itemSecond={data.projectsMenu} />
                         </div>
                     </motion.div>
                 )}
             </AnimatePresence>
-        </div>
+        </>
     );
 }

@@ -1,23 +1,26 @@
 "use client";
 
-import React, { memo } from "react";
+import React, { memo, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import Bell from "./bell";
-import Search from "./search";
 import { Separator } from "./ui/separator";
+import { IconRaydientStudio } from "./miracle-ui/icon";
+import { DesktopMenu } from "./desktop-menu";
+import Search from "./search";
+import Notifications from "./notifications";
 import ThemeSwitcher from "./theme-switcher";
 import MobileMenu from "./mobile-menu";
-import { DesktopMenu } from "./desktop-menu";
-import { IconRaydientStudio } from "./icon/icon";
 
 const Header = () => {
 
     const router = useRouter();
 
-    const navigateHome = () => {
-        router.push("/");
-    };
+    const navigateTo = useCallback(
+        (path: string) => {
+            router.push(path);
+        },
+        [router]
+    );
 
     return (
         <header className="fixed z-20 top-0 left-0 right-0 w-full h-16 rounded-b-lg border-b border-border bg-surface backdrop-blur supports-[backdrop-filter]:bg-surface/80">
@@ -26,13 +29,13 @@ const Header = () => {
                     {/* MOBILE */}
                     <div className="flex flex-row lg:hidden items-center gap-x-2">
                         {/* Logo */}
-                        <IconRaydientStudio onClick={navigateHome} />
+                        <IconRaydientStudio onClick={() => navigateTo("/")} />
                     </div>
 
                     {/* DESKTOP */}
                     <div className="hidden lg:flex items-center gap-x-4">
                         {/* Logo */}
-                        <IconRaydientStudio onClick={navigateHome} />
+                        <IconRaydientStudio onClick={() => navigateTo("/")} />
 
                         {/* Vertical Divider */}
                         <Separator orientation="vertical" className="data-[orientation=vertical]:h-4" />
@@ -53,7 +56,7 @@ const Header = () => {
                     {/* Search and Notifications */}
                     <Search />
 
-                    <Bell />
+                    <Notifications />
 
                     {/* Avatar */}
                     <div className="hidden lg:flex">

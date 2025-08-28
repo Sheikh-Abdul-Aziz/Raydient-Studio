@@ -20,7 +20,7 @@ const AccordionItem = React.forwardRef<
     return (
         <AccordionPrimitive.Item
             data-slot="accordion-item"
-            className={cn("transition-colors duration-250 ease-in-out bg-surface hover:bg-muted/80 active:bg-muted/80 border border-border border-solid shadow-[0_0px_0px_rgba(0,0,0,0)] rounded-lg px-4 mb-3 last:mb-0", className)}
+            className={cn("transition-colors duration-250 ease-in-out bg-surface hover:bg-muted/80 active:bg-muted/80 border border-border/80 shadow-[0_0_0_rgba(0,0,0,0)] rounded-lg px-4 mb-3 last:mb-0", className)}
             {...props}
         />
     )

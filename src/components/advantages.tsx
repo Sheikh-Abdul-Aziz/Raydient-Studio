@@ -4,39 +4,39 @@ import { IconWriting, IconTeam, IconMotion, IconMagic } from "./miracle-ui/icons
 import SectionHeader from "./section-header";
 
 const info = {
-    title: "WHY CHOOSE US?",
+    title: "ADVANTAGES WE’VE GAINED",
     subtitle: (
         <>
-            The Design Partner You’ve{" "}<br className="md:hidden" />Been Looking For
+            Ensuring Your Success Doesn’t{" "}<br className="md:hidden" />End at Launch
         </>
     ),
 };
 
-export default function WhyChooseUs() {
+export default function Advantages() {
 
     const items = [
         {
             id: 1,
-            title: "Conversion-Driven Copywriting",
-            description: "Every word we design is intentional—crafted to influence decisions, spark action, and drive measurable growth for your business.",
+            title: "Proven Results You Can Trust",
+            description: "We don’t rely on promises—our portfolio is backed by real outcomes: higher conversions, stronger engagement, and brand growth.",
             icon: <IconWriting size={28} />
         },
         {
             id: 2,
-            title: "A Team Fully Dedicated to You",
-            description: "No outsourcing, no juggling. A focused team works exclusively on your project, giving you peace of mind and complete accountability.",
+            title: "End-to-End Creative Partnership",
+            description: "From strategy to launch, you get everything under one roof. No scattered vendors, just one reliable partner who understands your vision.",
             icon: <IconTeam size={28} />
         },
         {
             id: 3,
-            title: " Engaging Motion & Interaction Design",
-            description: "We create purposeful animations that guide users, reduce friction, and build emotional connections throughout the journey.",
+            title: "Human-Centered Design Thinking",
+            description: "We design with empathy, putting your audience first. This ensures every interaction resonates, builds trust, and turns visitors into loyal customers.",
             icon: <IconMotion size={28} />
         },
         {
             id: 4,
-            title: "Pixel-Perfect Craftsmanship",
-            description: "Trust is built in details. We obsess over alignment, precision, and brand consistency so your design feels flawless across every screen.",
+            title: "Future-Ready & Scalable Solutions",
+            description: "Our work isn’t just for today. We build designs and systems that grow with your business, ensuring long-term relevance and success.",
             icon: <IconMagic size={28} />
         }
     ];

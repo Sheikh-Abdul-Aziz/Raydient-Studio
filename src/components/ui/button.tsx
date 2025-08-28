@@ -11,7 +11,7 @@ const buttonVariants = cva(`${Poppins.className} antialiased inline-flex items-c
                 alert: "bg-transparent text-destructive/80 hover:bg-destructive/10 hover:text-destructive active:bg-destructive/10 active:text-destructive",
                 destructive: "bg-destructive text-primary-foreground hover:text-primary-foreground/90 active:text-primary-foreground/90 hover:bg-destructive/80 active:bg-destructive/80 shadow-xs",
                 elevated: "bg-surface text-secondary-foreground shadow-xs hover:bg-secondary hover:text-secondary-foreground active:bg-secondary active:text-secondary-foreground",
-                filled: "bg-primary text-primary-foreground hover:bg-primary/90 active:bg-primary/90 shadow-xs ",
+                filled: "bg-primary text-primary-foreground hover:bg-primary/95 active:bg-primary/95 shadow-[0_2px_2px_rgba(0,0,0,0.03)]",
                 linked: "bg-transparent text-primary underline-offset-4 hover:underline active:underline",
                 outlined: "bg-surface text-foreground hover:bg-secondary active:bg-secondary hover:text-secondary-foreground active:text-secondary-foreground border border-border border-solid",
                 text: "bg-transparent text-secondary-foreground/80 hover:bg-secondary hover:text-secondary-foreground active:bg-secondary active:text-secondary-foreground",

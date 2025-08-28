@@ -1,16 +1,14 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 import { Children, Fragment, ReactNode, useCallback, useEffect, useRef, useState } from "react";
-import { twMerge } from "tailwind-merge";
 
-type Props = {
+type MarqueeProps = {
     children: ReactNode;
-    duration?: number;
-    containerClassName?: string;
+    className?: string;
 };
 
-const Marquee = ({ children, duration, containerClassName }: Props) => {
+const Marquee = ({ children, className }: MarqueeProps) => {
     const [isMounted, setIsMounted] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
     const marqueeRef = useRef<HTMLDivElement>(null);
@@ -54,7 +52,9 @@ const Marquee = ({ children, duration, containerClassName }: Props) => {
             return [...Array(arraySize)].map((_, i) => (
                 <Fragment key={i}>
                     {Children.map(children, (child) => (
-                        <>{child}</>
+                        <>
+                            {child}
+                        </>
                     ))}
                 </Fragment>
             ));
@@ -62,43 +62,23 @@ const Marquee = ({ children, duration, containerClassName }: Props) => {
         [children]
     );
 
-    // ✅ Fix: use easing function instead of string
-    const scroll = {
-        x: ["0%", "-100%"],
-        transition: {
-            duration: duration || 10,
-            ease: (t: number) => t, // linear easing function
-            repeat: Infinity,
-        },
-    };
-
     if (!isMounted) return null;
 
     return (
-        <div
-            ref={containerRef}
-            className={twMerge("overflow-x-hidden flex flex-row relative w-full", containerClassName)}
-        >
-            <motion.div
-                animate={scroll}
-                className="flex-shrink-0 flex-grow-0 basis-auto min-w-full flex flex-row items-center"
-            >
-                <div
-                    ref={marqueeRef}
-                    className="flex-shrink-0 flex-grow-0 basis-auto flex min-w-fit flex-row items-center"
-                >
+        <div ref={containerRef} className={cn("overflow-x-hidden flex flex-row relative w-full", className)}>
+            <div className="animate-marquee flex-shrink-0 flex-grow-0 basis-auto min-w-full flex flex-row items-center">
+                <div ref={marqueeRef} className="flex-shrink-0 flex-grow-0 basis-auto flex min-w-fit flex-row items-center">
                     {Children.map(children, (child) => (
-                        <>{child}</>
+                        <>
+                            {child}
+                        </>
                     ))}
                 </div>
                 {multiplyChildren(multiplier - 1)}
-            </motion.div>
-            <motion.div
-                animate={scroll}
-                className="flex-shrink-0 flex-grow-0 basis-auto min-w-full flex flex-row items-center"
-            >
+            </div>
+            <div className="animate-marquee flex-shrink-0 flex-grow-0 basis-auto min-w-full flex flex-row items-center">
                 {multiplyChildren(multiplier)}
-            </motion.div>
+            </div>
         </div>
     );
 };

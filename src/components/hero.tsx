@@ -2,7 +2,7 @@
 
 import React, { useCallback } from "react";
 import { useRouter } from "next/navigation";
-import { IconChevronRight, IconCircleFilled, IconSparkles } from "@tabler/icons-react";
+import { IconChevronRight, IconSparkles } from "@tabler/icons-react";
 import { Cover } from "./ui/cover";
 import { StatusIndicator } from "./staus-indicator";
 import { HeroButton } from "./hero-button";
@@ -21,21 +21,16 @@ export default function Hero() {
     return (
         <section className="w-full h-auto rounded-b-lg py-8">
             <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
                 {/* Main Vertical Layout */}
                 <div className="flex flex-col justify-start md:justify-center items-start md:items-center w-full h-fit max-w-7xl gap-y-2 mt-16 mx-auto">
+
                     {/* Status Indicator */}
-                    <StatusIndicator className="group">
-                        <div className="flex flex-row relative justify-center items-center gap-x-1.5 px-2 py-1.5">
-                            <IconCircleFilled size={10} className="text-available bg-available animate-pulsar disabled:pointer-events-none disabled:text-unavailable" />
-                            <p className="antialiased font-semibold whitespace-nowrap text-foreground/70 text-xs leading-none items-center uppercase translate-y-[0.5px] md:translate-y-0">
-                                Open for Projects
-                            </p>
-                        </div>
-                    </StatusIndicator>
+                    <StatusIndicator />
 
                     {/* Heading & Paragraph */}
                     <div className="flex flex-col justify-start md:justify-center items-start md:items-center max-w-7xl gap-y-2 mx-auto">
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-start md:text-center text-transparent tracking-normal leading-[1.1] bg-gradient-to-tl from-from via-via to-to bg-clip-text">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-start md:text-center text-primary tracking-normal leading-[1.1]">
                             Reinforcing Brands with Minimalist Frontend{" "}
                             <Cover>Solutions</Cover>
                         </h1>
