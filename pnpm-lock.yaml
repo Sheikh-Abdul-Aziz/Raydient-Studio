@@ -11,6 +11,9 @@ importers:
       '@ducanh2912/next-pwa':
         specifier: ^10.2.9
         version: 10.2.9(next@15.4.6(@babel/core@7.28.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(webpack@5.101.0)
+      '@geist-ui/core':
+        specifier: ^2.3.8
+        version: 2.3.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@hookform/resolvers':
         specifier: ^5.0.1
         version: 5.2.1(react-hook-form@7.62.0(react@18.3.1))
@@ -837,6 +840,12 @@ packages:
 
   '@floating-ui/utils@0.2.10':
     resolution: {integrity: sha512-aGTxbpbg8/b5JfU1HXSrbH3wXZuLPJcNEcZQFMxLs3oSzgtVu6nFPkbbGGUvBcUjKV2YyB9Wxxabo+HEH9tcRQ==}
+
+  '@geist-ui/core@2.3.8':
+    resolution: {integrity: sha512-OKwGgTA4+fBM41eQbqDoUj4XBycZbYH7Ynrn6LPO5yKX7zeWPu/R7HN3vB4/oHt34VTDQI5sDNb1SirHvNyB5w==}
+    peerDependencies:
+      react: '>=16.9.0'
+      react-dom: '>=16.9.0'
 
   '@hookform/resolvers@5.2.1':
     resolution: {integrity: sha512-u0+6X58gkjMcxur1wRWokA7XsiiBJ6aK17aPZxhkoYiK5J+HcTx0Vhu9ovXe6H+dVpO6cjrn2FkJTryXEMlryQ==}
@@ -5362,6 +5371,12 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
 
   '@floating-ui/utils@0.2.10': {}
+
+  '@geist-ui/core@2.3.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@babel/runtime': 7.28.2
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   '@hookform/resolvers@5.2.1(react-hook-form@7.62.0(react@18.3.1))':
     dependencies:

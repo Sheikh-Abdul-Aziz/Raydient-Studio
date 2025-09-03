@@ -1,15 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { JetBrains_Mono } from "@/fonts/local";
 
 interface PortfolioCardProps {
     title: string
-    description: string
+    description?: string
     category: string
     type: string
     imageUrl: string
@@ -27,49 +27,35 @@ export function PortfolioCard({
     caseStudyUrl = "#",
 }: PortfolioCardProps) {
     return (
-        <Card className="group overflow-hidden bg-card border-border transition-all duration-300 gap-0 px-0 py-0 hover:-translate-y-1">
-            <div className="relative aspect-[16/10] overflow-hidden">
-                <Image src={imageUrl || "/placeholder.svg"} alt={`${title} website preview`} fill className="object-cover transition-transform duration-300 group-hover:scale-105 rounded-t-lg" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <Card className="group overflow-hidden bg-card border-border transition-all duration-300 px-4 py-4 hover:-translate-y-1">
+            <div className="relative aspect-[16/9] overflow-hidden bg-muted rounded-lg border border-border">
+                <Image src={imageUrl || "/placeholder.svg"} alt={`${title} website preview`} fill className="hidden object-cover transition-transform duration-300 group-hover:scale-105 rounded-lg border border-border" />
             </div>
-
-            <CardContent className="p-4 space-y-1">
-                <div className="flex items-center justify-between gap-2">
+            <CardContent className="gap-3 p-0 mt-4">
+                <div className="flex items-end gap-2 w-full">
                     {brandLogo && (
                         <div className="flex-shrink-0 w-8 h-8 md:w-12 md:h-12 relative">
-                            <Image
-                                src={brandLogo || "/placeholder.svg"}
-                                alt={`${title} brand logo`}
-                                fill
-                                className="object-contain rounded-md"
-                            />
+                            <Image src={brandLogo || "/placeholder.svg"} alt={`${title} brand logo`} fill className="object-contain rounded-md border border-border" />
                         </div>
                     )}
-                    <div className="flex flex-row space-y-2 justify-between items-start">
-                        <div className="flex items-center gap-2 flex-wrap">
-                            <Badge variant="outline" className={`${JetBrains_Mono.className} text-xs rounded-sm border border-border text-muted-foreground`}>
+                    <div className="flex flex-row items-end w-full">
+                        <div className="flex flex-row items-end gap-2">
+                            <Badge variant="outline" className={`${JetBrains_Mono.className}`}>
                                 {category}
                             </Badge>
-                            <Badge variant="outline" className={`${JetBrains_Mono.className} text-xs rounded-sm border border-border text-muted-foreground`}>
+                            <Badge variant="outline" className={`${JetBrains_Mono.className}`}>
                                 {type}
                             </Badge>
                         </div>
-                        <span className="border border-border shadow-none rounded-md -rotate-45 transition-transform group-hover:rotate-0" onClick={() => window.open(caseStudyUrl, "_blank")}>
-                            <ArrowRight size={18} strokeWidth={1.5} className="text-muted-foreground" />
+                        <span className="bg-background gap-4 shadow-none rounded-sm transition-transform group-hover:rotate-45 group-active:rotate-45 ml-auto" onClick={() => window.open(caseStudyUrl, "_blank")}>
+                            <ArrowRight size={18} strokeWidth={2} className="text-muted-foreground" />
                         </span>
                     </div>
                 </div>
-                <h3 className="font-semibold text-lg text-card-foreground">{title}</h3>
-
-                <p className="text-muted-foreground text-sm">{description}</p>
-
-                <Button
-                    variant="outlined"
-                    size={"wide"}
-                    onClick={() => window.open(caseStudyUrl, "_blank")}
-                >
-                    View Case Study
-                    <ExternalLink className="w-4 h-4 ml-2 transition-transform group-hover/btn:translate-x-0.5" />
+                <CardTitle className="text-xl">{title}</CardTitle>
+                {description && <CardDescription>{description}</CardDescription>}
+                <Button variant={"outlined"} size={"wide"} onClick={() => window.open(caseStudyUrl, "_blank")}>
+                    View Details
                 </Button>
             </CardContent>
         </Card>

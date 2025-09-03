@@ -42,7 +42,7 @@ export default function Docs() {
 				<AppSidebar />
 				<SidebarInset>
 					<Header className="fixed z-10 top-0 left-0 right-0 flex h-16 shrink-0 rounded-b-lg border-b border-border border-dashed bg-surface backdrop-blur supports-[backdrop-filter]:bg-surface/80 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
-						<FlexLayout direction={"row"} items={"center"} gapX={2} paddingX={4} width={"full"}>
+						<div className="flex flex-row items-center gap-x-2 px-4 w-full">
 							<SidebarTrigger className="-ml-1" />
 							<Separator orientation="vertical" className="data-[orientation=vertical]:h-4" />
 							<Breadcrumb>
@@ -56,10 +56,10 @@ export default function Docs() {
 									</BreadcrumbItem>
 								</BreadcrumbList>
 							</Breadcrumb>
-							<FlexLayout marginLeft={"auto"}>
+							<div className="ml-auto">
 								<ThemeChanger />
-							</FlexLayout>
-						</FlexLayout>
+							</div>
+						</div>
 					</Header>
 					<FlexLayout display={"flex"} direction={"col"} justify={"start"} items={"start"} width={"full"} height={"fit-content"} paddingX={4} paddingY={6} spaceY={6}>
 						<FlexLayout display={"flex"} direction={"col"} spaceY={4} marginTop={16}>

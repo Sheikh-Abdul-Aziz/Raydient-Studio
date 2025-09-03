@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useMemo } from "react";
+import React, { JSX, useMemo } from "react";
 import Image from "next/image";
 import { Marquee } from "./ui/scroll";
 
-export default function TrustedBrands() {
+export default function TrustedBrands(): JSX.Element {
 
     const brands = useMemo(
         () => ["2", "3", "4", "5", "6"],

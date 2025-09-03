@@ -20,40 +20,36 @@ export default function FeaturedProjects() {
 
     const portfolioProjects = [
         {
-            title: "FinanceHub Dashboard",
-            description:
-                "Professional financial management dashboard for investment firms. Features real-time market data, portfolio analytics.",
-            category: "Fintech",
-            type: "Dashboard",
+            title: "Lorem Ipsum",
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Etiam vitae urna at erat cursus cursus.",
+            category: "Tech",
+            type: "Website",
             imageUrl: imageUrl,
             brandLogo: brandLogo,
             caseStudyUrl: "#",
         },
         {
-            title: "MedConnect Telemedicine",
-            description:
-                "HIPAA-compliant telemedicine platform enabling secure video consultations, patient records management.",
-            category: "Healthcare",
-            type: "Platform",
+            title: "Lorem Ipsum",
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Etiam vitae urna at erat cursus cursus.",
+            category: "SaaS",
+            type: "Website",
             imageUrl: imageUrl,
             brandLogo: brandLogo,
             caseStudyUrl: "#",
         },
         {
-            title: "EduLearn LMS",
-            description:
-                "Modern learning management system for educational institutions. Features interactive courses, progress tracking.",
-            category: "Education",
-            type: "LMS",
+            title: "Lorem Ipsum",
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Etiam vitae urna at erat cursus cursus.",
+            category: "E-commerce",
+            type: "Website",
             imageUrl: imageUrl,
             brandLogo: brandLogo,
             caseStudyUrl: "#",
         },
         {
-            title: "FoodieHub Restaurant",
-            description:
-                "Premium restaurant website with online reservations, menu management, and integrated ordering system.",
-            category: "Restaurant",
+            title: "Lorem Ipsum",
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Etiam vitae urna at erat cursus cursus.",
+            category: "Marketing",
             type: "Website",
             imageUrl: imageUrl,
             brandLogo: brandLogo,
@@ -74,7 +70,7 @@ export default function FeaturedProjects() {
                                 description={project.description}
                                 category={project.category}
                                 type={project.type}
-                                imageUrl={project.imageUrl}
+                                imageUrl={project.brandLogo}
                                 brandLogo={project.brandLogo}
                                 caseStudyUrl={project.caseStudyUrl}
                             />

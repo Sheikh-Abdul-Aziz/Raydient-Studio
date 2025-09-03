@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { IconMail, IconPasswordUser } from "@tabler/icons-react"
+import { IconLockPassword, IconMail } from "@tabler/icons-react"
 
 export function SignupForm({ className, ...props }: React.ComponentProps<"div">) {
 	return (
@@ -15,8 +15,8 @@ export function SignupForm({ className, ...props }: React.ComponentProps<"div">)
 					<form className="p-6 md:p-8 w-full">
 						<div className="flex flex-col gap-6">
 							<div className="flex flex-col items-center text-center">
-								<h1 className="text-2xl font-bold">Welcome back</h1>
-								<p className="text-balance text-muted-foreground">
+								<h1 className="text-xl font-bold">We appreciate your interest</h1>
+								<p className="text-sm text-muted-foreground">
 									Signup to your account
 								</p>
 							</div>
@@ -26,7 +26,7 @@ export function SignupForm({ className, ...props }: React.ComponentProps<"div">)
 							</div>
 							<div className="grid gap-2">
 								<Label htmlFor="password">Password</Label>
-								<Input id="password" type="password" startIcon={IconPasswordUser} placeholder="Set a strong password" required />
+								<Input id="password" type="password" startIcon={IconLockPassword} placeholder="Set a strong password" required />
 							</div>
 							<Button type="submit" variant={"filled"} size={"wide"} radius={"medium"}>
 								Signup

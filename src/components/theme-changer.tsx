@@ -34,7 +34,7 @@ export default function ThemeChanger() {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Button variant={"tonal"} size={"icon"} radius={"medium"} className="text-foreground">
+                <Button variant={"outlined"} size={"icon"} radius={"medium"} className="text-foreground">
                     <Icon />
                     <span className="sr-only">Toggle theme</span>
                 </Button>
