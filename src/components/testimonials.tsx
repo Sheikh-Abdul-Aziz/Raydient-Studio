@@ -69,7 +69,7 @@ const ReviewCard = ({
 }) => {
     return (
         <div className={cn(
-            "relative h-auto w-full max-w-xs cursor-pointer overflow-hidden rounded-lg p-4",
+            "relative h-auto w-full max-w-xs px-4 cursor-pointer overflow-hidden rounded-lg border border-border p-4",
             "bg-surface hover:bg-muted/80 active:bg-muted/80 transition-colors duration-170 ease-in-out cursor-pointer",
             className
         )}>
@@ -89,7 +89,7 @@ const ReviewCard = ({
 
 export default function Testimonial() {
     return (
-        <div className="flex flex-col justify-start items-start w-full h-auto overflow-hidden px-4 py-8 gap-y-6 max-w-7xl mx-auto">
+        <section className="flex flex-col justify-start items-start w-full h-auto overflow-hidden px-4 py-8 gap-y-6 max-w-7xl mx-auto">
             <SectionHeader info={info} />
             <div className="relative flex flex-col justify-start items-start w-full h-auto overflow-hidden max-w-7xl">
                 <div className="relative w-full h-auto flex flex-col gap-y-4">
@@ -110,6 +110,6 @@ export default function Testimonial() {
                 <div className="absolute inset-y-0 left-0 w-1/4 pointer-events-none bg-gradient-to-r from-background"></div>
                 <div className="absolute inset-y-0 right-0 w-1/4 pointer-events-none bg-gradient-to-l from-background"></div>
             </div>
-        </div>
+        </section>
     );
 }

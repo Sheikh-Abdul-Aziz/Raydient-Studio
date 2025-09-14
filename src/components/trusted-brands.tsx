@@ -12,7 +12,7 @@ export default function TrustedBrands(): JSX.Element {
     );
 
     return (
-        <div className="w-full h-fit px-0 py-6">
+        <section className="w-full h-fit px-0 py-6">
             <div className="w-full h-fit px-0 py-0">
                 <div className="flex flex-col relative bg-surface rounded-lg p-4 justify-center items-start text-left left-0 right-0 max-w-7xl mx-auto">
                     {/* Marquee component */}
@@ -27,6 +27,6 @@ export default function TrustedBrands(): JSX.Element {
                     <div className="absolute inset-y-0 right-0 w-1/4 pointer-events-none bg-gradient-to-l from-background" />
                 </div>
             </div>
-        </div>
+        </section>
     );
 }

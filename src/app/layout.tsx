@@ -1,21 +1,29 @@
 import "./style.css";
-import React, { ReactNode } from "react";
-import type { Metadata } from "next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { ThemeProvider } from "@/components/ui/theme-provider";
-import { LayoutProvider } from "@/components/layout-provider";
+import { ReactNode } from "react";
+import { Metadata } from "next";
 import { Host_Grotesk } from "@/fonts/local";
-import { Toaster } from "@/components/ui/toaster";
-import CookieToast from "@/components/cookie-toast";
+import { ThemeProvider } from "@/components/ui/theme-provider";
+import { SettingsProvider } from "@/hooks/use-settings";
+import { LayoutProvider } from "./layout-provider";
 
-const imageURL = "https://raydientstudio.vercel.app/og-image.jpg";
+const SITE_NAME = "Raydient Studio";
+const SITE_DESCRIPTION = "Premium Web Design Agency - Your Strategic Design Partner for AI, SaaS, Tech, and Startups.";
+const SITE_URL = "https://raydientstudio.com";
+const OG_IMAGE = "https://raydientstudio.vercel.app/og-image.jpg";
+const OG_IMAGE_PROPS = {
+    url: OG_IMAGE,
+    width: 1200,
+    height: 630,
+    type: "image/jpeg",
+    alt: `${SITE_NAME} - Premium Web Design Agency`
+};
 
 export const metadata: Metadata = {
-    title: "Raydient Studio",
-    description: "Premium Web Design Agency - Your Strategic Design Partner for AI, SaaS, Tech, and Startups.",
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
     category: "technology",
-    creator: "Raydient Studio",
-    publisher: "Raydient Studio",
+    creator: SITE_NAME,
+    publisher: SITE_NAME,
     keywords: ["raydient", "raydient studio", "raydientstudio", "design", "minimalism", "branding"],
     icons: {
         icon: "/favicon.ico",
@@ -24,50 +32,33 @@ export const metadata: Metadata = {
     },
     manifest: "/site.webmanifest",
     openGraph: {
-        images: [
-            {
-                url: imageURL,
-                width: 1200,
-                height: 630,
-                type: "image/jpeg",
-                alt: "Raydient Studio - Premium Web Design Agency"
-            }
-        ],
-        title: "Raydient Studio",
-        description: "Premium Web Design Agency - Your Strategic Design Partner for AI, SaaS, Tech, and Startups.",
-        url: "https://raydientstudio.com",
+        images: [OG_IMAGE_PROPS],
+        title: SITE_NAME,
+        description: SITE_DESCRIPTION,
+        url: SITE_URL,
         type: "website",
-        siteName: "Raydient Studio"
+        siteName: SITE_NAME
     },
     twitter: {
-        images: [
-            {
-                url: imageURL,
-                width: 1200,
-                height: 630,
-                type: "image/jpeg",
-                alt: "Raydient Studio - Premium Web Design Agency"
-            }
-        ],
+        images: [OG_IMAGE_PROPS],
         card: "summary_large_image",
-        title: "Raydient Studio",
-        description: "Premium Web Design Agency - Your Strategic Design Partner for AI, SaaS, Tech, and Startups.",
+        title: SITE_NAME,
+        description: SITE_DESCRIPTION,
         creator: "@raydientstudio",
         site: "@raydientstudio"
     }
 };
 
-export default function RootLayout({ children }: { children: ReactNode; }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
     return (
         <html lang="en" suppressHydrationWarning suppressContentEditableWarning>
-            <body className={`${Host_Grotesk.className} antialiased scroll-smooth scrollbar-hidden`}>
+            <body className={`${Host_Grotesk.className} antialiased`}>
                 <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-                    <LayoutProvider>
-                        {children}
-                        <Toaster />
-                        <CookieToast />
-                        <SpeedInsights />
-                    </LayoutProvider>
+                    <SettingsProvider>
+                        <LayoutProvider>
+                            {children}
+                        </LayoutProvider>
+                    </SettingsProvider>
                 </ThemeProvider>
             </body>
         </html>

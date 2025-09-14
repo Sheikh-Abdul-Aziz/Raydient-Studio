@@ -1,10 +1,15 @@
+
 import type { MetadataRoute } from "next";
+
+const SITE_NAME = 'Raydient Studio';
+const SITE_SHORT_NAME = 'Raydient';
+const SITE_DESCRIPTION = 'Premium Web Design Agency - Your Strategic Design Partner for AI, SaaS, Tech, and Startups.';
 
 export default function manifest(): MetadataRoute.Manifest {
     return {
-        name: 'Raydient Studio',
-        short_name: 'Raydient',
-        description: 'Premium Web Design Agency - Your Strategic Design Partner for AI, SaaS, Tech, and Startups.',
+        name: SITE_NAME,
+        short_name: SITE_SHORT_NAME,
+        description: SITE_DESCRIPTION,
         start_url: '/',
         display: 'standalone',
         icons: [
@@ -14,12 +19,12 @@ export default function manifest(): MetadataRoute.Manifest {
                 type: 'image/x-icon'
             },
             {
-                src: '/android-chrome-192x192',
+                src: '/android-chrome-192x192.png',
                 sizes: '192x192',
                 type: 'image/png'
             },
             {
-                src: '/android-chrome-512x512',
+                src: '/android-chrome-512x512.png',
                 sizes: '512x512',
                 type: 'image/png'
             }

@@ -13,7 +13,7 @@ import Advantages from "@/components/advantages";
 
 export default function Home() {
     return (
-        <> {/* Root */}
+        <>  {/* Root */}
             {/* Header */}
             {/* Main */}
             <Hero /> {/* Hero */}

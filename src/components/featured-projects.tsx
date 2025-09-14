@@ -58,7 +58,7 @@ export default function FeaturedProjects() {
     ]
 
     return (
-        <div className="w-full h-auto px-0 py-8">
+        <section className="w-full h-auto px-0 py-8">
             <div className="w-full h-auto px-4 py-0">
                 <div className="flex flex-col justify-center items-start text-left gap-y-6 left-0 right-0 max-w-7xl mx-auto">
                     <SectionHeader info={info} />
@@ -70,14 +70,14 @@ export default function FeaturedProjects() {
                                 description={project.description}
                                 category={project.category}
                                 type={project.type}
-                                imageUrl={project.brandLogo}
-                                brandLogo={project.brandLogo}
+                                thumbnailUrl={project.brandLogo}
+                                brandUrl={project.brandLogo}
                                 caseStudyUrl={project.caseStudyUrl}
                             />
                         ))}
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };

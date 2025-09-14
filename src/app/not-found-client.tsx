@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useCallback } from "react";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useCallback } from "react";
 import { IconChevronRight, IconRefresh, IconSquareFilled } from "@tabler/icons-react";
 import { Button } from "@/components/ui/button";
 import { JetBrains_Mono } from "@/fonts/local";

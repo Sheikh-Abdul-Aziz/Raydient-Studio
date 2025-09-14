@@ -1,4 +1,4 @@
 onlyBuiltDependencies:
-  - sharp
+    - sharp
 ignoredBuiltDependencies:
-  - core-js
+    - core-js

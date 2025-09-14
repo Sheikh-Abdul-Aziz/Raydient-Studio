@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createContext, useContext, ReactNode } from "react";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { IconLayoutGrid, IconShape } from "@tabler/icons-react";
@@ -10,6 +10,8 @@ import { Separator } from "./ui/separator";
 import { MobileNavigation } from "./mobile-navigation";
 import { Label } from "./ui/label";
 import { Poppins } from "@/fonts/local";
+import { useSettings } from "@/hooks/use-settings";
+import { Switch } from '@/components/ui/switch'; // Assuming you have a Switch component
 import ThemeSwitcher from "./theme-switcher";
 
 const data = {
@@ -31,7 +33,7 @@ const data = {
     navigationMenu: [
         { title: "Home", url: "/" },
         { title: "Docs", url: "/docs" },
-        { title: "Projects", url: "/projects" },
+        { title: "Settings", url: "/settings" },
     ],
     projectsMenu: [
         {
@@ -67,31 +69,57 @@ const data = {
     ],
 };
 
-export default function MobileMenu() {
-    const router = useRouter();
-    const [isOpen, setIsOpen] = useState(false);
+type MobileMenuContextType = {
+    isMenuOpen: boolean;
+    setMenuOpen: (open: boolean) => void;
+};
 
-    const toggleDrawer = () => setIsOpen((prev) => !prev);
+const MobileMenuContext = createContext<MobileMenuContextType | undefined>(undefined);
+
+export function MobileMenuProvider({ children }: { children: ReactNode }) {
+    const [isMenuOpen, setMenuOpen] = useState(false);
+    return (
+        <MobileMenuContext.Provider value={{ isMenuOpen, setMenuOpen }}>
+            {children}
+        </MobileMenuContext.Provider>
+    );
+}
+
+export function useMobileMenu() {
+    const context = useContext(MobileMenuContext);
+    if (!context) throw new Error("useMobileMenu must be used within MobileMenuProvider");
+    return context;
+}
+
+export default function MobileMenu() {
+
+    const router = useRouter();
+
+    const { isMaintenance, toggleMaintenance } = useSettings();
+    const { isScrollbarDisabled, toggleScrollbar } = useSettings();
+    const { isMenuOpen, setMenuOpen } = useMobileMenu();
+
+    const toggleMenu = () => setMenuOpen(!isMenuOpen);
     const navigateTo = (path: string) => router.push(path);
 
     useEffect(() => {
-        document.body.style.overflow = isOpen ? "hidden" : "visible";
+        document.body.style.overflow = isMenuOpen ? "hidden" : "visible";
         return () => {
             document.body.style.overflow = "visible";
         };
-    }, [isOpen]);
+    }, [isMenuOpen]);
 
     return (
         <>
             {/* Hamburger Button */}
-            <Button aria-label="menu" variant="outlined" size="icon" radius={"medium"} onClick={toggleDrawer} className="flex flex-col items-center justify-center p-2 gap-1.5 transition-opacity disabled:opacity-50 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-secondary">
-                <motion.span animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 4 : 0 }} transition={{ duration: 0.150, ease: "linear" }} className="block w-full h-0.5 bg-muted-foreground rounded-none" />
-                <motion.span animate={{ rotate: isOpen ? -45 : 0, y: isOpen ? -4 : 0 }} transition={{ duration: 0.150, ease: "linear" }} className="block w-full h-0.5 bg-muted-foreground rounded-none" />
+            <Button aria-label="menu" variant="outlined" size="icon" radius={"medium"} onClick={toggleMenu} className="flex flex-col items-center justify-center p-2 gap-1.5 transition-opacity disabled:opacity-50 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-secondary">
+                <motion.span animate={{ rotate: isMenuOpen ? 45 : 0, y: isMenuOpen ? 4 : 0 }} transition={{ duration: 0.150, ease: "linear" }} className="block w-full h-0.5 bg-muted-foreground rounded-none" />
+                <motion.span animate={{ rotate: isMenuOpen ? -45 : 0, y: isMenuOpen ? -4 : 0 }} transition={{ duration: 0.150, ease: "linear" }} className="block w-full h-0.5 bg-muted-foreground rounded-none" />
             </Button>
 
             {/* Drawer Content */}
             <AnimatePresence>
-                {isOpen && (
+                {isMenuOpen && (
                     <motion.div key="mobile-drawer" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.150, ease: "easeInOut" }} className="z-20 flex flex-col fixed left-0 right-0 top-16 bottom-0 h-[100dvh] w-screen bg-background text-foreground px-4 py-4 gap-y-3">
                         <div className="flex flex-col items-center justify-between gap-y-4">
                             <Button onClick={() => navigateTo("/signup")} variant="filled" size="wide" radius={"medium"}>
@@ -118,6 +146,14 @@ export default function MobileMenu() {
                                     <AvatarFallback>{data.user.avatarFallback}</AvatarFallback>
                                 </Avatar>
                             </div>
+                            <div className="flex flex-row items-center justify-between">
+                                <Label className="text-sm font-normal">Disable Scrollbar</Label>
+                                <Switch id="scrollbar-toggle" checked={isScrollbarDisabled} onCheckedChange={toggleScrollbar} />
+                            </div>
+                            <div className="flex flex-row items-center justify-between">
+                                <Label className="text-sm font-normal">Maintenance</Label>
+                                <Switch id="scrollbar-toggle" checked={isMaintenance} onCheckedChange={toggleMaintenance} />
+                            </div>                            
                         </div>
 
                         <Separator orientation="horizontal" className="my-3" />

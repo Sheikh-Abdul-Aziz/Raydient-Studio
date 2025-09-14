@@ -13,12 +13,14 @@ import {
     DrawerTitle,
     DrawerTrigger
 } from "./ui/drawer";
+import { useMobileMenu } from "./mobile-menu";
 
 export default function Notifications() {
+    const { isMenuOpen } = useMobileMenu();
     return (
         <Drawer> {/* Drawer for Notifications */}
             <DrawerTrigger asChild>
-                <Button aria-label={"notifications"} variant={"outlined"} size={"icon"} radius={"medium"}>
+                <Button disabled={ isMenuOpen } aria-label={"notifications"} variant={"outlined"} size={"icon"} radius={"medium"}>
                     <BellDotIcon />
                 </Button>
             </DrawerTrigger>

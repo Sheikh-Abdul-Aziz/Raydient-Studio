@@ -36,7 +36,7 @@
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.96 0 0);
+  --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.92 0 0);
@@ -113,6 +113,10 @@
 
 /* Define CSS variables for the theme */
 @theme {
+  /* Fonts */
+  --font-sans: var(--font-host-grotesk);
+  --font-mono: var(--font-jetbrains-mono);
+
   /* Heading Gradient */
   --color-from: var(--from);
   --color-via: var(--via);
@@ -188,6 +192,7 @@
   border-radius: 100%;
 }
 
+/* Marquee animation for infinite scroll */
 @keyframes marquee {
   0% {
     transform: translateX(0);
@@ -228,6 +233,7 @@
     /* Prevent selection for SVG and input elements */
     outline: none !important;
   }
+
   html {
     @apply bg-background text-foreground antialiased;
     @apply border-border outline-ring/50;
@@ -235,6 +241,15 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
+  }
+
+  html.scrollbar-hidden {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  html.scrollbar-hidden::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
   }
 
   body {

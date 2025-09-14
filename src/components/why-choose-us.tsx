@@ -42,7 +42,7 @@ export default function WhyChooseUs() {
     ];
 
     return (
-        <div className="w-full h-auto px-0 py-8">
+        <section className="w-full h-auto px-0 py-8">
             <div className="w-full h-auto px-4 py-0">
                 <div className="flex flex-col justify-center items-start text-left gap-y-6 left-0 right-0 max-w-7xl mx-auto">
                     <SectionHeader info={info} />
@@ -59,6 +59,6 @@ export default function WhyChooseUs() {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };

@@ -22,9 +22,11 @@ import {
 	SearchShortcut,
 } from "./ui/search";
 import { Button } from "./ui/button";
+import { useMobileMenu } from "./mobile-menu";
 
 export default function Search() {
 	const [open, setOpen] = useState(false)
+	const { isMenuOpen } = useMobileMenu();
 
 	useEffect(() => {
 		const down = (event: KeyboardEvent) => {
@@ -40,7 +42,7 @@ export default function Search() {
 
 	return (
 		<>
-			<Button onClick={() => setOpen(true)} aria-label="search" variant="outlined" size="icon" radius={"medium"}>
+			<Button onClick={() => setOpen(true)} disabled={isMenuOpen} aria-label="search" variant="outlined" size="icon" radius={"medium"}>
 				<SearchIcon />
 			</Button>
 			<SearchDialog open={open} onOpenChange={setOpen}>
