@@ -15,7 +15,7 @@ interface IconProps extends SVGProps<SVGSVGElement> {
     viewBox?: string;
 }
 
-const IconShield: FC<IconProps> = ({
+const IconWriting: FC<IconProps> = ({
     opacity = '0.4',
     size = 24,
     viewBox = '0 0 24 24',
@@ -46,13 +46,14 @@ const IconShield: FC<IconProps> = ({
             onClick={onClick}
         >
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M12 21a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3a12 12 0 0 0 8.5 3a12.01 12.01 0 0 1 .378 5" />
-            <path opacity={opacity} d="M18 22l3.35 -3.284a2.143 2.143 0 0 0 .005 -3.071a2.242 2.242 0 0 0 -3.129 -.006l-.224 .22l-.223 -.22a2.242 2.242 0 0 0 -3.128 -.006a2.143 2.143 0 0 0 -.006 3.071l3.355 3.296z" />
+            <path d="M20 17v-12c0 -1.121 -.879 -2 -2 -2s-2 .879 -2 2v12l2 2l2 -2z" />
+            <path d="M16 7h4" />
+            <path opacity={opacity} d="M18 19h-13a2 2 0 1 1 0 -4h4a2 2 0 1 0 0 -4h-3" />
         </svg>
     );
 };
 
-const IconPartnership: FC<IconProps> = ({
+const IconTeam: FC<IconProps> = ({
     opacity = '0.4',
     size = 24,
     viewBox = '0 0 24 24',
@@ -83,14 +84,17 @@ const IconPartnership: FC<IconProps> = ({
             onClick={onClick}
         >
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M6 21v-2a4 4 0 0 1 4 -4h2" />
-            <path opacity={opacity} d="M22 16c0 4 -2.5 6 -3.5 6s-3.5 -2 -3.5 -6c1 0 2.5 -.5 3.5 -1.5c1 1 2.5 1.5 3.5 1.5z" />
-            <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+            <path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+            <path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1" />
+            <path opacity={opacity} d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+            <path opacity={opacity} d="M17 10h2a2 2 0 0 1 2 2v1" />
+            <path opacity={opacity} d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+            <path opacity={opacity} d="M3 13v-1a2 2 0 0 1 2 -2h2" />
         </svg>
     );
 };
 
-const IconDesign: FC<IconProps> = ({
+const IconMotion: FC<IconProps> = ({
     opacity = '0.4',
     size = 24,
     viewBox = '0 0 24 24',
@@ -121,14 +125,14 @@ const IconDesign: FC<IconProps> = ({
             onClick={onClick}
         >
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path opacity={opacity} d="M3 12h1m8 -9v1m8 8h1m-15.4 -6.4l.7 .7m12.1 -.7l-.7 .7" />
-            <path d="M9 16a5 5 0 1 1 6 0a3.5 3.5 0 0 0 -1 3a2 2 0 0 1 -4 0a3.5 3.5 0 0 0 -1 -3" />
-            <path d="M9.7 17l4.6 0" />
+            <path d="M9.225 18.412a1.595 1.595 0 0 1 -1.225 .588c-.468 0 -.914 -.214 -1.225 -.588l-4.361 -5.248a1.844 1.844 0 0 1 0 -2.328l4.361 -5.248a1.595 1.595 0 0 1 1.225 -.588c.468 0 .914 .214 1.225 .588l4.361 5.248a1.844 1.844 0 0 1 0 2.328l-4.361 5.248z" />
+            <path opacity={opacity} d="M17 5l4.586 5.836a1.844 1.844 0 0 1 0 2.328l-4.586 5.836" />
+            <path opacity={opacity} d="M13 5l4.586 5.836a1.844 1.844 0 0 1 0 2.328l-4.586 5.836" />
         </svg>
     );
 };
 
-const IconFuture: FC<IconProps> = ({
+const IconMagic: FC<IconProps> = ({
     opacity = '0.4',
     size = 24,
     viewBox = '0 0 24 24',
@@ -159,14 +163,12 @@ const IconFuture: FC<IconProps> = ({
             onClick={onClick}
         >
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M3 13m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
-            <path d="M17 17l0 .01" />
-            <path d="M13 17l0 .01" />
-            <path d="M15 13l0 -2" />
-            <path opacity={opacity} d="M11.75 8.75a4 4 0 0 1 6.5 0" />
-            <path opacity={opacity} d="M8.5 6.5a8 8 0 0 1 13 0" />
+            <path d="M6 21l15 -15l-3 -3l-15 15l3 3" />
+            <path d="M15 6l3 3" />
+            <path opacity={opacity} d="M9 3a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2" />
+            <path opacity={opacity} d="M19 13a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2" />
         </svg>
     );
 };
 
-export { IconShield, IconPartnership, IconDesign, IconFuture };
+export { IconWriting, IconTeam, IconMotion, IconMagic };

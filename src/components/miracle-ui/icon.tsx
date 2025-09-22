@@ -6,7 +6,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const iconVariants = cva(
-    "relative overflow-hidden w-9 h-9 flex justify-center items-center border border-border rounded-lg"
+    "relative overflow-hidden w-9 h-9 flex justify-center items-center border border-border rounded-md"
 )
 
 export interface IconProps extends HTMLAttributes<HTMLElement>, VariantProps<typeof iconVariants> {

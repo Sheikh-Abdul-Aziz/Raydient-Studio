@@ -16,7 +16,9 @@ import {
 import { useMobileMenu } from "./mobile-menu";
 
 export default function Notifications() {
+
     const { isMenuOpen } = useMobileMenu();
+    
     return (
         <Drawer> {/* Drawer for Notifications */}
             <DrawerTrigger asChild>

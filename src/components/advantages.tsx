@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, CardContent, CardDescription, CardTitle } from "./ui/card";
-import { IconWriting, IconTeam, IconMotion, IconMagic } from "./miracle-ui/icons-advantages";
+import { IconShield, IconPartnership, IconDesign, IconFuture } from "./miracle-ui/icons-advantages";
 import SectionHeader from "./section-header";
 
 const info = {
@@ -19,25 +19,25 @@ export default function Advantages() {
             id: 1,
             title: "Proven Results You Can Trust",
             description: "We don’t rely on promises—our portfolio is backed by real outcomes: higher conversions, stronger engagement, and brand growth.",
-            icon: <IconWriting size={28} />
+            icon: <IconShield size={28} />
         },
         {
             id: 2,
             title: "End-to-End Creative Partnership",
             description: "From strategy to launch, you get everything under one roof. No scattered vendors, just one reliable partner who understands your vision.",
-            icon: <IconTeam size={28} />
+            icon: <IconPartnership size={28} />
         },
         {
             id: 3,
             title: "Human-Centered Design Thinking",
             description: "We design with empathy, putting your audience first. This ensures every interaction resonates, builds trust, and turns visitors into loyal customers.",
-            icon: <IconMotion size={28} />
+            icon: <IconDesign size={28} />
         },
         {
             id: 4,
             title: "Future-Ready & Scalable Solutions",
             description: "Our work isn’t just for today. We build designs and systems that grow with your business, ensuring long-term relevance and success.",
-            icon: <IconMagic size={28} />
+            icon: <IconFuture size={28} />
         }
     ];
 

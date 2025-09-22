@@ -16,8 +16,9 @@ import {
     IconSquareFilled,
     IconUser
 } from "@tabler/icons-react";
-import { Space_Grotesk, JetBrains_Mono } from "@/fonts/local";
+import { JetBrains_Mono } from "@/fonts/local";
 import { Input } from "./ui/input";
+import IconWordmark from "./miracle-ui/raydient";
 
 export default function MainFooter() {
 
@@ -102,13 +103,8 @@ export default function MainFooter() {
                 <div className="flex flex-col gap-y-4 max-w-7xl mx-auto">
 
                     {/* Banner Section */}
-                    <div className="flex flex-col items-center justify-center text-center bg-foreground p-8 gap-y-1.5 rounded-lg">
-                        <h2 className={`${Space_Grotesk.className} antialiased text-surface text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gap-y-4`}>
-                            Raydient Studio
-                        </h2>
-                        <p className={`${JetBrains_Mono.className} antialiased text-muted tracking-tight text-xs sm:text-sm md:text-base lg:text-lg font-normal uppercase`}>
-                            Web Design Agency
-                        </p>
+                    <div className="flex flex-col items-center justify-center text-center bg-foreground text-primary-foreground p-8 gap-y-1.5 rounded-lg">
+                        <IconWordmark width={197.63} height={18} />
                     </div>
 
                     {/* Footer Links Grid */}

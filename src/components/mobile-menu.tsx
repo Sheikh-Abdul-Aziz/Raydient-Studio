@@ -11,7 +11,7 @@ import { MobileNavigation } from "./mobile-navigation";
 import { Label } from "./ui/label";
 import { Poppins } from "@/fonts/local";
 import { useSettings } from "@/hooks/use-settings";
-import { Switch } from '@/components/ui/switch'; // Assuming you have a Switch component
+import { Switch } from '@/components/ui/switch'; 
 import ThemeSwitcher from "./theme-switcher";
 
 const data = {
@@ -141,7 +141,7 @@ export default function MobileMenu() {
                             </div>
                             <div className="flex flex-row items-center justify-between">
                                 <Label className="text-sm font-normal">Dashboard</Label>
-                                <Avatar className="w-8 h-8 border border-border rounded-full">
+                                <Avatar className="w-8 h-8 border border-border rounded-md">
                                     <AvatarImage src={data.user.avatar} alt={data.user.avatarAlt} />
                                     <AvatarFallback>{data.user.avatarFallback}</AvatarFallback>
                                 </Avatar>
