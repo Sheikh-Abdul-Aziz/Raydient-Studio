@@ -5,13 +5,13 @@ import { toast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-export default function CookieToast() {
+export function CookieToast() {
 
     useEffect(() => {
         const hasAccepted = localStorage.getItem('cookie-consent');
         if (!hasAccepted) {
             toast({
-                title: "We use cookies 🍪",
+                title: "We use cookies",
                 description: (
                     <div className="flex flex-col gap-2 pt-2 text-sm">
                         <p>

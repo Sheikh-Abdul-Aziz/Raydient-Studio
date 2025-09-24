@@ -2,6 +2,7 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import { Marquee } from "./ui/scroll";
 import SectionHeader from "./section-header";
+import Image from "next/image";
 
 const info = {
     title: "CLIENT TESTIMONIALS",
@@ -74,7 +75,7 @@ const ReviewCard = ({
             className
         )}>
             <div className="flex flex-row items-center gap-2">
-                <img aria-label="avatar" className="rounded-full" width="32" height="32" alt="alt" src={img} />
+                <Image aria-label="avatar" className="rounded-full" width="32" height="32" alt="alt" src={img} />
                 <div className="flex flex-col">
                     <h4 className="text-sm font-medium text-foreground">
                         {name}

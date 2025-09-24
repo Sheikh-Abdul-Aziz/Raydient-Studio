@@ -13,3 +13,5 @@ const userSchema = new mongoose.Schema({
     verifyToken: String,
     verifyTokenExpiry: Date
 });
+
+export { userSchema };
