@@ -15,7 +15,7 @@ const SITE_NAME = "Raydient Studio";
 const SITE_DESCRIPTION = "Raydient Studio is a premium web design agency specializing in minimalism, branding, and digital experiences for AI, SaaS, Tech, and Startups.";
 const SITE_URL = "https://raydientstudio.vercel.app";
 const MANIFEST = "/site.webmanifest";
-const OG_IMAGE = "https://raydientstudio.vercel.app/og-image.jpg";
+const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 
 export const metadata: Metadata = {
     metadataBase: new URL(SITE_URL),
@@ -95,7 +95,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
     return (
         <html lang="en" suppressHydrationWarning suppressContentEditableWarning>
-            <body className={`${Host_Grotesk.className} antialiased font-sans`}>
+            <body className={`${Host_Grotesk.className} antialiased font-sans scrollbar-webkit`}>
                 <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
                     <SettingsProvider>
                         <MobileMenuProvider>

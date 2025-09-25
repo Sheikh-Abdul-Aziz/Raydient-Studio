@@ -9,5 +9,26 @@ module.exports = {
         extend: {
         }
     },
-    plugins: []
+    plugins: [
+        function ({ addUtilities }: { addUtilities: (utilities: any, options?: any) => void }) {
+            const newUtilities = {
+                '.scrollbar-webkit': {
+                    'scrollbar-width': '8px',
+                    'scrollbar-height': '96px',
+                    '&::-webkit-scrollbar': {
+                        height: '96px',
+                        width: '8px'
+                    },
+                    '&::-webkit-scrollbar-thumb': {
+                        backgroundColor: 'var(--primary)',
+                        borderRadius: '10px 0 0 10px'
+                    },
+                    '&::-webkit-scrollbar-track': {
+                        backgroundColor: 'transparent'
+                    }
+                }
+            }
+            addUtilities(newUtilities)
+        }
+    ]
 }
